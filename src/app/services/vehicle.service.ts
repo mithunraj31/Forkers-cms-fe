@@ -35,8 +35,8 @@ export class VehicleService {
                     "isOnline": true,
                     "isActive": true,
                     "location": {
-                        "lat": "35.6469613",
-                        "lng": "139.7438106"
+                        "lat": "35.7751997",
+                        "lng": "139.6887966"
                     }
                 },
                 <Vehicle>{
@@ -44,8 +44,8 @@ export class VehicleService {
                     "isOnline": true,
                     "isActive": true,
                     "location": {
-                        "lat": "35.6469618",
-                        "lng": "139.7438107"
+                        "lat": "35.6105337",
+                        "lng": "139.6438215"
                     }
                 },
             ]

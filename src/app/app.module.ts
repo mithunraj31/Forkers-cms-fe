@@ -11,7 +11,8 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';4
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -44,6 +45,7 @@ import {
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
     CoreModule.forRoot(),
+    LeafletModule
   ],
   providers:[
     // AuthService,
