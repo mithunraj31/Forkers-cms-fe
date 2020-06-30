@@ -20,5 +20,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Forklift',
     icon: 'car-outline',
+    link: '/pages/vehicles',
   }
 ];

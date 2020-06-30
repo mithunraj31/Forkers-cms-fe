@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CompaniesComponent } from './companies/companies.companent';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { VehiclesTableViewComponent } from './vehicles/vehicles-table-view/vehicles-table-view.component';
+import { VehiclesMapsViewComponent } from './vehicles/vehicles-maps-view/vehicles-maps-view.component';
 
 const routes: Routes = [{
   path: '',
@@ -21,6 +24,25 @@ const routes: Routes = [{
     {
       path: 'companies',
       component: CompaniesComponent,
+    },
+    {
+      path: 'vehicles',
+      component: VehiclesComponent,
+      children: [
+        {
+          path: '',
+          redirectTo: 'table',
+          pathMatch: 'full',
+        },
+        {
+          path: 'table',
+          component: VehiclesTableViewComponent,
+        },
+        {
+          path: 'maps',
+          component: VehiclesMapsViewComponent,
+        }
+      ]
     }
   ],
 }];

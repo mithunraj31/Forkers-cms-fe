@@ -6,6 +6,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CompaniesModule } from './companies/companies.module';
+import { VehiclesModule } from './vehicles/vehicles.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { CompaniesModule } from './companies/companies.module';
     ThemeModule,
     NbMenuModule,
     DashboardModule,
-    CompaniesModule
+    CompaniesModule,
+    VehiclesModule
   ],
   declarations: [
     PagesComponent,

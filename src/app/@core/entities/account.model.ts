@@ -1,4 +1,4 @@
-// Account model use for storing MDM user data
+// Account model use for storing  user data
 export class AccountModel {
     // the ID generated from backend API
     id?: number;
