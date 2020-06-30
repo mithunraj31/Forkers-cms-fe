@@ -14,6 +14,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'User listings',
     icon: 'people-outline',
+    link: '/pages/companies',
   
   },
   {
