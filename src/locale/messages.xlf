@@ -39,6 +39,24 @@
         <source>Material Dark</source>
         <target>Material Dark</target>
       </trans-unit>
+
+
+      <trans-unit id="dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="userManagement" datatype="html">
+        <source>User management</source>
+        <target>User management</target>
+      </trans-unit>
+      <trans-unit id="userListings" datatype="html">
+        <source>User Listings</source>
+        <target>User Listings</target>
+      </trans-unit>
+      <trans-unit id="sidebarMenuForklift" datatype="html">
+        <source>Forklift</source>
+        <target>Forklift</target>
+      </trans-unit>
       
     </body>
   </file>

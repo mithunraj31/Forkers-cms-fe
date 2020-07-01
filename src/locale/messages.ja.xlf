@@ -39,6 +39,24 @@
         <source>Material Dark</source>
         <target>マチエールダーク</target>
       </trans-unit>
+
+
+      <trans-unit id="dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>ダッシュボード</target>
+      </trans-unit>
+      <trans-unit id="userManagement" datatype="html">
+        <source>User management</source>
+        <target>ユーザー管理</target>
+      </trans-unit>
+      <trans-unit id="userListings" datatype="html">
+        <source>User Listings</source>
+        <target>ユーザー一覧</target>
+      </trans-unit>
+      <trans-unit id="sidebarMenuForklift" datatype="html">
+        <source>Forklift</source>
+        <target>車両</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

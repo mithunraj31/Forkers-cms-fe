@@ -2,23 +2,22 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
+    title: $localize`:@@dashboard:`,
     icon: 'home-outline',
     link: '/pages/dashboard',
     home: true,
   },
   {
-    title: 'User management',
+    title: $localize`:@@userManagement:`,
     icon: 'person-outline'
   },
   {
-    title: 'User listings',
+    title: $localize`:@@userListings:`,
     icon: 'people-outline',
     link: '/pages/companies',
-  
   },
   {
-    title: 'Forklift',
+    title: $localize`:@@sidebarMenuForklift:`,
     icon: 'car-outline',
     link: '/pages/vehicles',
   }
