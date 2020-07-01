@@ -1,0 +1,17 @@
+<nb-card>
+    <nb-card-header>
+        Vehicle -> {{ vehicleId }}
+    </nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-lg-6">
+                <frk-vertical-detail [source]="vehicle"></frk-vertical-detail>
+            </div>
+            <div class="col-lg-6">
+                <div style="height: 300px;" leaflet [leafletOptions]="options">
+                    <div *ngFor="let layer of layers" [leafletLayer]="layer"></div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

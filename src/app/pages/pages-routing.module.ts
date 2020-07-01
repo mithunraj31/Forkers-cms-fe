@@ -7,6 +7,7 @@ import { CompaniesComponent } from './companies/companies.companent';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { VehiclesTableViewComponent } from './vehicles/vehicles-table-view/vehicles-table-view.component';
 import { VehiclesMapsViewComponent } from './vehicles/vehicles-maps-view/vehicles-maps-view.component';
+import { VehiclesDetailsComponent } from './vehicles/vehicle-details/vehicle-details.component';
 
 const routes: Routes = [{
   path: '',
@@ -41,7 +42,11 @@ const routes: Routes = [{
         {
           path: 'maps',
           component: VehiclesMapsViewComponent,
-        }
+        },
+        {
+          path: ':id',
+          component: VehiclesDetailsComponent, ///
+        },
       ]
     }
   ],

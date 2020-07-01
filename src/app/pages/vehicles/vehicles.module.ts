@@ -6,6 +6,7 @@ import { VehiclesComponent } from './vehicles.component';
 import { VehiclesTableViewComponent } from './vehicles-table-view/vehicles-table-view.component';
 import { VehiclesMapsViewComponent } from './vehicles-maps-view/vehicles-maps-view.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { VehiclesDetailsComponent } from './vehicle-details/vehicle-details.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
   declarations: [
     VehiclesComponent,
     VehiclesTableViewComponent,
-    VehiclesMapsViewComponent
+    VehiclesMapsViewComponent,
+    VehiclesDetailsComponent
   ],
 })
 export class VehiclesModule {

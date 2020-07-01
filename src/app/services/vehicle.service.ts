@@ -51,4 +51,46 @@ export class VehicleService {
             ]
         }).pipe(delay(1000));
     }
+
+    getVehicleById(vehicleId: number) {
+        const vehicles = [
+            <Vehicle>{
+                "id": 1806270003,
+                "isOnline": false,
+                "isActive": true,
+                "location": {
+                    "lat": "35.6469619",
+                    "lng": "139.7438105"
+                },
+                "plateNumber": "1806110013",
+                "deviceType": "DV426",
+                "networkType": 1
+            },
+            <Vehicle>{
+                "id": 1806110011,
+                "isOnline": true,
+                "isActive": true,
+                "location": {
+                    "lat": "35.7751997",
+                    "lng": "139.6887966"
+                },
+                "plateNumber": "1806110013",
+                "deviceType": "DV426",
+                "networkType": 3
+            },
+            <Vehicle>{
+                "id": 1806110013,
+                "isOnline": true,
+                "isActive": true,
+                "location": {
+                    "lat": "35.6105337",
+                    "lng": "139.6438215"
+                },
+                "plateNumber": "1806110013",
+                "deviceType": "DV426",
+                "networkType": 2
+            },
+        ];
+        return of(vehicles.find(x => x.id == vehicleId)).pipe(delay(1000));
+    }
 }
