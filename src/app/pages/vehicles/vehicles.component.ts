@@ -21,11 +21,11 @@ export class VehiclesComponent implements OnInit {
     // initialize tabsets
     this.tabs = [
       {
-        title: 'Table view',
+        title: $localize`:@@tableView:`,
         route: ['./table'],
       },
       {
-        title: 'Maps view',
+        title: $localize`:@@mapsView:`,
         route: ['./maps'],
       }
     ];

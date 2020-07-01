@@ -1,15 +1,15 @@
 <nb-card [nbSpinner]="isLoading" nbSpinnerSize="giant" nbSpinnerStatus="primary">
     <nb-card-header>
-        <h5><b>Companies</b></h5>
+        <h5><b i18n="@@companyListingsTable">Companies</b></h5>
     </nb-card-header>
     <nb-card-body>
         <nb-list>
             <nb-list-item>
                 <div class="col-lg-1"><b>No.</b></div>
                 <div class="col-lg-2 text-center"><b>ID</b></div>
-                <div class="col-lg-5"><b>Name</b></div>
-                <div class="col-lg-2 text-center"><b>Vehicle</b></div>
-                <div class="col-lg-2 text-center"><b>Running</b></div>
+                <div class="col-lg-5"><b i18n="@@companyName">Name</b></div>
+                <div class="col-lg-2 text-center" i18n="@@vehicle"><b>Vehicle</b></div>
+                <div class="col-lg-2 text-center" i18n="@@running"><b>Running</b></div>
             </nb-list-item>
             <nb-list-item *ngFor="let company of companies; index as no">
                 <div class="col-lg-1">{{no + 1}}</div>

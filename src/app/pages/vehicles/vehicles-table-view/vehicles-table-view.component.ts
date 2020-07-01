@@ -33,14 +33,14 @@ export class VehiclesTableViewComponent implements OnInit {
           title: 'ID'
         },
         isOnline: {
-          title: 'Status',
+          title: $localize`:@@status:`,
           // data feild can add html element
           type: 'html',
           // mapping nested property of user data to display  username
           valuePrepareFunction: (isOnline: boolean) => {
             return isOnline
-              ? '<i class="fas fa-circle device-online"></i> Online'
-              : '<i class="fas fa-circle"></i> Offline';
+              ? '<i class="fas fa-circle device-online"></i> ' + ($localize`:@@online:`)
+              : '<i class="fas fa-circle"></i> ' + ($localize`:@@offline:`);
           },
         }
       }

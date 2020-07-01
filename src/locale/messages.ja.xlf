@@ -2,6 +2,7 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="ja-JP" datatype="plaintext" original="ng2.template">
     <body>
+     <!-- headers -->
       <trans-unit id="applicationTitle" datatype="html">
         <source>Forkers CMS</source>
         <target>フォーカー CMS</target>
@@ -14,7 +15,9 @@
         <source>logout</source>
         <target>ログアウト</target>
       </trans-unit>
+       <!-- End headers -->
 
+      <!-- Themes -->
       <trans-unit id="themeLight" datatype="html">
         <source>Light</source>
         <target>ライト</target>
@@ -39,8 +42,9 @@
         <source>Material Dark</source>
         <target>マチエールダーク</target>
       </trans-unit>
+      <!-- End Themes -->
 
-
+      <!-- Sidebar menu -->
       <trans-unit id="dashboard" datatype="html">
         <source>Dashboard</source>
         <target>ダッシュボード</target>
@@ -57,12 +61,13 @@
         <source>Forklift</source>
         <target>車両</target>
       </trans-unit>
+      <!-- End Sidebar menu -->
 
+      <!-- Login -->
       <trans-unit id="applicationSortDescriotion" datatype="html">
         <source>Forkers custommer management platform.</source>
         <target>フォーカー顧客管理プラットフォーム。</target>
       </trans-unit>
-
       <trans-unit id="emailAddress" datatype="html">
         <source>Email address</source>
         <target>メールアドレス</target>
@@ -99,6 +104,52 @@
         <source>Password should contains at least 8 characters</source>
         <target>パスワードには8文字以上が含まれている必要があります</target>
       </trans-unit>
+      <!-- End Login -->
+
+      <!-- User listings -->
+      <trans-unit id="companyListingsTable" datatype="html">
+        <source>Companies</source>
+        <target>会社一覧</target>
+      </trans-unit>
+      <trans-unit id="companyName" datatype="html">
+        <source>Company name</source>
+        <target>会社名</target>
+      </trans-unit>
+       <trans-unit id="running" datatype="html">
+        <source>Running</source>
+        <target>走っている</target>
+      </trans-unit>
+      <!-- End User listings  -->
+
+      <!-- Vehicle page -->
+      <trans-unit id="tableView" datatype="html">
+        <source>Table view</source>
+        <target>一覧</target>
+      </trans-unit>
+       <trans-unit id="mapsView" datatype="html">
+        <source>Maps view</source>
+        <target>地図</target>
+      </trans-unit>
+      <!-- End Vehicle page -->
+
+      <!-- General -->
+      <trans-unit id="vehicle" datatype="html">
+        <source>Vehicle</source>
+        <target>車両</target>
+      </trans-unit>
+      <trans-unit id="status" datatype="html">
+        <source>Status</source>
+        <target>状態</target>
+      </trans-unit>
+      <trans-unit id="online" datatype="html">
+        <source>Online</source>
+        <target>オンライン</target>
+      </trans-unit>
+       <trans-unit id="offline" datatype="html">
+        <source>Offline</source>
+        <target>オフライン</target>
+      </trans-unit>
+      <!-- End General -->
     </body>
   </file>
 </xliff>
