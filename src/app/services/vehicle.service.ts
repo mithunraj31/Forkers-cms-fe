@@ -52,6 +52,8 @@ export class VehicleService {
         }).pipe(delay(1000));
     }
 
+    // retrive one vehicle information
+    // find by vehicle id 
     getVehicleById(vehicleId: number) {
         const vehicles = [
             <Vehicle>{

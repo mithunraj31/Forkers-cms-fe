@@ -10,9 +10,11 @@ import { Vehicle } from '../../../@core/entities/vehicle.model';
 export class VehiclesTableViewComponent implements OnInit {
 
   // use for config UI of ng2-smart-table
-  // return {any}
+  // @type {any}
   tableSettings: any = {};
 
+  // the property binding to display vehicle infomation listings table.
+// @type {Vehicle[]}
   listings: Vehicle[] = [];
 
   constructor(private vehicleService: VehicleService) {
@@ -49,11 +51,14 @@ export class VehiclesTableViewComponent implements OnInit {
     this.initialTable();
   }
 
+  // the method request to Backend API to get vehicle information listings
+  // then assing obtained values to [listings] property, 
+  // the property binding to display table.
+  // @return {void}
   initialTable() {
     this.vehicleService.getVehicles().subscribe(response => {
       if (response?.vehicles) {
         this.listings = response.vehicles;
-        console.log(response)
       }
     }, error => {
 

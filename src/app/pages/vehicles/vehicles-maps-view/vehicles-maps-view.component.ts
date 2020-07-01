@@ -34,7 +34,6 @@ export class VehiclesMapsViewComponent implements OnInit {
       if (response?.vehicles) {
         this.layers = [];
         response?.vehicles.forEach(v => {
-          console.log(v.location.lat, v.location.lng)
           this.layers.push(marker([ 
             parseFloat(v.location.lat), 
             parseFloat(v.location.lng)

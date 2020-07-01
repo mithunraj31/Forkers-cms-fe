@@ -11,12 +11,21 @@ import { NetworkType } from '../../../@core/enums/enum.network-type';
     templateUrl: './vehicle-details.component.html',
 })
 export class VehiclesDetailsComponent implements OnInit {
-
+    // leaflet maps configuratio, set map center, zoom view and map layers
+    // @type {any}
     options: any = {};
+
+    // store markers location.
+    // @type {Marker<any>[]}
     layers = [];
 
+    // vehicle ID obtained from route params
+    // @type {number}
     vehicleId: number;
 
+    // vehicle information in array of key pair value format
+    // use for VerticleDetailsComponent
+    // @type {any[]}
     vehicle: any[];
 
     constructor(private vehicleService: VehicleService,
@@ -27,6 +36,7 @@ export class VehiclesDetailsComponent implements OnInit {
     ngOnInit() {
 
         this.route.paramMap.subscribe(paramMap => {
+            // get vehicle id from route params
             this.vehicleId = parseInt(paramMap.get('id'));
             this.initailDetails();
         });
@@ -34,14 +44,19 @@ export class VehiclesDetailsComponent implements OnInit {
             layers: [
                 tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
             ],
+            // default close prefecture view 
             zoom: 11,
+            // Default maps center "tokyo"
             center: latLng(35.7251283, 139.8591726)
-            //center: latLng(35.7251283,139.8591726)
         }
 
 
     }
 
+    // the method request to Backend API to get vehicle information by vehicle id
+    // then mapping obtained response to key sources to display on VerticleDetailsComponent,
+    // next update marker layers.
+    // @return {void}
     initailDetails() {
 
         this.vehicleService.getVehicleById(this.vehicleId).subscribe(response => {
@@ -110,8 +125,10 @@ export class VehiclesDetailsComponent implements OnInit {
         });
     }
 
+    // mapping network type's display text from enum value
+    // @parameter type {enum NetworkType}
+    // @return {string}
     private getNetworkType(type: NetworkType) {
-        console.log(type)
         switch (type) {
             case NetworkType.LAN : return 'LAN';
             case NetworkType.WIFI : return 'WIFI';

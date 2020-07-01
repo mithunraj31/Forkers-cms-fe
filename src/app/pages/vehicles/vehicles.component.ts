@@ -18,6 +18,7 @@ export class VehiclesComponent implements OnInit {
   }
 
   ngOnInit() {
+    // initialize tabsets
     this.tabs = [
       {
         title: 'Table view',
