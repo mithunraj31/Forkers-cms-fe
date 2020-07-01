@@ -107,6 +107,14 @@
               "i18nFormat": "xlf",
               "i18nLocale": "ja",
               "i18nMissingTranslation": "error"
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/under-construction-en/",
+              "i18nFile": "src/locale/messages.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -121,6 +129,9 @@
             },
             "ja": {
               "browserTarget": "forkers-cms-fe:build:ja"
+            },
+            "en": {
+              "browserTarget": "forkers-cms-fe:build:en"
             }
           }
         },

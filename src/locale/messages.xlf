@@ -5,7 +5,7 @@
       <!-- Headers -->
       <trans-unit id="applicationTitle" datatype="html">
         <source>Forkers CMS</source>
-        <target>Forkers CMS<</target>
+        <target>Forkers CMS</target>
       </trans-unit>
        <trans-unit id="userProfile" datatype="html">
         <source>Profile</source>
