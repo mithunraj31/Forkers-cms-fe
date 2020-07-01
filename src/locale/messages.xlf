@@ -2,10 +2,44 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="dashboardTitle" datatype="html">
-        <source>Forkers CMS Dashboard</source>
+      <trans-unit id="headerTitle" datatype="html">
+        <source>Forkers CMS</source>
+        <target>Forkers CMS<</target>
+      </trans-unit>
+       <trans-unit id="userProfile" datatype="html">
+        <source>Profile</source>
+        <target>Profile</target>
+      </trans-unit>
+      <trans-unit id="logout" datatype="html">
+        <source>logout</source>
+        <target>logout</target>
+      </trans-unit>
+
+      <trans-unit id="themeLight" datatype="html">
+        <source>Light</source>
+        <target>Light</target>
+      </trans-unit>
+      <trans-unit id="themeDark" datatype="html">
+        <source>Dark</source>
+        <target>Dark</target>
+      </trans-unit>
+      <trans-unit id="themeCosmic" datatype="html">
+        <source>Cosmic</source>
         <target></target>
       </trans-unit>
+      <trans-unit id="themeCorporate" datatype="html">
+        <source>Corporate</source>
+        <target>Corporate</target>
+      </trans-unit>
+      <trans-unit id="themeMaterialLight" datatype="html">
+        <source>Material Light</source>
+        <target>Material Light</target>
+      </trans-unit>
+      <trans-unit id="themeMaterialDark" datatype="html">
+        <source>Material Dark</source>
+        <target>Material Dark</target>
+      </trans-unit>
+      
     </body>
   </file>
 </xliff>

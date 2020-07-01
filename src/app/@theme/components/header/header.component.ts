@@ -22,37 +22,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userPictureOnly: boolean = false;
   user: UserAccount;
 
-  themes = [
-    {
-      value: 'default',
-      name: 'Light',
-    },
-    {
-      value: 'dark',
-      name: 'Dark',
-    },
-    {
-      value: 'cosmic',
-      name: 'Cosmic',
-    },
-    {
-      value: 'corporate',
-      name: 'Corporate',
-    },
-    {
-      value: 'material-light',
-      name: 'Material Light',
-    },
-    {
-      value: 'material-dark',
-      name: 'Material Dark',
-    },
-  ];
+  themes: any;
 
   currentTheme = 'default';
 
-  userMenu = [{ title: 'Profile', data: { action: 'profile' } },
-  { title: 'Log out', data: { action: 'logout' } }];
+  userMenu: any;
 
   public constructor(
     private sidebarService: NbSidebarService,
@@ -70,6 +44,48 @@ export class HeaderComponent implements OnInit, OnDestroy {
         const themeName: string = theme?.name || '';
         return themeName.startsWith('material');
       }));
+
+    this.userMenu = [
+      {
+        title: $localize`:@@userProfile:`,
+        data: {
+          action: 'profile'
+        }
+      },
+      {
+        title: $localize`:@@logout:`,
+        data: {
+          action: 'logout'
+        }
+      }
+    ];
+
+    this.themes =[
+      {
+        value: 'default',
+        name: $localize`:@@themeLight:`,
+      },
+      {
+        value: 'dark',
+        name: $localize`:@@themeDark:`,
+      },
+      {
+        value: 'cosmic',
+        name: $localize`:@@themeCosmic:`,
+      },
+      {
+        value: 'corporate',
+        name: $localize`:@@themeCorporate:`,
+      },
+      {
+        value: 'material-light',
+        name: $localize`:@@themeMaterialLight:`,
+      },
+      {
+        value: 'material-dark',
+        name: $localize`:@@themeMaterialDark:`,
+      },
+    ];
   }
 
   ngOnInit() {

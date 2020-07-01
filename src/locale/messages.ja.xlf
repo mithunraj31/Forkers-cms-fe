@@ -2,17 +2,42 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="ja-JP" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="dashboardTitle" datatype="html">
-        <source></source>
-      <target>フォーカー CMS</target>
+      <trans-unit id="headerTitle" datatype="html">
+        <source>Forkers CMS</source>
+        <target>フォーカー CMS</target>
       </trans-unit>
-      <trans-unit id="subTitle2" datatype="html">
-        <source>sub title 2</source>
-        <target>サブ タイトル 2</target>
+       <trans-unit id="userProfile" datatype="html">
+        <source>Profile</source>
+        <target>私のプロファイル</target>
       </trans-unit>
-      <trans-unit id="home.greetings">
-        <source>Hello</source>
-        <target>Bonjour</target>
+      <trans-unit id="logout" datatype="html">
+        <source>logout</source>
+        <target>ログアウト</target>
+      </trans-unit>
+
+      <trans-unit id="themeLight" datatype="html">
+        <source>Light</source>
+        <target>ライト</target>
+      </trans-unit>
+      <trans-unit id="themeDark" datatype="html">
+        <source>Dark</source>
+        <target>ダーク</target>
+      </trans-unit>
+      <trans-unit id="themeCosmic" datatype="html">
+        <source>Cosmic</source>
+        <target>コズミック</target>
+      </trans-unit>
+      <trans-unit id="themeCorporate" datatype="html">
+        <source>Corporate</source>
+        <target>コーポレート</target>
+      </trans-unit>
+      <trans-unit id="themeMaterialLight" datatype="html">
+        <source>Material Light</source>
+        <target>マチエールライト</target>
+      </trans-unit>
+      <trans-unit id="themeMaterialDark" datatype="html">
+        <source>Material Dark</source>
+        <target>マチエールダーク</target>
       </trans-unit>
     </body>
   </file>
