@@ -1,5 +1,6 @@
 <div style="height: 500px;"
      leaflet 
-     [leafletOptions]="options">
+     [leafletOptions]="options"
+     >
      <div *ngFor="let layer of layers" [leafletLayer]="layer"></div>
 </div>

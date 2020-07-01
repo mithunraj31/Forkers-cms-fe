@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tileLayer, latLng, circle, polygon, marker } from 'leaflet';
 import { VehicleService } from '../../../services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'frk-vehicles-maps-view',
@@ -12,7 +13,8 @@ export class VehiclesMapsViewComponent implements OnInit {
   options: any = {};
   layers = [];
   
-  constructor(private vehicleService: VehicleService) {
+  constructor(private vehicleService: VehicleService,
+    private router: Router,) {
 
   }
 
@@ -34,14 +36,19 @@ export class VehiclesMapsViewComponent implements OnInit {
       if (response?.vehicles) {
         this.layers = [];
         response?.vehicles.forEach(v => {
-          this.layers.push(marker([ 
+          const markerInstance = marker([ 
             parseFloat(v.location.lat), 
             parseFloat(v.location.lng)
-          ]))
+          ]);
+          markerInstance.on('click', (e) => {
+            this.router.navigate([`pages/vehicles/${v.id}`]);
+          });
+          this.layers.push(markerInstance)
         });
       }
     }, error => {
 
     });
   }
+
 }

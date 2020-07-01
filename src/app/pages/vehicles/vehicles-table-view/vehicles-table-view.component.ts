@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../../../services';
 import { Vehicle } from '../../../@core/entities/vehicle.model';
+import { SmartTableLinkComponent } from '../../../@theme/components/smart-table-link/smart-table-link.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'frk-vehicles-table-view',
@@ -14,10 +16,11 @@ export class VehiclesTableViewComponent implements OnInit {
   tableSettings: any = {};
 
   // the property binding to display vehicle infomation listings table.
-// @type {Vehicle[]}
+  // @type {Vehicle[]}
   listings: Vehicle[] = [];
 
-  constructor(private vehicleService: VehicleService) {
+  constructor(private vehicleService: VehicleService,
+    private router: Router,) {
     this.tableSettings = {
       // hide create, update, and delete row buttons from ng2-smart-table
       actions: {
@@ -30,13 +33,24 @@ export class VehiclesTableViewComponent implements OnInit {
       // the property contains column configurations.
       columns: {
         id: {
-          title: 'ID'
+          title: 'ID',
+          // data feild can add html element
+          filter: false,
+          type: 'custom',
+          renderComponent: SmartTableLinkComponent,
+          // use for listening component events.
+          onComponentInitFunction: (instance: any) => {
+            // when user click serial number will redirect to devcie details page
+            instance.onClicked.subscribe(response => {
+              this.router.navigate([`pages/vehicles/${response.id}`]);
+            });
+          },
         },
         isOnline: {
           title: $localize`:@@status:`,
           // data feild can add html element
           type: 'html',
-          // mapping nested property of user data to display  username
+          // mapping nested property of user data to display  online status
           valuePrepareFunction: (isOnline: boolean) => {
             return isOnline
               ? '<i class="fas fa-circle device-online"></i> ' + ($localize`:@@online:`)
