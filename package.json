@@ -14,7 +14,7 @@
     "int:extract": "ng xi18n --output-path locale",
     "conventional-changelog": "conventional-changelog",
     "start": "ng serve --configuration=en",
-    "start:ja": "ng serve --configuration=ja",
+    "start:ja": "ng serve --configuration=ja --port 4401",
     "build": "ng build --configuration=en",
     "build:prod": "npm run build -- --prod --aot",
     "build:dev": "npm run build -- -c dev2 --aot",

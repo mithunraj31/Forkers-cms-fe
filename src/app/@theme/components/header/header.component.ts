@@ -1,6 +1,6 @@
 import { UserAccount } from './../../../@core/entities/UserAccount.model';
 import { UserService } from './../../../services/user.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
 import { UserData } from '../../../@core/data/users';
@@ -9,6 +9,8 @@ import { map, takeUntil, filter } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { AuthService } from '../../../auth/Auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'ngx-header',
@@ -27,6 +29,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentTheme = 'default';
 
   userMenu: any;
+  
+  currentLanguage=""
 
   public constructor(
     private sidebarService: NbSidebarService,
@@ -37,8 +41,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private breakpointService: NbMediaBreakpointsService,
     private rippleService: RippleService,
     private authService: AuthService,
-    private userService: UserService // mdm service
-  ) {
+    private userService: UserService, // mdm service,
+    private router: Router,
+  
+    @Inject(LOCALE_ID) public locale: string) {
+
+      this.currentLanguage = locale;
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
         const themeName: string = theme?.name || '';
@@ -142,5 +150,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.menuService.navigateHome();
     return false;
+  }
+
+  onSwitchLanguage() {
+    if (this.currentLanguage != this.locale) {
+      const hostName = this.currentLanguage == 'en' ? environment.hostEn: environment.hostJa;
+      window.location.href = hostName + this.router.url;
+    }
   }
 }
