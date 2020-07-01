@@ -2,7 +2,7 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="ja-JP" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="headerTitle" datatype="html">
+      <trans-unit id="applicationTitle" datatype="html">
         <source>Forkers CMS</source>
         <target>フォーカー CMS</target>
       </trans-unit>
@@ -56,6 +56,48 @@
       <trans-unit id="sidebarMenuForklift" datatype="html">
         <source>Forklift</source>
         <target>車両</target>
+      </trans-unit>
+
+      <trans-unit id="applicationSortDescriotion" datatype="html">
+        <source>Forkers custommer management platform.</source>
+        <target>フォーカー顧客管理プラットフォーム。</target>
+      </trans-unit>
+
+      <trans-unit id="emailAddress" datatype="html">
+        <source>Email address</source>
+        <target>メールアドレス</target>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <target>パスワード</target>
+      </trans-unit>
+      <trans-unit id="keepSignIn" datatype="html">
+        <source>Keep sign in</source>
+        <target>サインインを維持</target>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Log in</source>
+        <target>ログイン</target>
+      </trans-unit>
+      <trans-unit id="emailRequired" datatype="html">
+        <source>Email is required</source>
+        <target>メールが必要</target>
+      </trans-unit>
+      <trans-unit id="isNotEmail" datatype="html">
+        <source>Email should be the real one!</source>
+        <target>メールではありません</target>
+      </trans-unit>
+      <trans-unit id="emailCharacterError" datatype="html">
+        <source>Email should contains at least 4 characters</source>
+        <target>メールには4文字以上が含まれている必要があります</target>
+      </trans-unit>
+      <trans-unit id="passwordRequired" datatype="html">
+        <source>Password is required</source>
+        <target>パスワードが必要</target>
+      </trans-unit>
+      <trans-unit id="passwordCharacterError" datatype="html">
+        <source>Password should contains at least 8 characters</source>
+        <target>パスワードには8文字以上が含まれている必要があります</target>
       </trans-unit>
     </body>
   </file>
