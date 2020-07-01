@@ -67,49 +67,49 @@ export class VehiclesDetailsComponent implements OnInit {
                         value: response.id
                     },
                     {
-                        key: 'Plate number',
+                        key: $localize`:@@plateNumber:`,
                         value: response.plateNumber
                     },
                     {
-                        key: 'scan code',
+                        key:  $localize`:@@scanCode:`,
                         value: response.scanCode
                     },
                     {
-                        key: 'Group Name',
+                        key: $localize`:@@groupName:`,
                         value: response.groupName
                     },
                     {
-                        key: 'TCP server address',
+                        key: $localize`:@@tcpServerAddress:`,
                         value: response.tcpServerAdress
                     },
                     {
-                        key: 'TCP stream out port',
+                        key: $localize`:@@tcpStreamOutPort:`,
                         value: response.tcpStreamOutPort
                     },
                     {
-                        key: 'UPD server address',
+                        key:  $localize`:@@updServerAddress:`,
                         value: response.udpServerAddress
                     },
                     {
-                        key: 'UPD stream out port',
+                        key:  $localize`:@@updStreamOutPort:`,
                         value: response.udpStreamOutPort
                     },
                     {
-                        key: 'Online status',
+                        key:  $localize`:@@status:`,
                         value: response.isOnline
-                        ? '<i class="fas fa-circle device-online"></i> Online'
-                        : '<i class="fas fa-circle"></i> Offline'
+                        ? '<i class="fas fa-circle device-online"></i> ' + $localize`:@@online:`
+                        : '<i class="fas fa-circle"></i> ' + $localize`:@@offline:`
                     },
                     {
-                        key: 'Active',
+                        key: $localize`:@@active:`,
                         value: response.isActive
                     },
                     {
-                        key: 'Device type',
+                        key: $localize`:@@deviceType:`,
                         value: response.deviceType
                     },
                     {
-                        key: 'Network type',
+                        key: $localize`:@@networkType:`,
                         value: this.getNetworkType(response.networkType)
                     }
                 ];
@@ -134,7 +134,7 @@ export class VehiclesDetailsComponent implements OnInit {
             case NetworkType.WIFI : return 'WIFI';
             case NetworkType.THREE_G : return '3G';
             case NetworkType.FOUR_G_LTE : return '4G/LTE';
-            default : return 'Others';
+            default : return $localize`:@@others:`;
         }
     }
 }

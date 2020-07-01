@@ -42,13 +42,13 @@ const routes: Routes = [{
         {
           path: 'maps',
           component: VehiclesMapsViewComponent,
-        },
-        {
-          path: ':id',
-          component: VehiclesDetailsComponent, ///
-        },
+        }
       ]
-    }
+    },
+    {
+      path: 'vehicles/:id',
+      component: VehiclesDetailsComponent,
+    },
   ],
 }];
 

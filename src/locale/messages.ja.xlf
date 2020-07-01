@@ -132,6 +132,41 @@
       </trans-unit>
       <!-- End Vehicle page -->
 
+      <!-- Vehicle details -->
+      <trans-unit id="plateNumber" datatype="html">
+        <source>PlateNumber</source>
+        <target>プレートナンバー</target>
+      </trans-unit>
+      <trans-unit id="scanCode" datatype="html">
+        <source>Scan code</source>
+        <target>スキャンコード</target>
+      </trans-unit>
+      <trans-unit id="tcpServerAddress" datatype="html">
+        <source>TCP server address</source>
+        <target>TCPサーバーアドレス</target>
+      </trans-unit>
+       <trans-unit id="updServerAddress" datatype="html">
+        <source>UPD server address</source>
+        <target>UPD</target>
+      </trans-unit>
+      <trans-unit id="tcpStreamOutPort" datatype="html">
+        <source>TCP stream out port</source>
+        <target>TCPストリームアウトポート</target>
+      </trans-unit>
+      <trans-unit id="updStreamOutPort" datatype="html">
+        <source>UPD stream out port</source>
+        <target>UPDストリームアウトポート</target>
+      </trans-unit>
+       <trans-unit id="deviceType" datatype="html">
+        <source>Device type</source>
+        <target>デバイスタイプ</target>
+      </trans-unit>
+      <trans-unit id="networkType" datatype="html">
+        <source>Network type</source>
+        <target>ネットワーク型</target>
+      </trans-unit>
+      <!-- Vehicle details -->
+
       <!-- General -->
       <trans-unit id="vehicle" datatype="html">
         <source>Vehicle</source>
@@ -148,6 +183,18 @@
        <trans-unit id="offline" datatype="html">
         <source>Offline</source>
         <target>オフライン</target>
+      </trans-unit>
+      <trans-unit id="others" datatype="html">
+        <source>Others</source>
+        <target>その他</target>
+      </trans-unit>
+      <trans-unit id="groupName" datatype="html">
+        <source>Group name</source>
+        <target>グループ名</target>
+      </trans-unit>
+       <trans-unit id="active" datatype="html">
+        <source>Active</source>
+        <target>アクティブ</target>
       </trans-unit>
       <!-- End General -->
     </body>
