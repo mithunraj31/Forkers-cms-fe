@@ -102,7 +102,7 @@
             },
             "ja": {
               "aot": true,
-              "outputPath": "dist/under-construction-ja/",
+              "outputPath": "dist/ja/",
               "i18nFile": "src/locale/messages.ja.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "ja",
@@ -110,7 +110,7 @@
             },
             "en": {
               "aot": true,
-              "outputPath": "dist/under-construction-en/",
+              "outputPath": "dist/en/",
               "i18nFile": "src/locale/messages.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en",
