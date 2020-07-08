@@ -18,7 +18,7 @@
     "build": "ng build --configuration=en",
     "build:ja": "ng build --configuration=ja",
     "build:prod": "npm run build -- --prod --aot",
-    "build:dev": "npm run build --configuration=en --aot && npm run build ---configuration=ja --aot",
+    "build:dev": "npm run build --configuration=en  && npm run build ---configuration=ja",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
     "lint": "ng lint",

@@ -23,8 +23,6 @@ export class PagesComponent implements OnInit {
 
   ngOnInit() {
     const adminPages: string[] = [ $localize`:@@userManagement:`, $localize`:@@userListings:` ];
-
-    console.log(this.userService.getLoggedUser());
     if (!this.userService.getLoggedUser().roles.includes('ROLE_ADMIN')) {
       this.menu = this.menu.filter(x => !adminPages.includes(x.title));
     }
