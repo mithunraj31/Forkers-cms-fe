@@ -208,6 +208,15 @@
         <source>Active</source>
         <target>アクティブ</target>
       </trans-unit>
+
+       <trans-unit id="somethingWrongToaster" datatype="html">
+        <source>Somethings wrong</source>
+        <target>何かおかしい</target>
+      </trans-unit>
+      <trans-unit id="tryRefreshPage" datatype="html">
+        <source>Try to refresh the page</source>
+        <target>ページを更新してみてください</target>
+      </trans-unit>
       <!-- End General -->
     </body>
   </file>

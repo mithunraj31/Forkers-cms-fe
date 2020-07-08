@@ -194,7 +194,7 @@
       </trans-unit>
       <trans-unit id="offline" datatype="html">
         <source>Offline</source>
-        <target>Online</target>
+        <target>offline</target>
       </trans-unit>
       <trans-unit id="others" datatype="html">
         <source>Others</source>
@@ -207,6 +207,15 @@
       <trans-unit id="active" datatype="html">
         <source>Active</source>
         <target>Active</target>
+      </trans-unit>
+
+      <trans-unit id="somethingWrongToaster" datatype="html">
+        <source>Somethings wrong</source>
+        <target>Somethings wrong</target>
+      </trans-unit>
+      <trans-unit id="tryRefreshPage" datatype="html">
+        <source>Try to refresh the page</source>
+        <target>Try to refresh the page</target>
       </trans-unit>
       <!-- End General -->
     </body>
