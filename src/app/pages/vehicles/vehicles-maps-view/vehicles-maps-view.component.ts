@@ -36,6 +36,12 @@ export class VehiclesMapsViewComponent implements OnInit {
     this.vehicleService.getVehicles().subscribe(vehicles => {
       this.layers = [];
       vehicles.forEach(v => {
+        if (!v.location.lat 
+          || !v.location.lng
+          || v.location.lat == "0.000000"
+          || v.location.lng == "0.000000") {
+            return;
+        }
         const markerInstance = marker([
           parseFloat(v.location.lat),
           parseFloat(v.location.lng)

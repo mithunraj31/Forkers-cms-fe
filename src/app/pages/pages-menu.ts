@@ -20,6 +20,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: $localize`:@@sidebarMenuForklift:`,
     icon: 'car-outline',
     link: '/pages/vehicles',
+    expanded: true,
     children: [
       {
         title: $localize`:@@tableView:`,

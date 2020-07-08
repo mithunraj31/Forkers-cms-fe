@@ -54,7 +54,6 @@ export class VehiclesTableViewComponent implements OnInit {
           type: 'html',
           // mapping nested property of user data to display  online status
           valuePrepareFunction: (isOnline: boolean) => {
-            console.log(isOnline)
             return isOnline
               ? '<i class="fas fa-circle device-online"></i> ' + ($localize`:@@online:`)
               : '<i class="fas fa-circle"></i> ' + ($localize`:@@offline:`);
