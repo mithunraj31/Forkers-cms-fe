@@ -78,9 +78,23 @@ export class LoginComponent {
 
         this.authService.login(this.user)
             .subscribe(result => {
+                 // drop loading spiner
+                 this.isLoading = false;
+                 // redirect to dashboard
+                 this.router.navigate(['/']);
 
             }, error => {
-                
+                // over control error handler
+                this.isLoading = false;
+                if (error?.status == 401) {
+                    this.errorMessages = [$localize`:@@accountInvalid:`];
+                } else {
+                    this.errorMessages = [
+                        $localize`:@@somethingWrong:`,
+                        $localize`:@@supportEmail:`
+                    ];
+                }
+              
             });
     }
 }

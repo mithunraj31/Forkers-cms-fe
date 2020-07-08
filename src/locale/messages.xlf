@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<xliff version="1.2" 
+  xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
       <!-- Headers -->
@@ -7,7 +8,7 @@
         <source>Forkers CMS</source>
         <target>Forkers CMS</target>
       </trans-unit>
-       <trans-unit id="userProfile" datatype="html">
+      <trans-unit id="userProfile" datatype="html">
         <source>Profile</source>
         <target>Profile</target>
       </trans-unit>
@@ -15,7 +16,7 @@
         <source>logout</source>
         <target>logout</target>
       </trans-unit>
-       <!-- End headers -->
+      <!-- End headers -->
 
       <!-- Themes -->
       <trans-unit id="themeLight" datatype="html">
@@ -104,9 +105,21 @@
         <source>Password should contains at least 8 characters</source>
         <target>Password should contains at least 8 characters</target>
       </trans-unit>
+      <trans-unit id="accountInvalid" datatype="html">
+        <source>Account is invalid, Please try again!</source>
+        <target>Account is invalid, Please try again!</target>
+      </trans-unit>
+      <trans-unit id="somethingWrong" datatype="html">
+        <source>Somethings wrong, please contact us.</source>
+        <target>Somethings wrong, please contact us.</target>
+      </trans-unit>
+      <trans-unit id="supportEmail" datatype="html">
+        <source>support email: mbel003@mbel.co.jp</source>
+        <target>support email: mbel003@mbel.co.jp</target>
+      </trans-unit>
       <!-- End Login -->
 
-       <!-- User listings -->
+      <!-- User listings -->
       <trans-unit id="companyListingsTable" datatype="html">
         <source>Companies</source>
         <target>Companies</target>
@@ -115,7 +128,7 @@
         <source>Company name</source>
         <target>Name</target>
       </trans-unit>
-       <trans-unit id="running" datatype="html">
+      <trans-unit id="running" datatype="html">
         <source>Running</source>
         <target>Running</target>
       </trans-unit>
@@ -125,13 +138,13 @@
         <source>Table view</source>
         <target>Table view</target>
       </trans-unit>
-       <trans-unit id="mapsView" datatype="html">
+      <trans-unit id="mapsView" datatype="html">
         <source>Maps view</source>
         <target>Table view</target>
       </trans-unit>
       <!-- End Vehicle page -->
 
-       <!-- Vehicle details -->
+      <!-- Vehicle details -->
       <trans-unit id="plateNumber" datatype="html">
         <source>PlateNumber</source>
         <target>PlateNumber</target>
@@ -148,7 +161,7 @@
         <source>TCP stream out port</source>
         <target>TCP stream out port</target>
       </trans-unit>
-       <trans-unit id="updServerAddress" datatype="html">
+      <trans-unit id="updServerAddress" datatype="html">
         <source>UPD server address</source>
         <target>UPD server address</target>
       </trans-unit>
@@ -156,7 +169,7 @@
         <source>UPD stream out port</source>
         <target>UPD stream out port</target>
       </trans-unit>
-       <trans-unit id="deviceType" datatype="html">
+      <trans-unit id="deviceType" datatype="html">
         <source>Device type</source>
         <target>Device type</target>
       </trans-unit>
@@ -175,11 +188,11 @@
         <source>Status</source>
         <target>Status</target>
       </trans-unit>
-       <trans-unit id="online" datatype="html">
+      <trans-unit id="online" datatype="html">
         <source>Online</source>
         <target>Online</target>
       </trans-unit>
-       <trans-unit id="offline" datatype="html">
+      <trans-unit id="offline" datatype="html">
         <source>Offline</source>
         <target>Online</target>
       </trans-unit>
@@ -191,7 +204,7 @@
         <source>Group name</source>
         <target>Group name</target>
       </trans-unit>
-       <trans-unit id="active" datatype="html">
+      <trans-unit id="active" datatype="html">
         <source>Active</source>
         <target>Active</target>
       </trans-unit>

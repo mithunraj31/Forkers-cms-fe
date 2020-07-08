@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthInterceptorService implements HttpInterceptor {
-  constructor(private auth: AuthService){}
+  constructor(private auth: AuthService) { }
   intercept(req: HttpRequest<any>,
     next: HttpHandler): Observable<HttpEvent<any>> {
     const idToken = localStorage.getItem("id_token");
@@ -27,7 +27,7 @@ export class AuthInterceptorService implements HttpInterceptor {
       return next.handle(authReq).pipe(
         tap(evt => {
           if (evt instanceof HttpResponse) {
-            if (evt.body && (evt.body.code == 415||evt.body.code == 400)) {
+            if (evt.body && (evt.body.code == 415 || evt.body.code == 400)) {
               this.auth.logout();
             }
           }

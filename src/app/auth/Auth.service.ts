@@ -2,8 +2,11 @@ import { Router } from '@angular/router';
 import { LoginUser } from '../@core/entities/LoginUser';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { UserAccount } from '../@core/entities/UserAccount.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +15,38 @@ export class AuthService {
 
   host = environment.host;
   private loggedIn = new BehaviorSubject<boolean>(false);
-  constructor(private http: HttpClient, private router: Router) { }
+  private jwtHelper: JwtHelperService;
+  constructor(private http: HttpClient, private router: Router) {
+    // create new instant for JwtHelperService
+    this.jwtHelper = new JwtHelperService();
+  }
 
+  // the method request permission to access the application
+  // form backend API, the request attach email, password and signin fact
+  // after obtain response, save token and user infomation to local storange
+  // if request rejected will throw exception to observable object (subscriber) 
+  // @return {Observable<any>}
   public login(user: LoginUser) {
-    // res.headers['set-cookie'][0];
-
-    const dataString = "email=" + user.email + "&password=" + user.password + "&eulaEnabled=" + user.eulaEnabled;
-    return this.http.post<any>(this.host + "user/login", dataString);
+    return this.http.post<any>(this.host + "/login", user)
+      .pipe(map(response => {
+        // check JWT is existing
+        if (response?.token) {
+          // store obtained jwt
+          this.setSession({ token: response.token });
+          // get user information from payload
+          const payload: any = this.jwtHelper.decodeToken(response.token);
+          const user: UserAccount = <UserAccount>{
+            name: `${payload.firstName} ${payload.lastName}`,
+            id: payload.userId,
+            email: payload.sub,
+            roles: [payload.scopes]
+          };
+          //  save user data to local storage 
+          localStorage.setItem('user', JSON.stringify(user));
+        } else {
+          throw new Error();
+        }
+      }));
   }
 
   public logout() {

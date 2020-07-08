@@ -104,6 +104,18 @@
         <source>Password should contains at least 8 characters</source>
         <target>パスワードには8文字以上が含まれている必要があります</target>
       </trans-unit>
+      <trans-unit id="accountInvalid" datatype="html">
+        <source>Account is invalid, Please try again!</source>
+        <target>アカウントが無効です。もう一度やり直してください！</target>
+      </trans-unit>
+      <trans-unit id="somethingWrong" datatype="html">
+        <source>Somethings wrong, please contact us.</source>
+        <target>何か問題があります。お問い合わせください。</target>
+      </trans-unit>
+      <trans-unit id="supportEmail" datatype="html">
+        <source>support email: mbel003@mbel.co.jp</source>
+        <target>サポートメール: mbel003@mbel.co.jp</target>
+      </trans-unit>
       <!-- End Login -->
 
       <!-- User listings -->
