@@ -39,7 +39,8 @@ export class AuthService {
             name: `${payload.firstName} ${payload.lastName}`,
             id: payload.userId,
             email: payload.sub,
-            roles: [payload.scopes]
+            roles: [payload.scopes],
+            stk_user: payload.stk_user
           };
           //  save user data to local storage 
           localStorage.setItem('user', JSON.stringify(user));

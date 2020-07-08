@@ -6,4 +6,5 @@ export interface UserAccount {
     systemRoles?: string[];
     siteUuid?: string;
     imgUrl?: string;
+    stk_user: string;
 }
