@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tileLayer, latLng, marker } from 'leaflet';
 import { VehicleService } from '../../../services';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NetworkType } from '../../../@core/enums/enum.network-type';
 import { NbToastrService } from '@nebular/theme';
 
@@ -30,6 +30,7 @@ export class VehiclesDetailsComponent implements OnInit {
 
     constructor(private vehicleService: VehicleService,
         private route: ActivatedRoute,
+        private router: Router,
         private toastrService: NbToastrService) {
 
     }
@@ -121,9 +122,12 @@ export class VehiclesDetailsComponent implements OnInit {
                     ])
                 ];
             }
+            else {
+                this.router.navigate([`404`]);
+            }
         }, error => {
             const status = 'danger';
-      this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
+            this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
         });
     }
 

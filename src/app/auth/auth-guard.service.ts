@@ -26,7 +26,7 @@ export class AuthGuardService implements CanActivate {
   checkUserRole(role: string): boolean {
     const user = this.userService.getLoggedUser();
     if (!user.roles?.includes(role)) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/403']);
       return false;
     }
     return true;
