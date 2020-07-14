@@ -11,9 +11,12 @@ import {
   NbCheckboxModule,
   NbInputModule,
   NbCardModule,
-  NbSpinnerModule
+  NbSpinnerModule,
+  NbLayoutModule,
+  NbIconModule,
 } from '@nebular/theme';
 import { LoginComponent } from './login/login.component';
+import { AuthContainerComponent } from './auth-container/auth-container.component';
 
 
 @NgModule({
@@ -29,9 +32,14 @@ import { LoginComponent } from './login/login.component';
     NbCheckboxModule,
     AuthRoutingModule,
     NbAuthModule,
+    NbLayoutModule,
+    NbIconModule,
   ],
   declarations: [
-    LoginComponent
+    LoginComponent,
+    AuthContainerComponent
+    
+
   ],
 })
 export class NgxAuthModule {

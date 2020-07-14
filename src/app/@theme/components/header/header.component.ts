@@ -1,7 +1,7 @@
 import { UserAccount } from './../../../@core/entities/UserAccount.model';
 import { UserService } from './../../../services/user.service';
 import { Component, OnDestroy, OnInit, LOCALE_ID, Inject } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService, NbIconLibraries, NbIconModule, NbIconPack } from '@nebular/theme';
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
@@ -11,6 +11,7 @@ import { RippleService } from '../../../@core/utils/ripple.service';
 import { AuthService } from '../../../auth/Auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'ngx-header',
@@ -30,7 +31,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userMenu: any;
   
-  currentLanguage=""
+  currentLanguage="";
+
+  English="";
 
   public constructor(
     private sidebarService: NbSidebarService,
@@ -44,7 +47,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private userService: UserService, // mdm service,
     private router: Router,
   
-    @Inject(LOCALE_ID) public locale: string) {
+    @Inject(LOCALE_ID) public locale: string,
+    //iconRegistry: NbIconModule, 
+    sanitizer: DomSanitizer) {
+      //iconRegistry.addSvgIcon(
+       // 'English',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icon/English.svg');
+      //  iconRegistry.addSvgIcon(
+       //   'Japanese',
+          sanitizer.bypassSecurityTrustResourceUrl('assets/icon/Japanese.svg');
+
+         this.English=
+    
 
       this.currentLanguage = locale;
     this.materialTheme$ = this.themeService.onThemeChange()

@@ -1,0 +1,14 @@
+
+nb-layout-column{
+    display: grid;
+    background: url(/assets/images/forklift.jpg); 
+    background-size: contain; 
+}
+img {
+ padding: 5px;
+    width: 50px;
+  }
+
+  img:hover {
+    cursor: pointer;
+}

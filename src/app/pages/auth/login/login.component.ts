@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
     selector: 'frk-login',
     templateUrl: './login.component.html',
-    styles: ['.error-message { color: red; }']
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 
