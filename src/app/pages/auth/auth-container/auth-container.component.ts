@@ -1,9 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { NbAuthComponent, NbAuthService } from '@nebular/auth';
-import { Location } from '@angular/common';
-import { NbIconLibraries } from '@nebular/theme';
 import { environment } from '../../../../environments/environment';
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'frk-auth-container',
@@ -11,17 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth-container.component.scss']
 })
 export class AuthContainerComponent extends NbAuthComponent{
-  router: Router;
+    
+  currentLanguage="";
 
-  
-
-  onSwitchEnglish() {
-      const hostName =  environment.hostEn;
-      window.location.href = hostName ;
+  constructor(auth: NbAuthService, location: Location, @Inject(LOCALE_ID) public locale: string) {
+    super(auth, location);
+    this.currentLanguage = locale;
   }
 
-  onSwitJapanese(){
-    const hostName =environment.hostJa;
-    window.location.href = hostName ;
+
+  onSwitchLanguage(lang: string) {
+    let hostname: string = '';
+    if (lang == 'ja') {
+      hostname = environment.hostJa;
+    } else {
+      hostname = environment.hostEn;
+    }
+
+    window.location.href = hostname +  '/login';
   }
 }

@@ -5,11 +5,11 @@ import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeServ
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil, filter } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { AuthService } from '../../../auth/Auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -30,10 +30,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentTheme = 'default';
 
   userMenu: any;
-  
-  currentLanguage="";
 
-  English="";
+  currentLanguage = "";
 
   public constructor(
     private sidebarService: NbSidebarService,
@@ -46,21 +44,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private userService: UserService, // mdm service,
     private router: Router,
-  
+
     @Inject(LOCALE_ID) public locale: string,
     //iconRegistry: NbIconModule, 
     sanitizer: DomSanitizer) {
-      //iconRegistry.addSvgIcon(
-       // 'English',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icon/English.svg');
-      //  iconRegistry.addSvgIcon(
-       //   'Japanese',
-          sanitizer.bypassSecurityTrustResourceUrl('assets/icon/Japanese.svg');
+    sanitizer.bypassSecurityTrustResourceUrl('assets/icon/English.svg');
+    sanitizer.bypassSecurityTrustResourceUrl('assets/icon/Japanese.svg');
 
-         this.English=
-    
 
-      this.currentLanguage = locale;
+
+    this.currentLanguage = locale;
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
         const themeName: string = theme?.name || '';
@@ -82,7 +75,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     ];
 
-    this.themes =[
+    this.themes = [
       {
         value: 'default',
         name: $localize`:@@themeLight:`,
@@ -168,7 +161,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onSwitchLanguage() {
     if (this.currentLanguage != this.locale) {
-      const hostName = this.currentLanguage == 'en' ? environment.hostEn: environment.hostJa;
+      const hostName = this.currentLanguage == 'en' ? environment.hostEn : environment.hostJa;
       window.location.href = hostName + this.router.url;
     }
   }
