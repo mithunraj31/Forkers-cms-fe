@@ -4,7 +4,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { Vehicle } from '../@core/entities/vehicle.model';
-import { OnlineStatus } from '../@core/entities/online-status.model';
 
 
 // Vehicle infomation management
@@ -76,33 +75,5 @@ export class VehicleService {
             },
         ];
         return of(vehicles.find(x => x.id == vehicleId)).pipe(delay(1000));
-    }
-
-    getOnlineVehicle() {
-        return this.http.get<any>(`${this.host}/vehicle/online`)
-        .pipe(map(response => {
-            if (response?.online) {
-                const numberOfOnlineVehicle: number = response.online;
-                return numberOfOnlineVehicle;
-            }
-
-            throw new Error();
-        }));
-    }
-
-    getOnlineVehicleStatus(days: number) {
-        return this.http.get<any>(`${this.host}/vehicle/online/status?days=${days}`)
-        .pipe(map(response => {
-            if (response?.message == 'Success') {
-                const reportsResponse = response.reports as any[];
-                // mapping json response to array of object
-                const reports = reportsResponse.map(x => {
-                    return <OnlineStatus> { ...x };
-                });
-
-            }
-
-            throw new Error();
-        }));
     }
 }

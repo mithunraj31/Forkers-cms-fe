@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" 
-  xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="ja-JP" datatype="plaintext" original="ng2.template">
     <body>
-      <!-- headers -->
+     <!-- headers -->
       <trans-unit id="applicationTitle" datatype="html">
         <source>Forkers CMS</source>
         <target>フォーカー CMS</target>
       </trans-unit>
-      <trans-unit id="userProfile" datatype="html">
+       <trans-unit id="userProfile" datatype="html">
         <source>Profile</source>
         <target>私のプロファイル</target>
       </trans-unit>
@@ -16,7 +15,7 @@
         <source>logout</source>
         <target>ログアウト</target>
       </trans-unit>
-      <!-- End headers -->
+       <!-- End headers -->
 
       <!-- Themes -->
       <trans-unit id="themeLight" datatype="html">
@@ -128,7 +127,7 @@
         <source>Company name</source>
         <target>会社名</target>
       </trans-unit>
-      <trans-unit id="running" datatype="html">
+       <trans-unit id="running" datatype="html">
         <source>Running</source>
         <target>走っている</target>
       </trans-unit>
@@ -139,7 +138,7 @@
         <source>Table view</source>
         <target>一覧</target>
       </trans-unit>
-      <trans-unit id="mapsView" datatype="html">
+       <trans-unit id="mapsView" datatype="html">
         <source>Maps view</source>
         <target>地図</target>
       </trans-unit>
@@ -158,7 +157,7 @@
         <source>TCP server address</source>
         <target>TCPサーバーアドレス</target>
       </trans-unit>
-      <trans-unit id="updServerAddress" datatype="html">
+       <trans-unit id="updServerAddress" datatype="html">
         <source>UPD server address</source>
         <target>UPD</target>
       </trans-unit>
@@ -170,7 +169,7 @@
         <source>UPD stream out port</source>
         <target>UPDストリームアウトポート</target>
       </trans-unit>
-      <trans-unit id="deviceType" datatype="html">
+       <trans-unit id="deviceType" datatype="html">
         <source>Device type</source>
         <target>デバイスタイプ</target>
       </trans-unit>
@@ -179,38 +178,6 @@
         <target>ネットワーク型</target>
       </trans-unit>
       <!-- Vehicle details -->
-
-      <!-- Dashboard -->
-      <trans-unit id="onlineVehicle" datatype="html">
-        <source>Online vehicle</source>
-        <target>オンライン車両</target>
-      </trans-unit>
-
-      <trans-unit id="oneDay" datatype="html">
-        <source>1 day</source>
-        <target>1日</target>
-      </trans-unit>
-      <trans-unit id="oneWeek" datatype="html">
-        <source>1 Week</source>
-        <target>1週間</target>
-      </trans-unit>
-      <trans-unit id="oneMonth" datatype="html">
-        <source>1 month</source>
-        <target>1ヶ月間</target>
-      </trans-unit>
-      <trans-unit id="threeMonth" datatype="html">
-        <source>3 month</source>
-        <target>3ヶ月間</target>
-      </trans-unit>
-      <trans-unit id="sixMonth" datatype="html">
-        <source>6 month</source>
-        <target>6ヶ月間</target>
-      </trans-unit>
-      <trans-unit id="oneYear" datatype="html">
-        <source>1 year</source>
-        <target>1年間</target>
-      </trans-unit>
-      <!-- end Dashboard -->
 
       <!-- General -->
       <trans-unit id="vehicle" datatype="html">
@@ -225,7 +192,7 @@
         <source>Online</source>
         <target>オンライン</target>
       </trans-unit>
-      <trans-unit id="offline" datatype="html">
+       <trans-unit id="offline" datatype="html">
         <source>Offline</source>
         <target>オフライン</target>
       </trans-unit>
@@ -237,12 +204,12 @@
         <source>Group name</source>
         <target>グループ名</target>
       </trans-unit>
-      <trans-unit id="active" datatype="html">
+       <trans-unit id="active" datatype="html">
         <source>Active</source>
         <target>アクティブ</target>
       </trans-unit>
 
-      <trans-unit id="somethingWrongToaster" datatype="html">
+       <trans-unit id="somethingWrongToaster" datatype="html">
         <source>Somethings wrong</source>
         <target>何かおかしい</target>
       </trans-unit>

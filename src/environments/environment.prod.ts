@@ -5,6 +5,4 @@
  */
 export const environment = {
   production: true,
-  hostJa: "/ja",
-  hostEn: "/en",
 };
