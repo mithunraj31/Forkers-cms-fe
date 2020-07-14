@@ -22,9 +22,9 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-// import { AuthService } from './auth/Auth.service';
-// import { AuthGuardService } from './auth/auth-guard.service';
-// import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { AuthService } from './auth/Auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -48,14 +48,14 @@ import {
     LeafletModule
   ],
   providers:[
-    // AuthService,
-    // AuthGuardService,
-    // AuthInterceptorService,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptorService,
-    //   multi: true
-    // },
+    AuthService,
+    AuthGuardService,
+    AuthInterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
   ],
 
   bootstrap: [AppComponent],

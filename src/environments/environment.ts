@@ -10,7 +10,7 @@
 
 export const environment = {
   production: false,
-  host: "http://localhost:8010/proxy/api/",
+  host: "http://54.250.102.34:8080/api",
   hostJa: "http://localhost:4401",
   hostEn: "http://localhost:4200",
 };
