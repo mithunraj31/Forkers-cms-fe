@@ -55,6 +55,7 @@ import { SmartTableLinkComponent } from './components/smart-table-link/smart-tab
 import { VerticalDetailComponent } from './components/vertical-details/vertical-details.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { PagerComponent } from './components/pager/pager.component';
+import { PeriodAnalyticsChartComponent } from './components/period-analytics-chart/period-analytics-chart.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -92,6 +93,7 @@ const COMPONENTS = [
   PagerComponent,
   ConfirmModalComponent,
   SmartTableLinkComponent,
+  PeriodAnalyticsChartComponent,
 ];
 const PIPES = [
   CapitalizePipe,
