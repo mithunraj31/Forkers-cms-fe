@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { tileLayer, latLng, marker } from 'leaflet';
 import { VehicleService } from '../../../services';
 import { ActivatedRoute } from '@angular/router';
-import { Vehicle } from '../../../@core/entities/vehicle.model';
 import { NetworkType } from '../../../@core/enums/enum.network-type';
+import { NbToastrService } from '@nebular/theme';
 
 @Component({
     selector: 'frk-vehicle-details',
@@ -29,7 +29,8 @@ export class VehiclesDetailsComponent implements OnInit {
     vehicle: any[];
 
     constructor(private vehicleService: VehicleService,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private toastrService: NbToastrService) {
 
     }
 
@@ -45,7 +46,7 @@ export class VehiclesDetailsComponent implements OnInit {
                 tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
             ],
             // default close prefecture view 
-            zoom: 11,
+            zoom: 4,
             // Default maps center "tokyo"
             center: latLng(35.7251283, 139.8591726)
         }
@@ -58,70 +59,71 @@ export class VehiclesDetailsComponent implements OnInit {
     // next update marker layers.
     // @return {void}
     initailDetails() {
-
-        this.vehicleService.getVehicleById(this.vehicleId).subscribe(response => {
-            if (response) {
+        this.vehicleService.getVehicles().subscribe(vehicles => {
+            const vehicle = vehicles.filter(x => x.id == this.vehicleId)[0]
+            if (vehicle) {
                 this.vehicle = [
                     {
                         key: 'ID',
-                        value: response.id
+                        value: vehicle.id
                     },
                     {
                         key: $localize`:@@plateNumber:`,
-                        value: response.plateNumber
+                        value: vehicle.plateNumber
                     },
                     {
                         key:  $localize`:@@scanCode:`,
-                        value: response.scanCode
+                        value: vehicle.scanCode
                     },
                     {
                         key: $localize`:@@groupName:`,
-                        value: response.groupName
+                        value: vehicle.groupName
                     },
                     {
                         key: $localize`:@@tcpServerAddress:`,
-                        value: response.tcpServerAdress
+                        value: vehicle.tcpServerAdress
                     },
                     {
                         key: $localize`:@@tcpStreamOutPort:`,
-                        value: response.tcpStreamOutPort
+                        value: vehicle.tcpStreamOutPort
                     },
                     {
                         key:  $localize`:@@updServerAddress:`,
-                        value: response.udpServerAddress
+                        value: vehicle.udpServerAddress
                     },
                     {
                         key:  $localize`:@@updStreamOutPort:`,
-                        value: response.udpStreamOutPort
+                        value: vehicle.udpStreamOutPort
                     },
                     {
                         key:  $localize`:@@status:`,
-                        value: response.isOnline
+                        value: vehicle.isOnline
                         ? '<i class="fas fa-circle device-online"></i> ' + $localize`:@@online:`
                         : '<i class="fas fa-circle"></i> ' + $localize`:@@offline:`
                     },
                     {
                         key: $localize`:@@active:`,
-                        value: response.isActive
+                        value: vehicle.isActive
                     },
                     {
                         key: $localize`:@@deviceType:`,
-                        value: response.deviceType
+                        value: vehicle.deviceType
                     },
                     {
                         key: $localize`:@@networkType:`,
-                        value: this.getNetworkType(response.networkType)
+                        value: this.getNetworkType(vehicle.networkType)
                     }
                 ];
                 this.layers = [
                     marker([
-                        parseFloat(response.location.lat),
-                        parseFloat(response.location.lng)
+                        parseFloat(vehicle.location.lat),
+                        parseFloat(vehicle.location.lng)
                     ])
                 ];
             }
         }, error => {
-
+            const status = 'danger';
+      this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
         });
     }
 

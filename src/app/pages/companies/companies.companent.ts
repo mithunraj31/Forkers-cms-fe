@@ -29,15 +29,14 @@ export class CompaniesComponent implements OnInit {
     initialTable() {
         // display table spinner 
         this.isLoading = true;
-        this.companyService.getCompanies().subscribe((response) => {
+        this.companyService.getCompanies().subscribe((companies) => {
             // drop table spinner
             this.isLoading = false;
-            if (response?.companies) {
-                this.companies = response.companies;
-            }
+            this.companies = companies;
         }, error =>  {
              // drop table spinner
             this.isLoading = false;
+            
         });
     }
 }

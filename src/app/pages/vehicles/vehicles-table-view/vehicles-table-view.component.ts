@@ -3,6 +3,7 @@ import { VehicleService } from '../../../services';
 import { Vehicle } from '../../../@core/entities/vehicle.model';
 import { SmartTableLinkComponent } from '../../../@theme/components/smart-table-link/smart-table-link.component';
 import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
 
 @Component({
   selector: 'frk-vehicles-table-view',
@@ -20,7 +21,8 @@ export class VehiclesTableViewComponent implements OnInit {
   listings: Vehicle[] = [];
 
   constructor(private vehicleService: VehicleService,
-    private router: Router,) {
+    private router: Router,
+    private toastrService: NbToastrService) {
     this.tableSettings = {
       // hide create, update, and delete row buttons from ng2-smart-table
       actions: {
@@ -70,12 +72,11 @@ export class VehiclesTableViewComponent implements OnInit {
   // the property binding to display table.
   // @return {void}
   initialTable() {
-    this.vehicleService.getVehicles().subscribe(response => {
-      if (response?.vehicles) {
-        this.listings = response.vehicles;
-      }
+    this.vehicleService.getVehicles().subscribe(vehicles => {
+      this.listings = vehicles;
     }, error => {
-
+      const status = 'danger';
+      this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
     });
   }
 }

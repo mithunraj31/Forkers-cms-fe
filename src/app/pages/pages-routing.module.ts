@@ -8,6 +8,7 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 import { VehiclesTableViewComponent } from './vehicles/vehicles-table-view/vehicles-table-view.component';
 import { VehiclesMapsViewComponent } from './vehicles/vehicles-maps-view/vehicles-maps-view.component';
 import { VehiclesDetailsComponent } from './vehicles/vehicle-details/vehicle-details.component';
+import { AuthGuardService as AuthGuard } from '../auth/auth-guard.service';
 
 const routes: Routes = [{
   path: '',
@@ -16,15 +17,21 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+      canActivate : [AuthGuard]
     },
     {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
+      canActivate : [AuthGuard]
     },
     {
       path: 'companies',
       component: CompaniesComponent,
+      canActivate : [AuthGuard],
+      data: {
+        role: 'ROLE_ADMIN'
+      }
     },
     {
       path: 'vehicles',
@@ -34,20 +41,24 @@ const routes: Routes = [{
           path: '',
           redirectTo: 'table',
           pathMatch: 'full',
+          canActivate : [AuthGuard],
         },
         {
           path: 'table',
           component: VehiclesTableViewComponent,
+          canActivate : [AuthGuard],
         },
         {
           path: 'maps',
           component: VehiclesMapsViewComponent,
+          canActivate : [AuthGuard],
         }
       ]
     },
     {
       path: 'vehicles/:id',
       component: VehiclesDetailsComponent,
+      canActivate : [AuthGuard],
     },
   ],
 }];
