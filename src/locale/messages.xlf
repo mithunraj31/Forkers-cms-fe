@@ -253,6 +253,14 @@
         <source>Try to refresh the page</source>
         <target>Try to refresh the page</target>
       </trans-unit>
+      <trans-unit id="pageNotFound" datatype="html">
+        <source>Page does not exist! Unless you were looking for this error page, In which case you find it!</source>
+        <target>Page does not exist! Unless you were looking for this error page, In which case you find it!</target>
+      </trans-unit>
+      <trans-unit id="pageNotAllowAccess" datatype="html">
+        <source>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</source>
+        <target>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</target>
+      </trans-unit>
       <!-- End General -->
     </body>
   </file>

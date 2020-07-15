@@ -1,6 +1,7 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
+import { NotFoundComponent } from './pages/errors/404/404.component';
+import { NotAllowAccessdComponent } from './pages/errors/403/403.component';
 
 export const routes: Routes = [
   {
@@ -12,8 +13,16 @@ export const routes: Routes = [
     path: 'login',
     loadChildren: './pages/auth/auth.module#NgxAuthModule',
   },
+  {
+    path: '404',
+    component: NotFoundComponent,
+  },
+  {
+    path: '403',
+    component: NotAllowAccessdComponent,
+  },
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '**', redirectTo: '404' },
 ];
 
 const config: ExtraOptions = {
