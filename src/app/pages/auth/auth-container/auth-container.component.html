@@ -1,0 +1,22 @@
+<nb-layout>
+    <nb-layout-header class="header-container" layout-background-color="blue">
+        <div class="col-lg-4">
+            <h1 id="title" class="title" i18n="@@applicationTitle">Forkers CMS</h1>
+        </div>
+        <div class="col-lg-4 offset-lg-4 text-right">
+            <img class="language-icon" 
+            [class.active]="currentLanguage === 'en'"
+            src="assets/icon/English.png" (click)="onSwitchLanguage('en')">
+            <img class="language-icon"
+            [class.active]="currentLanguage === 'ja'"
+            src="assets/icon/Japan.png" (click)="onSwitchLanguage('ja')">
+        </div>
+
+
+    </nb-layout-header>
+    <nb-layout-column>
+        <div class="model">
+            <router-outlet></router-outlet>
+        </div>
+    </nb-layout-column>
+</nb-layout>
