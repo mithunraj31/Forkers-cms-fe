@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, marker } from 'leaflet';
+import { tileLayer, latLng, marker, icon } from 'leaflet';
 import { VehicleService } from '../../../services';
 import { ActivatedRoute } from '@angular/router';
 import { NetworkType } from '../../../@core/enums/enum.network-type';
@@ -117,7 +117,12 @@ export class VehiclesDetailsComponent implements OnInit {
                     marker([
                         parseFloat(vehicle.location.lat),
                         parseFloat(vehicle.location.lng)
-                    ])
+                    ], {
+                        icon: icon({
+                            iconSize: [ 40, 40 ],
+                            iconUrl: `/assets/icon/forklift-${vehicle.online ? 'online' : 'offline'}.png`,
+                        })
+                    })
                 ];
             }
         }, error => {
