@@ -25,6 +25,7 @@ import {
 import { AuthService } from './auth/Auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { ErrorsModule } from './pages/errors/errors.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,7 +46,8 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
     CoreModule.forRoot(),
-    LeafletModule
+    LeafletModule,
+    ErrorsModule
   ],
   providers:[
     AuthService,
