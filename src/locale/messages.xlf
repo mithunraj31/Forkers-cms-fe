@@ -189,7 +189,7 @@
         <target>Online vehicle</target>
       </trans-unit>
 
-       <trans-unit id="oneDay" datatype="html">
+      <trans-unit id="oneDay" datatype="html">
         <source>1 day</source>
         <target>1 day</target>
       </trans-unit>

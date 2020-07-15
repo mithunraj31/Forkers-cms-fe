@@ -1,13 +1,15 @@
-
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { OnlineStatus } from '../@core/entities/online-status.model';
+import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
+import { OnlineStatus } from '../@core/entities/online-status.model';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class DashboardService {
+    host = environment.host;
 
     constructor(private http: HttpClient) { }
 

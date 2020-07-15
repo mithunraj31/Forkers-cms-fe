@@ -10,7 +10,6 @@ import { DashboardComponent } from './dashboard.component';
     ThemeModule,
     NbListModule,
     NbSpinnerModule,
-
   ],
   declarations: [
     DashboardComponent
