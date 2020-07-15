@@ -1,8 +1,17 @@
-<div class="chart-header">
-    <!-- <div class="legend">
-        <div class="legend-item-color" [style.background-color]="legend.iconColor"></div>
-        <div class="legend-title">{{legend.title}}</div>
-    </div> -->
+<div class="row">
+  <div class="col-lg-4">
+    <div class="legend">
+      <div class="legend-item-color" [style.background]="legend.iconColor"></div>
+      <div class="legend-title">{{ legend.title }}</div>
+    </div>
+  </div>
+  <div class="col-lg-8 text-right">
+    <nb-select status="primary" [selected]="selectedFilter" (selectedChange)="onChange($event)">
+      <nb-option
+        *ngFor="let filter of filterOptions"
+        [value]="filter.value" >{{ filter.title }}</nb-option>
+    </nb-select>
+  </div>
 </div>
 <div echarts [options]="option" [merge]="option" class="echart" (chartInit)="onChartInit($event)">
 </div>

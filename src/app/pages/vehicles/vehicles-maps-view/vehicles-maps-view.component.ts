@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, circle, polygon, marker } from 'leaflet';
+import { tileLayer, latLng, marker } from 'leaflet';
 import { VehicleService } from '../../../services';
 import { Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';

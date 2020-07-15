@@ -11,40 +11,37 @@ export class DashboardService {
 
     constructor(private http: HttpClient) { }
 
+    // convert raw data from backend API to PeriodAnalyticsChartComponent.chartData format.
     convertOnlineStatusToChartData(days: number, data: OnlineStatus[]): any {
+        // if the day range is only one day will convert to hourly format
         if (days == 1) {
             return data.map(x => {
                 return {
-                    label: `${x.days} ${x.hour}:00`,
+                    label: `${x.day} ${x.hour}:00`,
                     value: x.online
                 };
             });
         } else  {
             let dayRange = this.getDateRange(days);
-            dayRange.forEach(day => {
-                if (data.some(x => x.days == day.label)) {
-                    day.value = data.find(x =>  x.days == day.label).online;
+            
+            // raw data contain only existing data 
+            // so the statement will generate missing day and assign 0 to online value
+            dayRange = dayRange.map(day => {
+                if (data.some(x => x.day == day.label)) {
+                    
+                    day.value = data.find(x =>  x.day == day.label).online;
                 }
+                return day;
             });
-
-            if (days == 30) {
-                const filters = this.getOneMonthChartLabelFilter();
-                dayRange = this.filterChartLabel(dayRange, filters);
-            } else if (days == 90) {
-                const filters = this.getMonthChartLabelFilter(90, 3);
-                dayRange = this.filterChartLabel(dayRange, filters);
-            } else if (days == 180) {
-                const filters = this.getMonthChartLabelFilter(180, 5);
-                dayRange = this.filterChartLabel(dayRange, filters);
-            } else if (days == 360) {
-                const filters = this.getMonthChartLabelFilter(360, 10);
-                dayRange = this.filterChartLabel(dayRange, filters);
-            }
 
             return dayRange;
         } 
     }
 
+    // generate array of day range 
+    // ex. today is 2020/07/15
+    // input is 10
+    // output should be [ { lalbel: '2020-7-15' }, { lalbel: '2020-7-14' }, { lalbel: '2020-7-13' }, { lalbel: '2020-7-12' }, ..., { lalbel: '2020-7-6' }  ]
     private getDateRange(days: number) {
         const dayListings = [];
         for (let i:number = 0; i < days; i++) {
@@ -55,43 +52,5 @@ export class DashboardService {
         }
 
         return dayListings;
-    }
-
-    private filterChartLabel(dayRange, filters) {
-        const filteredData = [];
-
-        for (let i: number; i < filters.length; i++) {
-            const filter = filters[i];
-            const day = dayRange[filter.index];
-            day.label = filter.hasLabel ? day.label : '';
-            filteredData.push(day);
-        }
-
-        return filteredData;
-    }
-
-    private getOneMonthChartLabelFilter() {
-        const oneMonth = [];
-        for (let i:number = 0; i < 30; i ++)  {
-            oneMonth.push({
-                index: i,
-                hasLabel: i % 3 == 0 
-            });
-        }
-        return oneMonth;
-    }
-
-    private getMonthChartLabelFilter(days: number, step: number) {
-        const month = [];
-        let hasLabel = true;
-        for (let i:number = 0; i < days; i += step)  {
-            month.push({
-                index: i,
-                hasLabel: hasLabel
-            });
-
-            hasLabel = !hasLabel;
-        }
-        return month;
     }
 }

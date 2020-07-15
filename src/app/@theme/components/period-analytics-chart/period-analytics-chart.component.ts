@@ -1,5 +1,5 @@
 import { delay, takeWhile } from 'rxjs/operators';
-import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter, OnChanges } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../@core/utils';
 import { LegendItemModel } from '../../../@core/entities/legend-item.model';
@@ -9,12 +9,15 @@ import { LegendItemModel } from '../../../@core/entities/legend-item.model';
   styleUrls: ['./period-analytics-chart.component.scss'],
   templateUrl: './period-analytics-chart.component.html'
 })
-export class PeriodAnalyticsChartComponent implements AfterViewInit, OnDestroy {
+export class PeriodAnalyticsChartComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   private alive = true;
 
   @Input() chartData: any;
   @Input() legend: LegendItemModel;
+  @Input() filterOptions: any[];
+  @Input() selectedFilter: any;
+  @Output() onFilterChanged: EventEmitter<any> = new EventEmitter();
 
   option: any;
   themeSubscription: any;
@@ -31,19 +34,31 @@ export class PeriodAnalyticsChartComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.theme.getJsTheme()
-      .pipe(
-        delay(1),
-        takeWhile(() => this.alive),
-      )
-      .subscribe(config => {
-        const eTheme: any = config.variables.visitors;
+    this.initTheme();
+  }
 
-        this.setOptions(eTheme);
-    });
+  ngOnChanges() {
+    this.initTheme();
+  }
+
+  private initTheme() {
+    this.theme.getJsTheme()
+    .pipe(
+      delay(1),
+      takeWhile(() => this.alive),
+    )
+    .subscribe(config => {
+      const eTheme: any = config.variables.visitors;
+      this.setOptions(eTheme);
+  });
   }
 
   setOptions(eTheme) {
+    if (!this.chartData) {
+      return;
+    }
+    let chartData: any[] = this.chartData;
+    chartData = chartData.reverse();
     this.option = {
       grid: {
         left: 40,
@@ -78,13 +93,13 @@ export class PeriodAnalyticsChartComponent implements AfterViewInit, OnDestroy {
         type: 'category',
         boundaryGap: false,
         offset: 25,
-        data: this.chartData.map(i => i.label),
+        data: chartData.map(i => i.label),
         axisTick: {
           show: false,
         },
         axisLabel: {
           color: eTheme.axisTextColor,
-          fontSize: eTheme.axisFontSize,
+          fontSize: 14,
         },
         axisLine: {
           lineStyle: {
@@ -124,6 +139,8 @@ export class PeriodAnalyticsChartComponent implements AfterViewInit, OnDestroy {
   }
 
   getOuterLine(eTheme) {
+    let chartData: any[] = this.chartData;
+    chartData = chartData.reverse();
     return {
       type: 'line',
       smooth: true,
@@ -166,7 +183,7 @@ export class PeriodAnalyticsChartComponent implements AfterViewInit, OnDestroy {
           }]),
         },
       },
-      data: this.chartData.map(i => i.value),
+      data: chartData.reverse().map(i => i.value),
     };
   }
 
@@ -182,5 +199,9 @@ export class PeriodAnalyticsChartComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.alive = false;
+  }
+
+  onChange($event) {
+    this.onFilterChanged.emit($event);
   }
 }

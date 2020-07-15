@@ -1,5 +1,5 @@
 export interface OnlineStatus {
-    days: string;
+    day: string;
     online: number;
     hour?: number;
 }

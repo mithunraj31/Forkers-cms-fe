@@ -142,6 +142,10 @@
         <source>Maps view</source>
         <target>Table view</target>
       </trans-unit>
+      <trans-unit id="statisticsView" datatype="html">
+        <source>Statistics view</source>
+        <target>Statistics view</target>
+      </trans-unit>
       <!-- End Vehicle page -->
 
       <!-- Vehicle details -->

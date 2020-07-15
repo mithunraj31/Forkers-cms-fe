@@ -48,7 +48,7 @@ export class VehiclesTableViewComponent implements OnInit {
             });
           },
         },
-        isOnline: {
+        online: {
           title: $localize`:@@status:`,
           // data feild can add html element
           type: 'html',

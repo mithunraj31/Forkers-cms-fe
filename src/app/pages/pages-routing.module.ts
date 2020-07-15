@@ -9,6 +9,7 @@ import { VehiclesTableViewComponent } from './vehicles/vehicles-table-view/vehic
 import { VehiclesMapsViewComponent } from './vehicles/vehicles-maps-view/vehicles-maps-view.component';
 import { VehiclesDetailsComponent } from './vehicles/vehicle-details/vehicle-details.component';
 import { AuthGuardService as AuthGuard } from '../auth/auth-guard.service';
+import { VehiclesStatisticsViewComponent } from './vehicles/vehicles-statistics-view/vehicles-statistics-view.component';
 
 const routes: Routes = [{
   path: '',
@@ -51,6 +52,11 @@ const routes: Routes = [{
         {
           path: 'maps',
           component: VehiclesMapsViewComponent,
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'statistics',
+          component: VehiclesStatisticsViewComponent,
           canActivate : [AuthGuard],
         }
       ]

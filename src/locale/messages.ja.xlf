@@ -143,6 +143,10 @@
         <source>Maps view</source>
         <target>地図</target>
       </trans-unit>
+      <trans-unit id="statisticsView" datatype="html">
+        <source>Statistics view</source>
+        <target>統計学</target>
+      </trans-unit>
       <!-- End Vehicle page -->
 
       <!-- Vehicle details -->
