@@ -1,0 +1,45 @@
+<!-- <img src="{{status == 'available'? 'assets/icon/English.png': 'assets/icon/Japan.png'}}" (click)="onLinkClick()"/> -->
+<div [ngSwitch]="status">
+    <div class="available" *ngSwitchCase="'available'" (click)="onLinkClick()">
+        <div class="row" >
+            <div class="col-lg-3">
+                <nb-icon class="available" icon="video" status="primary"  pack="eva">
+                </nb-icon>
+            </div>
+            <div class="col-lg-3" >
+               {{ totalVideos }}    <span>/</span>    {{ totalCameras }}  
+            </div>
+            <div class="col-lg-6">
+                <p class="paragraph" i18n="@@videoAvailable">Available
+               
+               </p>
+            </div>
+        </div>
+    </div>
+    <div class="switch-two" *ngSwitchCase="'unavailable'">
+        <div class="row">
+            <div class="col-lg-3">
+                <nb-icon icon="video-off" status="danger" pack="eva"></nb-icon>
+            </div>
+            <div class="col-lg-3" >
+                {{ totalVideos }}    <span>/</span>    {{ totalCameras }}  
+             </div>
+            <div class="col-lg-6">
+                <p class="title" i18n="@@waitingForVideo">UnAvailable</p>
+            </div>
+        </div>
+    </div>
+    <div class="available" *ngSwitchCase="'processing'" (click)="onLinkClick()">
+        <div class="row">
+            <div class="col-lg-3">
+                <nb-icon class="available"  (click)="onLinkClick()" icon="video-off" status="info" pack="eva"></nb-icon>
+            </div>
+            <div class="col-lg-3" >
+                {{ totalVideos }}    <span>/</span>    {{ totalCameras }}  
+             </div>
+            <div class="col-lg-6">
+                <p class="paragraph"   i18n="@@processingVideo">Processsing</p>
+            </div>
+        </div>
+    </div>
+</div>

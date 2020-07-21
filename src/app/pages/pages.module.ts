@@ -7,6 +7,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CompaniesModule } from './companies/companies.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
+import { DeviceModule } from './devicedata/device.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { VehiclesModule } from './vehicles/vehicles.module';
     NbMenuModule,
     DashboardModule,
     CompaniesModule,
-    VehiclesModule
+    VehiclesModule,
+    DeviceModule,
   ],
   declarations: [
     PagesComponent,

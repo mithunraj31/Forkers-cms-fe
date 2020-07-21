@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ThemeModule } from '../../@theme/theme.module';
-import { NbCardModule, NbListModule, NbSpinnerModule } from '@nebular/theme';
+import { NbCardModule, NbListModule, NbSpinnerModule, NbIconModule } from '@nebular/theme';
 
 import { CompaniesComponent } from './companies.companent';
 
@@ -10,6 +10,7 @@ import { CompaniesComponent } from './companies.companent';
     ThemeModule,
     NbListModule,
     NbSpinnerModule,
+    NbIconModule
   ],
   declarations: [
     CompaniesComponent,
@@ -17,3 +18,4 @@ import { CompaniesComponent } from './companies.companent';
 })
 export class CompaniesModule {
 }
+
