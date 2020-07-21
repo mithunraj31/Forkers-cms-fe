@@ -42,28 +42,28 @@ export class EventMapComponent implements OnInit {
   }
 
   initialMaps() {
-    // this.eventService.getEvent().subscribe(events => {
-    //   this.layers = [];
-    //   events.forEach(event => {
-    //     if (!event.sensorValue.lat 
-    //       || !event.sensorValue.lng
-    //       || event.sensorValue.lat == "0.000000"
-    //       || event.sensorValue.lng == "0.000000") {
-    //         return;
-    //       }
-    //     const markerInstance = marker([
-    //       parseFloat(event.sensorValue.lat),
-    //       parseFloat(event.sensorValue.lng)
-    //     ]);
-    //     markerInstance.on('click', (e) => {
-    //       this.router.navigate([`devices/events/${event.deviceId}`]);
-    //     });
-    //     this.layers.push(markerInstance)
-    //   });
-    // }, error => {
-    //   const status = 'danger';
-    //   this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
-    // });
+    this.eventService.getEvent().subscribe(events => {
+      this.layers = [];
+      events.forEach(event => {
+        if (!event.sensorValue.lat 
+          || !event.sensorValue.lng
+          || event.sensorValue.lat == "0.000000"
+          || event.sensorValue.lng == "0.000000") {
+            return;
+          }
+        const markerInstance = marker([
+          parseFloat(event.sensorValue.lat),
+          parseFloat(event.sensorValue.lng)
+        ]);
+        markerInstance.on('click', (e) => {
+          this.router.navigate([`devices/events/${event.deviceId}`]);
+        });
+        this.layers.push(markerInstance)
+      });
+    }, error => {
+      const status = 'danger';
+      this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
+    });
   }
 
 }

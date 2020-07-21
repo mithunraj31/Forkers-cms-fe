@@ -146,7 +146,6 @@ export class EventdataComponent implements OnInit {
       this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
       this.router.navigate([`pages/dashboard`]);
     });
-    //this.listings = this.eventService.getEvent();
   }
 
 
