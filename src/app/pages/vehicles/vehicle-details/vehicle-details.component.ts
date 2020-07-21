@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, marker } from 'leaflet';
+import { tileLayer, latLng, marker, icon } from 'leaflet';
 import { VehicleService } from '../../../services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NetworkType } from '../../../@core/enums/enum.network-type';
@@ -60,8 +60,7 @@ export class VehiclesDetailsComponent implements OnInit {
     // next update marker layers.
     // @return {void}
     initailDetails() {
-        this.vehicleService.getVehicles().subscribe(vehicles => {
-            const vehicle = vehicles.filter(x => x.id == this.vehicleId)[0]
+        this.vehicleService.getVehicleById( this.vehicleId).subscribe(vehicle => {
             if (vehicle) {
                 this.vehicle = [
                     {
@@ -70,56 +69,61 @@ export class VehiclesDetailsComponent implements OnInit {
                     },
                     {
                         key: $localize`:@@plateNumber:`,
-                        value: vehicle.plateNumber
+                        value: vehicle.detail.plateNumber
                     },
                     {
                         key:  $localize`:@@scanCode:`,
-                        value: vehicle.scanCode
+                        value: vehicle.detail.scanCode
                     },
                     {
                         key: $localize`:@@groupName:`,
-                        value: vehicle.groupName
+                        value: vehicle.detail.groupName
                     },
                     {
                         key: $localize`:@@tcpServerAddress:`,
-                        value: vehicle.tcpServerAdress
+                        value: vehicle.detail.tcpServerAddr
                     },
                     {
                         key: $localize`:@@tcpStreamOutPort:`,
-                        value: vehicle.tcpStreamOutPort
+                        value: vehicle.detail.tcpStreamOutPort
                     },
                     {
                         key:  $localize`:@@updServerAddress:`,
-                        value: vehicle.udpServerAddress
+                        value: vehicle.detail.udpServerAddr
                     },
                     {
                         key:  $localize`:@@updStreamOutPort:`,
-                        value: vehicle.udpStreamOutPort
+                        value: vehicle.detail.udpStreamOutPort
                     },
                     {
                         key:  $localize`:@@status:`,
-                        value: vehicle.isOnline
+                        value: vehicle.online
                         ? '<i class="fas fa-circle device-online"></i> ' + $localize`:@@online:`
                         : '<i class="fas fa-circle"></i> ' + $localize`:@@offline:`
                     },
                     {
                         key: $localize`:@@active:`,
-                        value: vehicle.isActive
+                        value: vehicle.active + ``
                     },
                     {
                         key: $localize`:@@deviceType:`,
-                        value: vehicle.deviceType
+                        value: vehicle.detail.deviceType
                     },
                     {
                         key: $localize`:@@networkType:`,
-                        value: this.getNetworkType(vehicle.networkType)
+                        value: this.getNetworkType(vehicle.detail.networkType)
                     }
                 ];
                 this.layers = [
                     marker([
                         parseFloat(vehicle.location.lat),
                         parseFloat(vehicle.location.lng)
-                    ])
+                    ], {
+                        icon: icon({
+                            iconSize: [ 40, 40 ],
+                            iconUrl: `/assets/icon/forklift-${vehicle.online ? 'online' : 'offline'}.png`,
+                        })
+                    })
                 ];
             }
             else {

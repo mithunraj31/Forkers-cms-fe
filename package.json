@@ -15,6 +15,7 @@
     "conventional-changelog": "conventional-changelog",
     "start": "ng serve --configuration=en",
     "start:ja": "ng serve --configuration=ja --port 4401",
+    "start:proxy": "ng serve --proxy-config src/proxy.conf.json --configuration=en",
     "build": "ng build --configuration=en",
     "build:ja": "ng build --configuration=ja",
     "build:prod": "ng build --prod --aot --configuration=en && ng build --prod --aot --configuration=ja",

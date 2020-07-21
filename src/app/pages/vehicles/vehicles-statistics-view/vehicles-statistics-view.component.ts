@@ -1,21 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleService, DashboardService } from '../../services';
-import { LegendItemModel } from '../../@core/entities/legend-item.model';
-import { NgxLegendItemColor } from '../../@core/enums/enum.legend-item-color';
+import { VehicleService, DashboardService } from '../../../services';
+import { Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
+import { LegendItemModel } from '../../../@core/entities/legend-item.model';
+import { NgxLegendItemColor } from '../../../@core/enums/enum.legend-item-color';
 
 @Component({
-  selector: 'frk-dashboard',
-  styleUrls: ['./dashboard.component.scss'],
-  templateUrl: './dashboard.component.html',
+  selector: 'frk-vehicles-statistics-view',
+  styleUrls: ['./vehicles-statistics-view.component.scss'],
+  templateUrl: './vehicles-statistics-view.component.html',
 })
-export class DashboardComponent implements OnInit {
-
-  // number of online vehicle
-  // use to display on little card in dashboard 
-  // obtain data from backend API when the component initializing.
-  // @type {number} default with 0
-  onlineVehicle: number = 0;
+export class VehiclesStatisticsViewComponent implements OnInit {
 
   // online statistics chart's period (days range)
   // when user select dropdown the value will change according selected value.
@@ -25,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   // store formatted online statistics data
   // the data will obtain after format raw data from backend API
-  displayData: { label: string, value: number } [];
+  displayData: { label: string, value: number }[];
 
   // period range for PeriodAnalyticsChartComponent 
   // will display to dropdown options.
@@ -57,7 +52,7 @@ export class DashboardComponent implements OnInit {
       {
         title: $localize`:@@sixMonth:`,
         value: 180
-      },{
+      }, {
         title: $localize`:@@oneYear:`,
         value: 360
       }
@@ -70,37 +65,28 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // HTTP request to get number of online device.
-    this.vehicleService.getOnlineVehicle()
-      .subscribe(numberOfOnlineVehicle => {
-        this.onlineVehicle = numberOfOnlineVehicle;
-      }, error => {
-        const status = 'danger';
-        this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
-      });
-
-      // HTTP request to get online status according to selected period
+    // HTTP request to get online status according to selected period
     this.getOnlineVehicleStatus(this.selectedNumberOfDays);
-
   }
 
   // the method will trigger when user selected new period option or component initializing.
   // then HTTP request to backend to get statistic data and format data before send to PeriodAnalyticsChartComponent
+  onStatusPeriodChange($event) {
+    this.selectedNumberOfDays = $event;
+    this.getOnlineVehicleStatus(this.selectedNumberOfDays);
+  }
+
+  // the method trigger when user select new period option
+  // then will pass selected data from PeriodAnalyticsChartComponent to the method.
   private getOnlineVehicleStatus(days: number) {
     this.vehicleService.getOnlineVehicleStatus(days)
       .subscribe(data => {
         this.displayData = this.dashboardService.convertOnlineStatusToChartData(days, data);
       }, error => {
         const status = 'danger';
-        this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
+        this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
       });
   }
 
-  // the method trigger when user select new period option
-  // then will pass selected data from PeriodAnalyticsChartComponent to the method.
-  onStatusPeriodChange($event) {
-    this.selectedNumberOfDays = $event;
-    this.getOnlineVehicleStatus(this.selectedNumberOfDays);
-  }
-  
+
 }

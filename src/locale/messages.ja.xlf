@@ -146,6 +146,10 @@
         <source>Maps view</source>
         <target>地図</target>
       </trans-unit>
+      <trans-unit id="statisticsView" datatype="html">
+        <source>Statistics view</source>
+        <target>統計学</target>
+      </trans-unit>
       <!-- End Vehicle page -->
 
       <!-- Vehicle details -->
@@ -182,6 +186,38 @@
         <target>ネットワーク型</target>
       </trans-unit>
       <!-- Vehicle details -->
+
+<!-- Dashboard -->
+      <trans-unit id="onlineVehicle" datatype="html">
+        <source>Online vehicle</source>
+        <target>オンライン車両</target>
+      </trans-unit>
+
+      <trans-unit id="oneDay" datatype="html">
+        <source>1 day</source>
+        <target>1日</target>
+      </trans-unit>
+      <trans-unit id="oneWeek" datatype="html">
+        <source>1 Week</source>
+        <target>1週間</target>
+      </trans-unit>
+      <trans-unit id="oneMonth" datatype="html">
+        <source>1 month</source>
+        <target>1ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="threeMonth" datatype="html">
+        <source>3 month</source>
+        <target>3ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="sixMonth" datatype="html">
+        <source>6 month</source>
+        <target>6ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="oneYear" datatype="html">
+        <source>1 year</source>
+        <target>1年間</target>
+      </trans-unit>      
+      <!-- end Dashboard -->
 
       <!-- General -->
       <trans-unit id="vehicle" datatype="html">

@@ -146,6 +146,10 @@
         <source>Maps view</source>
         <target>Table view</target>
       </trans-unit>
+      <trans-unit id="statisticsView" datatype="html">
+        <source>Statistics view</source>
+        <target>Statistics view</target>
+      </trans-unit>
       <!-- End Vehicle page -->
 
       <!-- Vehicle details -->
@@ -182,6 +186,38 @@
         <target>Network type</target>
       </trans-unit>
       <!-- Vehicle details -->
+
+      <!-- Dashboard -->
+      <trans-unit id="onlineVehicle" datatype="html">
+        <source>Online vehicle</source>
+        <target>Online vehicle</target>
+      </trans-unit>
+
+      <trans-unit id="oneDay" datatype="html">
+        <source>1 day</source>
+        <target>1 day</target>
+      </trans-unit>
+      <trans-unit id="oneWeek" datatype="html">
+        <source>1 Week</source>
+        <target>1 Week</target>
+      </trans-unit>
+      <trans-unit id="oneMonth" datatype="html">
+        <source>1 month</source>
+        <target>1 month</target>
+      </trans-unit>
+      <trans-unit id="threeMonth" datatype="html">
+        <source>3 month</source>
+        <target>3 month</target>
+      </trans-unit>
+      <trans-unit id="sixMonth" datatype="html">
+        <source>6 month</source>
+        <target>6 month</target>
+      </trans-unit>
+      <trans-unit id="oneYear" datatype="html">
+        <source>1 year</source>
+        <target>1 year</target>
+      </trans-unit>
+      <!-- end Dashboard -->
 
       <!-- General -->
       <trans-unit id="vehicle" datatype="html">

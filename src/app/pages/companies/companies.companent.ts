@@ -26,7 +26,6 @@ export class CompaniesComponent implements OnInit {
     }
 
     onEventViewClick(companyName){
-        console.log(event);
         this.router.navigate([`pages/devices/events/company/${companyName}`]);
     }
 

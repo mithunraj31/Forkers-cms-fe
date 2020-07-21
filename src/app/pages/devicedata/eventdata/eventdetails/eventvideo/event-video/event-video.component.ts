@@ -23,8 +23,6 @@ export class EventVideoComponent implements OnInit {
   ngOnInit(): void {
    
     this.route.paramMap.subscribe(paramMap => {
-      console.log(paramMap.get('videoUrl'));
-      console.log(this.video);
       // get videoUrl  from route params
       if (paramMap.get('videoUrl') != null && paramMap.get('videoUrl') != undefined) {
         this.videoUrl = paramMap.get('videoUrl');

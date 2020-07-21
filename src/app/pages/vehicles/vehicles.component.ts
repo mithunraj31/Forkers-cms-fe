@@ -27,6 +27,10 @@ export class VehiclesComponent implements OnInit {
       {
         title: $localize`:@@mapsView:`,
         route: ['./maps'],
+      },
+      {
+        title: $localize`:@@statisticsView:`,
+        route: ['./statistics'],
       }
     ];
   }

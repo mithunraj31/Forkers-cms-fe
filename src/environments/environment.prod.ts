@@ -6,6 +6,6 @@
 export const environment = {
   production: true,
   host: "http://54.250.102.34:8080/api",
-  hostJa: "/en",
-  hostEn: "/ja",
+  hostJa: "http://54.250.102.34:8080/en",
+  hostEn: "http://54.250.102.34:8080/ja",
 };
