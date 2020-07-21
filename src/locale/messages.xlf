@@ -16,6 +16,14 @@
         <source>logout</source>
         <target>logout</target>
       </trans-unit>
+      <trans-unit id="eventReceived" datatype="html">
+        <source>Event received</source>
+        <target>Event received</target>
+      </trans-unit>
+      <trans-unit id="eventIdIs" datatype="html">
+        <source>Event ID is</source>
+        <target>Event ID is</target>
+      </trans-unit>
       <!-- End headers -->
 
       <!-- Themes -->
