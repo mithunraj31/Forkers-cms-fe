@@ -11,11 +11,6 @@ import { tileLayer, latLng, marker } from 'leaflet';
 })
 export class EventMapComponent implements OnInit {
 
-
-  // device ID obtained from route params
-  // @type {number}
-  eventId: string;
-
   options: any = {};
   layers = [];
 
@@ -26,10 +21,6 @@ export class EventMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(paramMap => {
-      // get device id from route params
-      this.eventId = paramMap.get('eventId');
-    });
     this.options = {
       layers: [
         tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
@@ -56,7 +47,7 @@ export class EventMapComponent implements OnInit {
           parseFloat(event.sensorValue.lng)
         ]);
         markerInstance.on('click', (e) => {
-          this.router.navigate([`devices/events/${event.deviceId}`]);
+          this.router.navigate([`devices/events/${event.eventId}`]);
         });
         this.layers.push(markerInstance)
       });

@@ -105,7 +105,6 @@ export class EventdataComponent implements OnInit {
 
   ngOnInit() {
     this.role = this.userService.getLoggedUser().roles[0];
-    this.initialTable();
     this.route.paramMap.subscribe(paramMap => {
       // get companyName from route params
       this.companyName = paramMap.get('companyName');
