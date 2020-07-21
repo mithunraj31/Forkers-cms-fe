@@ -1,0 +1,20 @@
+<nb-card>
+    <nb-card-header>
+        <span i18n="@@EventId">EventId</span> > {{ eventId }}
+    </nb-card-header>
+    <nb-card-body>
+        <nb-tabset>
+            <nb-tab tabTitle="DeviceDetails">
+                <frk-event-list [source]="event"></frk-event-list>
+            </nb-tab>
+            <nb-tab tabTitle="Map">
+              <frk-event-map></frk-event-map>
+            </nb-tab>
+            <nb-tab tabTitle="Video" >
+              <div *ngIf="videoUrl">
+                <frk-event-video [video]="videoUrl"></frk-event-video>
+              </div>
+            </nb-tab>
+          </nb-tabset>
+    </nb-card-body>
+</nb-card>

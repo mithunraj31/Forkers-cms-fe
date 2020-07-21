@@ -38,5 +38,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/vehicles/statistics',
       }
     ]
+  },
+  {
+    title: $localize`:@@sidebarMenuDevice:`,
+    icon: 'car-outline',
+    link: '/pages/devices',
+    expanded: true,
+    children: [
+      {
+        title: $localize`:@@eventView:`,
+        icon: 'video-outline',
+        link: '/pages/devices/events/company',
+      }      
+     
+    ]
   }
 ];
