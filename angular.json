@@ -106,6 +106,7 @@
               "i18nFile": "src/locale/messages.ja.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "ja",
+              "baseHref": "/ja/",
               "i18nMissingTranslation": "error"
             },
             "en": {
@@ -114,6 +115,7 @@
               "i18nFile": "src/locale/messages.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en",
+              "baseHref": "/en/",
               "i18nMissingTranslation": "error"
             }
           }

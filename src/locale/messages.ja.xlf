@@ -221,6 +221,14 @@
         <source>Try to refresh the page</source>
         <target>ページを更新してみてください</target>
       </trans-unit>
+      <trans-unit id="pageNotFound" datatype="html">
+        <source>Page does not exist! Unless you were looking for this error page, In which case you find it!</source>
+        <target>ページが存在しません！あなたがこのエラーページを探していなかった場合を除いて、あなたはそれを見つけます！</target>
+      </trans-unit>
+      <trans-unit id="pageNotAllowAccess" datatype="html">
+        <source>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</source>
+        <target>アクセスは許可されていません。このページにアクセスできません。お問い合わせください：mbel003@mbel.co.jp</target>
+      </trans-unit>
       <!-- End General -->
 
        <!-- Event page -->
