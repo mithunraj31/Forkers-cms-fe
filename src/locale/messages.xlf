@@ -277,6 +277,15 @@
         <source>action</source>
         <target>action</target>
       </trans-unit>
+        <trans-unit id="datetime" datatype="html">
+        <source>Datetime</source>
+        <target>Datetime</target>
+      </trans-unit>
+      </trans-unit>
+        <trans-unit id="latestEvents" datatype="html">
+        <source>Latest events</source>
+        <target>Latest events</target>
+      </trans-unit>
       <!-- End General -->
 
  <!-- Event page -->
