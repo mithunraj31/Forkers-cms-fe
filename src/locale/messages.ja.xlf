@@ -15,6 +15,15 @@
         <source>logout</source>
         <target>ログアウト</target>
       </trans-unit>
+      <trans-unit id="eventReceived" datatype="html">
+        <source>Event received</source>
+        <target>イベントがもらいました</target>
+      </trans-unit>
+      <trans-unit id="eventIdIs" datatype="html">
+        <source>Event ID is</source>
+        <target>イベントIDは</target>
+      </trans-unit>
+
        <!-- End headers -->
 
       <!-- Themes -->
