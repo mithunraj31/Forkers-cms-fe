@@ -70,6 +70,10 @@
         <source>Forklift</source>
         <target>車両</target>
       </trans-unit>
+        <trans-unit id="sidebarMenuDevice" datatype="html">
+        <source>Device</source>
+        <target>デバイス</target>
+      </trans-unit>
       <!-- End Sidebar menu -->
 
       <!-- Login -->
@@ -151,6 +155,10 @@
         <source>Maps view</source>
         <target>地図</target>
       </trans-unit>
+      <trans-unit id="statisticsView" datatype="html">
+        <source>Statistics view</source>
+        <target>統計学</target>
+      </trans-unit>
       <!-- End Vehicle page -->
 
       <!-- Vehicle details -->
@@ -187,6 +195,38 @@
         <target>ネットワーク型</target>
       </trans-unit>
       <!-- Vehicle details -->
+
+<!-- Dashboard -->
+      <trans-unit id="onlineVehicle" datatype="html">
+        <source>Online vehicle</source>
+        <target>オンライン車両</target>
+      </trans-unit>
+
+      <trans-unit id="oneDay" datatype="html">
+        <source>1 day</source>
+        <target>1日</target>
+      </trans-unit>
+      <trans-unit id="oneWeek" datatype="html">
+        <source>1 Week</source>
+        <target>1週間</target>
+      </trans-unit>
+      <trans-unit id="oneMonth" datatype="html">
+        <source>1 month</source>
+        <target>1ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="threeMonth" datatype="html">
+        <source>3 month</source>
+        <target>3ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="sixMonth" datatype="html">
+        <source>6 month</source>
+        <target>6ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="oneYear" datatype="html">
+        <source>1 year</source>
+        <target>1年間</target>
+      </trans-unit>      
+      <!-- end Dashboard -->
 
       <!-- General -->
       <trans-unit id="vehicle" datatype="html">
@@ -236,6 +276,103 @@
       </trans-unit>
       <!-- End General -->
 
+       <!-- Event page -->
+      <trans-unit id="eventView" datatype="html">
+        <source>Event view</source>
+        <target>イベントビュー</target>
+      </trans-unit>
+
+        <trans-unit id="type" datatype="html">
+        <source>Type</source>
+        <target>タイプ</target>
+      </trans-unit>
+      
+      <trans-unit id="DeviceId" datatype="html">
+        <source>DeviceId</source>
+        <target>デバイスID</target>
+      </trans-unit>
+
+       <trans-unit id="EventId" datatype="html">
+        <source>EventId</source>
+        <target>イベントID</target>
+      </trans-unit>
+
+        <trans-unit id="EventId" datatype="html">
+        <source>EventId</source>
+        <target>イベントID</target>
+      </trans-unit>
+
+        <trans-unit id="driverId" datatype="html">
+        <source>driverId</source>
+        <target>ドライブID</target>
+      </trans-unit>
+        <trans-unit id="videoId" datatype="html">
+        <source>videoId</source>
+        <target>ビデオID</target>
+      </trans-unit>
+        <trans-unit id="userName" datatype="html">
+        <source>userName</source>
+        <target>ユーザー名</target>
+      </trans-unit>
+
+
+       <trans-unit id="waitingForVideo" datatype="html">
+        <source>Waiting For Video</source>
+        <target>ビデオを待っています</target>
+      </trans-unit>
+
+      <trans-unit id="videoAvailable" datatype="html">
+        <source>Video Available</source>
+        <target>利用可能なビデオ</target>
+      </trans-unit>
+
+      <trans-unit id="noOfCamera" datatype="html">
+        <source>Total Cameras</source>
+        <target>トータルカメラ</target>
+      </trans-unit>
+
+      <trans-unit id="noOfVideo" datatype="html">
+        <source>Total Videos</source>
+        <target>合計ビデオ</target>
+      </trans-unit>
+
+      <trans-unit id="video" datatype="html">
+        <source>Video</source>
+        <target>ビデオ</target>
+      </trans-unit>
+
+      <trans-unit id="processingVideo" datatype="html">
+        <source>Processing Video</source>
+        <target>ビデオの処理</target>
+      </trans-unit>
+
+       <trans-unit id="company" datatype="html">
+        <source>Company</source>
+        <target>会社</target>
+      </trans-unit>
+
+       <trans-unit id="events" datatype="html">
+        <source>Events</source>
+        <target>イベント</target>
+      </trans-unit>
+
+     
+
+      <!-- End Event page -->
+
+      <!-- Regular page -->
+       <trans-unit id="regularView" datatype="html">
+        <source>Regular view</source>
+        <target>レギュラービュー</target>
+      </trans-unit>
+
+
+      <trans-unit id="videoUrl" datatype="html">
+        <source>video Url</source>
+        <target>ビデオURL</target>
+      </trans-unit>
+
+       <!-- End Regular page -->
 
     </body>
   </file>

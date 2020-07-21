@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tileLayer, latLng, circle, polygon, marker } from 'leaflet';
+import { tileLayer, latLng, marker, icon } from 'leaflet';
 import { VehicleService } from '../../../services';
 import { Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
@@ -45,7 +45,12 @@ export class VehiclesMapsViewComponent implements OnInit {
         const markerInstance = marker([
           parseFloat(v.location.lat),
           parseFloat(v.location.lng)
-        ]);
+        ], {
+          icon: icon({
+              iconSize: [ 40, 40 ],
+              iconUrl: `/assets/icon/forklift-${v.online ? 'online' : 'offline'}.png`,
+          })
+      });
         markerInstance.on('click', (e) => {
           this.router.navigate([`pages/vehicles/${v.id}`]);
         });

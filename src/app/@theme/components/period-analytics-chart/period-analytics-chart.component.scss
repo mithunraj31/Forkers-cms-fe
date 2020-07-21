@@ -1,0 +1,36 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  display: block;
+  height: 17.5rem;
+  width: 100%;
+
+  .echart {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .legend {
+    display: flex;
+    margin-left: 3rem;
+    align-items: center;
+
+    &:not(:last-child) {
+      @include nb-ltr(margin-right, 1rem);
+      @include nb-rtl(margin-left, 1rem);
+    }
+  }
+
+  .legend-item-color {
+    min-width: 15px;
+    min-height: 15px;
+    border-radius: 0.2rem;
+  }
+
+  .legend-title {
+    @include nb-ltr(padding-left, 0.75rem);
+    @include nb-rtl(padding-right, 0.75rem);
+    white-space: nowrap;
+  }
+}

@@ -9,6 +9,10 @@ import { VehiclesTableViewComponent } from './vehicles/vehicles-table-view/vehic
 import { VehiclesMapsViewComponent } from './vehicles/vehicles-maps-view/vehicles-maps-view.component';
 import { VehiclesDetailsComponent } from './vehicles/vehicle-details/vehicle-details.component';
 import { AuthGuardService as AuthGuard } from '../auth/auth-guard.service';
+import { VehiclesStatisticsViewComponent } from './vehicles/vehicles-statistics-view/vehicles-statistics-view.component';
+import { EventdataComponent } from './devicedata/eventdata/eventdata.component';
+import { EventDetailsContainerComponent } from './devicedata/eventdata/eventdetails/event-details-container/event-details-container.component';
+import { EventVideoComponent } from './devicedata/eventdata/eventdetails/eventvideo/event-video/event-video.component';
 
 const routes: Routes = [{
   path: '',
@@ -52,6 +56,11 @@ const routes: Routes = [{
           path: 'maps',
           component: VehiclesMapsViewComponent,
           canActivate : [AuthGuard],
+        },
+        {
+          path: 'statistics',
+          component: VehiclesStatisticsViewComponent,
+          canActivate : [AuthGuard],
         }
       ]
     },
@@ -60,6 +69,29 @@ const routes: Routes = [{
       component: VehiclesDetailsComponent,
       canActivate : [AuthGuard],
     },
+    {
+      path:'devices/events/company',
+      component:EventdataComponent,
+      canActivate:[AuthGuard],
+
+    },
+    {
+      path:'devices/events/company/:companyName',
+      component:EventdataComponent,
+      canActivate:[AuthGuard],
+
+    },
+    {
+      path: 'devices/events/:eventId',
+      component: EventDetailsContainerComponent,
+      canActivate : [AuthGuard],
+    },
+    {
+      path: 'devices/video/:videoUrl',
+      component: EventVideoComponent,
+      canActivate : [AuthGuard],
+    },
+   
   ],
 }];
 
