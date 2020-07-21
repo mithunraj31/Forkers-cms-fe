@@ -273,6 +273,10 @@
         <source>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</source>
         <target>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</target>
       </trans-unit>
+      <trans-unit id="action" datatype="html">
+        <source>action</source>
+        <target>action</target>
+      </trans-unit>
       <!-- End General -->
 
  <!-- Event page -->

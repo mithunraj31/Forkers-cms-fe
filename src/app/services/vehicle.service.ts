@@ -16,8 +16,12 @@ export class VehicleService {
     constructor(private http: HttpClient) { }
 
     //retriveVehicle information listings from Backend API
-    getVehicles() {
-        return this.http.get<any>(`${this.host}/vehicle`)
+    getVehicles(username?: string) {
+        let queryParams = '';
+        if (username) {
+            queryParams = `?customer=${username}`;
+        }
+        return this.http.get<any>(`${this.host}/vehicle${queryParams}`)
         .pipe(map(response => {
             if (response?.vehicles) {
                 const vehiclesResponse = response.vehicles as any[];
