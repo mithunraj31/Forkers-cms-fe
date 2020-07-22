@@ -68,7 +68,7 @@ const routes: Routes = [{
       canActivate : [AuthGuard],
     },
     {
-      path:'devices/events/company',
+      path:'devices/events',
       component:EventdataComponent,
       canActivate:[AuthGuard],
 

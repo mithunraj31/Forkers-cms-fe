@@ -38,12 +38,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: $localize`:@@sidebarMenuDevice:`,
     icon: 'car-outline',
     link: '/pages/devices',
+    pathMatch: 'prefix',
     expanded: true,
     children: [
       {
         title: $localize`:@@eventView:`,
         icon: 'video-outline',
-        link: '/pages/devices/events/company',
+        pathMatch: 'prefix',
+        link: '/pages/devices/events',
       }      
      
     ]
