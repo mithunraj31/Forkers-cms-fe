@@ -14,6 +14,8 @@ import { EventDetailsContainerComponent } from './devicedata/eventdata/eventdeta
 import { RegulardataComponent } from './devicedata/regulardata/regulardata/regulardata.component';
 import { RegularDetailsContainerComponent } from './devicedata/regulardata/regular-details/regular-details-container/regular-details-container.component';
 import { EventVideoComponent } from './devicedata/eventdata/eventdetails/eventvideo/event-video/event-video.component';
+import { EventMapComponent } from './devicedata/eventdata/eventdetails/eventmap/event-map/event-map.component';
+import { EventListComponent } from './devicedata/eventdata/eventdetails/eventlist/event-list/event-list.component';
 
 const routes: Routes = [{
   path: '',
@@ -80,12 +82,29 @@ const routes: Routes = [{
     {
       path: 'devices/events/:eventId',
       component: EventDetailsContainerComponent,
-      canActivate : [AuthGuard],
-    },
-    {
-      path: 'devices/video/:videoUrl',
-      component: EventVideoComponent,
-      canActivate : [AuthGuard],
+      children: [
+        {
+          path: '',
+          redirectTo: 'details',
+          pathMatch: 'full',
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'details',
+          component: EventListComponent,
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'maps',
+          component: EventMapComponent,
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'videos',
+          component: EventVideoComponent,
+          canActivate : [AuthGuard],
+        }
+      ]
     },
     {
       path: 'devices/regular',

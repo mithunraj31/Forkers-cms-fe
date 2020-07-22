@@ -1,8 +1,9 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {map } from 'rxjs/operators';
+import {map, delay } from 'rxjs/operators';
 import {Event} from '../@core/entities/event.model'
+import { of } from 'rxjs';
 
 
 // Event infomation management
@@ -38,21 +39,7 @@ export class EventService {
     }
 
     getEventById(eventId: string) {
-        return this.http.get<any>(`${this.host}/event/:eventId`)
-        .pipe(map(response => {
-            if (response?.events) {
-                const eventResponse = response.events as any[];
-                // mapping json response to array of object
-                const events = eventResponse.map(x => {
-                    return <Event> { ...x };
-                });
-
-                return events
-            }
-
-            throw new Error();
-        }));
-
+        return this.http.get<Event>(`${this.host}/event/${eventId}`)
     }
 
   
