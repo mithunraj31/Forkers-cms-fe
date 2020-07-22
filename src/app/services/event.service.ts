@@ -1,9 +1,9 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {map, delay } from 'rxjs/operators';
-import {Event} from '../@core/entities/event.model'
-import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Event } from '../@core/entities/event.model'
+import { EventSummary } from '../@core/entities/event-summary.model';
 
 
 // Event infomation management
@@ -15,7 +15,7 @@ export class EventService {
 
     constructor(private http: HttpClient) { }
 
- //retriveEvent information listings from Backend API
+    //retriveEvent information listings from Backend API
     getEvent(companyName?: string) {
 
         let queryString: string = '';
@@ -23,24 +23,49 @@ export class EventService {
             queryString = `?stk_user=${companyName}`;
         }
         return this.http.get<any>(`${this.host}/event${queryString}`)
-        .pipe(map(events => {
-            if (events) {
+            .pipe(map(events => {
+                if (events) {
 
-                // mapping json response to array of object
-                const mappedEvents = events.map(x => {
-                    return <Event> { ...x };
-                });
+                    // mapping json response to array of object
+                    const mappedEvents = events.map(x => {
+                        return <Event>{ ...x };
+                    });
 
-                return mappedEvents
-            }
+                    return mappedEvents
+                }
 
-            throw new Error();
-        }));
+                throw new Error();
+            }));
     }
 
     getEventById(eventId: string) {
-        return this.http.get<Event>(`${this.host}/event/${eventId}`)
+        return this.http.get<any>(`${this.host}/event/:eventId`)
+            .pipe(map(response => {
+                if (response) {
+                    return <Event>{ ...response };
+                }
+
+                throw new Error();
+            }));
+
     }
 
-  
+    getEventSummary() {
+
+        return this.http.get<any>(`${this.host}/event/stat`)
+            .pipe(map(response => {
+                if (response) {
+                    // mapping json response to array of object
+                    return <EventSummary> {
+                        acceleration: response.accelerate,
+                        deacceleration: response.decelerate,
+                        accident: response.impact,
+                        suddenHandle: parseInt(response.turnLeft) + parseInt(response.turnRight),
+                        total: response.total
+                    };
+                }
+
+                throw new Error();
+            }));
+    }
 }
