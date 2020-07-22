@@ -152,7 +152,7 @@
       </trans-unit>
       <trans-unit id="mapsView" datatype="html">
         <source>Maps view</source>
-        <target>Table view</target>
+        <target>Maps view</target>
       </trans-unit>
       <trans-unit id="statisticsView" datatype="html">
         <source>Statistics view</source>
@@ -353,7 +353,104 @@
         <source>video Url</source>
         <target>video Url</target>
       </trans-unit>
-     
+
+ <!--  Event data page -->
+
+      
+<trans-unit id="Manual" datatype="html">
+        <source>Manual</source>
+        <target>Manual</target>
+      </trans-unit>
+
+      <trans-unit id="Time" datatype="html">
+        <source>Time</source>
+        <target>Time</target>
+      </trans-unit>
+      <trans-unit id="Motion" datatype="html">
+        <source>Motion</source>
+        <target>Motion</target>
+      </trans-unit>
+      <trans-unit id="Speed" datatype="html">
+        <source>Speed</source>
+        <target>Speed</target>
+      </trans-unit>
+
+       <trans-unit id="Gsensor" datatype="html">
+        <source>G-sensor</source>
+        <target>G-sensor</target>
+      </trans-unit>
+
+      <trans-unit id="Temperature" datatype="html">
+        <source>Temperature</source>
+        <target>Temperature</target>
+      </trans-unit>
+
+       <trans-unit id="Alaram" datatype="html">
+        <source>Alaram</source>
+        <target>Alaram</target>
+      </trans-unit>
+
+      <trans-unit id="Button" datatype="html">
+        <source>Button</source>
+        <target>Button</target>
+      </trans-unit>
+
+         <trans-unit id="RFID" datatype="html">
+        <source>RFID</source>
+        <target>RFID</target>
+      </trans-unit>
+
+        <trans-unit id="Accelerate" datatype="html">
+        <source>Accelerate</source>
+        <target>Accelerate</target>
+      </trans-unit>
+      
+        <trans-unit id="Deceleration" datatype="html">
+        <source>Deceleration</source>
+        <target>Deceleration</target>
+      </trans-unit>
+
+       <trans-unit id="TurnAngle" datatype="html">
+        <source>Turn Angle</source>
+        <target>Turn Angle</target>
+      </trans-unit>
+
+      <trans-unit id="TurnGyroscope" datatype="html">
+        <source>Turn Gyroscope</source>
+        <target>Turn Gyroscope</target>
+      </trans-unit>
+
+       <trans-unit id="Impact" datatype="html">
+        <source>Impact</source>
+        <target>Impact</target>
+      </trans-unit>
+
+       <trans-unit id="TurnLeft​" datatype="html">
+        <source>Turn Left​</source>
+        <target>Turn Left​</target>
+      </trans-unit>
+
+      <trans-unit id="TurnRight" datatype="html">
+        <source>Turn Right</source>
+        <target>Turn Right</target>
+      </trans-unit>
+
+         <trans-unit id="clip" datatype="html">
+        <source>clip</source>
+        <target>clip</target>
+      </trans-unit>
+
+        <trans-unit id="none" datatype="html">
+        <source>none</source>
+        <target>none</target>
+      </trans-unit>
+
+        <trans-unit id="DeviceDetails" datatype="html">
+        <source>DeviceDetails</source>
+        <target>DeviceDetails</target>
+      </trans-unit>
+
+     <!-- End Data event page -->
      
   
       <!-- End Event page -->

@@ -13,6 +13,8 @@ import { VehiclesStatisticsViewComponent } from './vehicles/vehicles-statistics-
 import { EventdataComponent } from './devicedata/eventdata/eventdata.component';
 import { EventDetailsContainerComponent } from './devicedata/eventdata/eventdetails/event-details-container/event-details-container.component';
 import { EventVideoComponent } from './devicedata/eventdata/eventdetails/eventvideo/event-video/event-video.component';
+import { EventMapComponent } from './devicedata/eventdata/eventdetails/eventmap/event-map/event-map.component';
+import { EventListComponent } from './devicedata/eventdata/eventdetails/eventlist/event-list/event-list.component';
 
 const routes: Routes = [{
   path: '',
@@ -70,7 +72,7 @@ const routes: Routes = [{
       canActivate : [AuthGuard],
     },
     {
-      path:'devices/events/company',
+      path:'devices/events',
       component:EventdataComponent,
       canActivate:[AuthGuard],
 
@@ -84,12 +86,29 @@ const routes: Routes = [{
     {
       path: 'devices/events/:eventId',
       component: EventDetailsContainerComponent,
-      canActivate : [AuthGuard],
-    },
-    {
-      path: 'devices/video/:videoUrl',
-      component: EventVideoComponent,
-      canActivate : [AuthGuard],
+      children: [
+        {
+          path: '',
+          redirectTo: 'details',
+          pathMatch: 'full',
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'details',
+          component: EventListComponent,
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'maps',
+          component: EventMapComponent,
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'videos',
+          component: EventVideoComponent,
+          canActivate : [AuthGuard],
+        }
+      ]
     },
    
   ],
