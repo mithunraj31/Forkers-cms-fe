@@ -1,5 +1,14 @@
-<div *ngIf="videoUrl">
+<div *ngIf="videoUrl; else elseBlock">
 <video width="800" height="240" controls>
     <source [src]="videoUrl" type="video/mp4">
   </video>
 </div>
+
+      <ng-template #elseBlock>
+        <nb-card>
+          <nb-card-body>
+           <p class="paragraph" i18n="@@videoUnavailable">Video not yet arrived.</p>  
+          </nb-card-body>
+        </nb-card>
+      </ng-template>
+    

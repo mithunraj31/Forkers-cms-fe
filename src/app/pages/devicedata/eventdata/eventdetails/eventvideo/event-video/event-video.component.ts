@@ -41,6 +41,6 @@ export class EventVideoComponent implements OnInit {
         this.videoUrl = event.video.videoUrl;
       }
     });
-  }
+  } 
 
 }

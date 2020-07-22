@@ -391,6 +391,13 @@
         <target>video Url</target>
       </trans-unit>
 
+      <trans-unit id="videoUnavailable" datatype="html">
+        <source>Video not yet arrived.</source>
+        <target>Video not yet arrived.</target>
+      </trans-unit>
+
+      
+
       <!--  Event data page -->
 
 
