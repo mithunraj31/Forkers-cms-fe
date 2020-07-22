@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" 
+<xliff version="1.2"
   xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
@@ -69,7 +69,8 @@
       <trans-unit id="sidebarMenuForklift" datatype="html">
         <source>Forklift</source>
         <target>Forklift</target>
-      </trans-unit> <trans-unit id="sidebarMenuDevice" datatype="html">
+      </trans-unit>
+      <trans-unit id="sidebarMenuDevice" datatype="html">
         <source>Device</source>
         <target>Device</target>
       </trans-unit>
@@ -225,6 +226,26 @@
         <source>1 year</source>
         <target>1 year</target>
       </trans-unit>
+
+      <trans-unit id="acceleration" datatype="html">
+        <source>Acceleration</source>
+        <target>加速</target>
+      </trans-unit>
+
+      <trans-unit id="deacceleration" datatype="html">
+        <source>Deacceleration</source>
+        <target>減速</target>
+      </trans-unit>
+
+      <trans-unit id="suddenHandle" datatype="html">
+        <source>Sudden handle</source>
+        <target>急ハンドル</target>
+      </trans-unit>
+
+      <trans-unit id="accident" datatype="html">
+        <source>Accident</source>
+        <target>事故</target>
+      </trans-unit>
       <!-- end Dashboard -->
 
       <!-- General -->
@@ -277,110 +298,100 @@
         <source>action</source>
         <target>action</target>
       </trans-unit>
-        <trans-unit id="datetime" datatype="html">
+      <trans-unit id="datetime" datatype="html">
         <source>Datetime</source>
         <target>Datetime</target>
       </trans-unit>
-      </trans-unit>
-        <trans-unit id="latestEvents" datatype="html">
-        <source>Latest events</source>
-        <target>Latest events</target>
-      </trans-unit>
-      <!-- End General -->
+    </trans-unit>
+    <trans-unit id="latestEvents" datatype="html">
+      <source>Latest events</source>
+      <target>Latest events</target>
+    </trans-unit>
+    <trans-unit id="all" datatype="html">
+      <source>All</source>
+      <target>全部</target>
+    </trans-unit>
+    <!-- End General -->
 
- <!-- Event page -->
-      <trans-unit id="eventView" datatype="html">
-        <source>Event view</source>
-        <target>Event view</target>
-      </trans-unit>
+    <!-- Event page -->
+    <trans-unit id="eventView" datatype="html">
+      <source>Event view</source>
+      <target>Event view</target>
+    </trans-unit>
 
-       <trans-unit id="type" datatype="html">
-        <source>Type</source>
-        <target>Type</target>
-      </trans-unit>
+    <trans-unit id="type" datatype="html">
+      <source>Type</source>
+      <target>Type</target>
+    </trans-unit>
 
-       <trans-unit id="DeviceId" datatype="html">
-        <source>DeviceId</source>
-        <target>DeviceId</target>
-      </trans-unit>
-      
-<trans-unit id="EventId" datatype="html">
-        <source>EventId</source>
-        <target>EventId</target>
-      </trans-unit>
+    <trans-unit id="DeviceId" datatype="html">
+      <source>DeviceId</source>
+      <target>DeviceId</target>
+    </trans-unit>
 
-      <trans-unit id="driverId" datatype="html">
-        <source>driverId</source>
-        <target>driverId</target>
-      </trans-unit>
-      <trans-unit id="videoId" datatype="html">
-        <source>videoId</source>
-        <target>videoId</target>
-      </trans-unit>
-      <trans-unit id="userName" datatype="html">
-        <source>userName</source>
-        <target>userName</target>
-      </trans-unit>
+    <trans-unit id="EventId" datatype="html">
+      <source>EventId</source>
+      <target>EventId</target>
+    </trans-unit>
 
-       <trans-unit id="waitingForVideo" datatype="html">
-        <source>Waiting For Video</source>
-        <target>waiting For Video</target>
-      </trans-unit>
+    <trans-unit id="driverId" datatype="html">
+      <source>driverId</source>
+      <target>driverId</target>
+    </trans-unit>
+    <trans-unit id="videoId" datatype="html">
+      <source>videoId</source>
+      <target>videoId</target>
+    </trans-unit>
+    <trans-unit id="userName" datatype="html">
+      <source>userName</source>
+      <target>userName</target>
+    </trans-unit>
 
-      <trans-unit id="videoAvailable" datatype="html">
-        <source>Video Available</source>
-        <target>Video Available</target>
-      </trans-unit>
+    <trans-unit id="waitingForVideo" datatype="html">
+      <source>Waiting For Video</source>
+      <target>waiting For Video</target>
+    </trans-unit>
 
-       <trans-unit id="noOfCamera" datatype="html">
-        <source>Total Cameras</source>
-        <target>Total Cameras</target>
-      </trans-unit>
+    <trans-unit id="videoAvailable" datatype="html">
+      <source>Video Available</source>
+      <target>Video Available</target>
+    </trans-unit>
 
-      <trans-unit id="noOfVideo" datatype="html">
-        <source>Total Videos</source>
-        <target>Total Videos</target>
-      </trans-unit>
+    <trans-unit id="noOfCamera" datatype="html">
+      <source>Total Cameras</source>
+      <target>Total Cameras</target>
+    </trans-unit>
 
-         <trans-unit id="video" datatype="html">
-        <source>Video</source>
-        <target>Video</target>
-      </trans-unit>
+    <trans-unit id="noOfVideo" datatype="html">
+      <source>Total Videos</source>
+      <target>Total Videos</target>
+    </trans-unit>
 
-        <trans-unit id="processingVideo" datatype="html">
-        <source>Processing Video</source>
-        <target>Processing Video</target>
-      </trans-unit>
-      
-        <trans-unit id="company" datatype="html">
-        <source>Company</source>
-        <target>Company</target>
-      </trans-unit>
+    <trans-unit id="video" datatype="html">
+      <source>Video</source>
+      <target>Video</target>
+    </trans-unit>
 
-       <trans-unit id="events" datatype="html">
-        <source>Events</source>
-        <target>Events</target>
-      </trans-unit>
+    <trans-unit id="processingVideo" datatype="html">
+      <source>Processing Video</source>
+      <target>Processing Video</target>
+    </trans-unit>
 
-      <trans-unit id="videoUrl" datatype="html">
-        <source>video Url</source>
-        <target>video Url</target>
-      </trans-unit>
-     
-     
-  
-      <!-- End Event page -->
+    <trans-unit id="company" datatype="html">
+      <source>Company</source>
+      <target>Company</target>
+    </trans-unit>
 
+    <trans-unit id="events" datatype="html">
+      <source>Events</source>
+      <target>Events</target>
+    </trans-unit>
 
-      <!-- Regular page -->
-       <trans-unit id="regularView" datatype="html">
-        <source>Regular view</source>
-        <target>Regular view</target>
-      </trans-unit>
-
-
-       <!-- End Regular page -->
-
-    </body>
-  </file>
+    <trans-unit id="videoUrl" datatype="html">
+      <source>video Url</source>
+      <target>video Url</target>
+    </trans-unit>
+    <!-- End Event page -->
+  </body>
+</file>
 </xliff>

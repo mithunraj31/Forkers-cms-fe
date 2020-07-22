@@ -6,6 +6,7 @@ import { NbToastrService } from '@nebular/theme';
 import { EventService } from '../../services/event.service';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { EventSummary } from '../../@core/entities/event-summary.model';
 
 @Component({
   selector: 'frk-dashboard',
@@ -45,6 +46,15 @@ export class DashboardComponent implements OnInit {
   // the property binding to display event infomation listings table.
   // @type {Event[]}
   listings: Event[] = [];
+
+  eventSummary: EventSummary = null;
+
+  lengends: {
+    acceleration: LegendItemModel[];
+    deacceleration: LegendItemModel[];
+    suddenHandle: LegendItemModel[];
+    accident: LegendItemModel[];
+  };
 
   constructor(private vehicleService: VehicleService,
     private dashboardService: DashboardService,
@@ -118,7 +128,50 @@ export class DashboardComponent implements OnInit {
           },
         }
       }
-    }
+    };
+
+    this.lengends = {
+      acceleration:[
+        {
+          iconColor: NgxLegendItemColor.YELLOW,
+          title: $localize`:@@acceleration:`,
+        },
+        {
+          iconColor: NgxLegendItemColor.GREEN,
+          title: $localize`:@@all:`,
+        },
+      ],
+      deacceleration: [
+        {
+          iconColor: NgxLegendItemColor.YELLOW,
+          title: $localize`:@@deacceleration:`,
+        },
+        {
+          iconColor: NgxLegendItemColor.GREEN,
+          title: $localize`:@@all:`,
+        },
+      ],
+      suddenHandle: [
+        {
+          iconColor: NgxLegendItemColor.YELLOW,
+          title: $localize`:@@suddenHandle:`,
+        },
+        {
+          iconColor: NgxLegendItemColor.GREEN,
+          title:  $localize`:@@all:`,
+        },
+      ],
+      accident: [
+        {
+          iconColor: NgxLegendItemColor.YELLOW,
+          title: $localize`:@@accident:`,
+        },
+        {
+          iconColor: NgxLegendItemColor.GREEN,
+          title: $localize`:@@all:`,
+        },
+      ],
+    };
   }
 
   ngOnInit() {
@@ -126,20 +179,18 @@ export class DashboardComponent implements OnInit {
     this.vehicleService.getOnlineVehicle()
       .subscribe(numberOfOnlineVehicle => {
         this.onlineVehicle = numberOfOnlineVehicle;
-      }, error => {
-        const status = 'danger';
-        this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
-      });
+      }, this.httpServiceErrorHandler(this.toastrService));
 
     // HTTP request to get online status according to selected period
     this.getOnlineVehicleStatus(this.selectedNumberOfDays);
 
     this.eventService.getEvent().subscribe(event => {
       this.listings = event.slice(0, 10);
-    }, error => {
-      const status = 'danger';
-      this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
-    });
+    }, this.httpServiceErrorHandler(this.toastrService));
+
+    this.eventService.getEventSummary().subscribe(summary => {
+      this.eventSummary = summary;
+    }, this.httpServiceErrorHandler(this.toastrService));
 
   }
 
@@ -162,4 +213,10 @@ export class DashboardComponent implements OnInit {
     this.getOnlineVehicleStatus(this.selectedNumberOfDays);
   }
 
+  private httpServiceErrorHandler(service: NbToastrService) {
+    return () => {
+      const status = 'danger';
+      service.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
+    };
+  }
 }

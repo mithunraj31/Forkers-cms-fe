@@ -227,6 +227,27 @@
         <source>1 year</source>
         <target>1年間</target>
       </trans-unit>
+
+
+      <trans-unit id="acceleration" datatype="html">
+        <source>Acceleration</source>
+        <target>加速</target>
+      </trans-unit>
+
+      <trans-unit id="deacceleration" datatype="html">
+        <source>Deacceleration</source>
+        <target>減速</target>
+      </trans-unit>
+
+      <trans-unit id="suddenHandle" datatype="html">
+        <source>Sudden handle</source>
+        <target>急ハンドル</target>
+      </trans-unit>
+
+      <trans-unit id="accident" datatype="html">
+        <source>Accident</source>
+        <target>事故</target>
+      </trans-unit>
       <!-- end Dashboard -->
 
       <!-- General -->
@@ -287,6 +308,10 @@
     <trans-unit id="latestEvents" datatype="html">
       <source>Latest events</source>
       <target>最新のイベント</target>
+    </trans-unit>
+    <trans-unit id="all" datatype="html">
+      <source>All</source>
+      <target>全部</target>
     </trans-unit>
     <!-- End General -->
 
@@ -369,25 +394,7 @@
       <source>Events</source>
       <target>イベント</target>
     </trans-unit>
-
-
-
     <!-- End Event page -->
-
-    <!-- Regular page -->
-    <trans-unit id="regularView" datatype="html">
-      <source>Regular view</source>
-      <target>レギュラービュー</target>
-    </trans-unit>
-
-
-    <trans-unit id="videoUrl" datatype="html">
-      <source>video Url</source>
-      <target>ビデオURL</target>
-    </trans-unit>
-
-    <!-- End Regular page -->
-
   </body>
 </file>
 </xliff>
