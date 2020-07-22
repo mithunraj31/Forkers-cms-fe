@@ -80,7 +80,7 @@ export class EventdataComponent implements OnInit {
           type: 'html',
           // mapping nested property of user data to display  type of device
           valuePrepareFunction: (type: number) => {
-            return this.getTypeName(type);
+            return this.eventService.getEventTypeName(type);
           },
         },
         video: {
@@ -102,88 +102,6 @@ export class EventdataComponent implements OnInit {
         }
       }
     }
-  }
-
-  getTypeName(type: number) {
-
-    switch (type) {
-      case 0:
-        this.eventName = $localize`:@@Manual:`;
-        break;
-      case 1:
-        this.eventName = $localize`:@@Time:`;
-        break;
-      case 2:
-        this.eventName = $localize`:@@Motion:`;
-        break;
-      case 3:
-        this.eventName = $localize`:@@Speed:`;
-        break;
-      case 4:
-        this.eventName = $localize`:@@Gsensor:`;
-        break;
-      case 5:
-        this.eventName = $localize`:@@Temperature:`;
-        break;
-      case 6:
-        this.eventName = $localize`:@@Alaram:`;
-        break;
-      case 7:
-        this.eventName = $localize`:@@Alaram:`;
-        break;
-      case 8:
-        this.eventName = $localize`:@@Alaram:`;
-        break;
-      case 9:
-        this.eventName = $localize`:@@Alaram:`;
-        break;
-      case 10:
-        this.eventName = $localize`:@@Alaram:`;
-        break;
-      case 11:
-        this.eventName = $localize`:@@Alaram:`;
-        break;
-      case 12:
-        this.eventName = $localize`:@@Alaram:`;
-        break;
-      case 13:
-        this.eventName = $localize`:@@Alaram:`;
-        break;
-      case 14:
-        this.eventName = $localize`:@@Button:`;
-        break;
-      case 15:
-        this.eventName = $localize`:@@RFID:`;
-        break;
-      case 16:
-        this.eventName = $localize`:@@Accelerate:`;
-        break;
-      case 17:
-        this.eventName = $localize`:@@Deceleration:`;
-        break;
-      case 18:
-        this.eventName = $localize`:@@TurnAngle:`;
-        break;
-      case 19:
-        this.eventName = $localize`:@@TurnGyroscope:`;
-        break;
-        case 19:
-          this.eventName = $localize`:@@Impact:`;
-          break;
-      case 21:
-        this.eventName = $localize`:@@TurnLeft​:`;
-        break;
-      case 22:
-        this.eventName = $localize`:@@TurnRight:`;
-        break;
-      case 23:
-        this.eventName = $localize`:@@clip:`;
-        break;
-      default:
-        this.eventName = $localize`:@@none:`;
-        break;
-    }
-    return this.eventName; 
   }
 
   ngOnInit() {

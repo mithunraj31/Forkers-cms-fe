@@ -39,7 +39,7 @@ export class EventService {
     }
 
     getEventById(eventId: string) {
-        return this.http.get<any>(`${this.host}/event/:eventId`)
+        return this.http.get<any>(`${this.host}/event/${eventId}`)
             .pipe(map(response => {
                 if (response) {
                     return <Event>{ ...response };
@@ -68,4 +68,60 @@ export class EventService {
                 throw new Error();
             }));
     }
+
+    getEventTypeName(type: number) {
+
+        switch (type) {
+          case 0:
+            return $localize`:@@Manual:`;
+          case 1:
+            return $localize`:@@Time:`;
+          case 2:
+            return $localize`:@@Motion:`;
+          case 3:
+            return $localize`:@@Speed:`;
+          case 4:
+            return $localize`:@@Gsensor:`;
+          case 5:
+            return $localize`:@@Temperature:`;
+          case 6:
+            return $localize`:@@Alaram:`;
+          case 7:
+            return $localize`:@@Alaram:`;
+          case 8:
+            return $localize`:@@Alaram:`;
+          case 9:
+            return $localize`:@@Alaram:`;
+          case 10:
+            return $localize`:@@Alaram:`;
+          case 11:
+            return $localize`:@@Alaram:`;
+          case 12:
+            return $localize`:@@Alaram:`;
+          case 13:
+            return $localize`:@@Alaram:`;
+          case 14:
+            return $localize`:@@Button:`;
+          case 15:
+            return $localize`:@@RFID:`;
+          case 16:
+            return $localize`:@@Accelerate:`;
+          case 17:
+            return $localize`:@@Deceleration:`;
+          case 18:
+            return $localize`:@@TurnAngle:`;
+          case 19:
+            return $localize`:@@TurnGyroscope:`;
+          case 20:
+              return $localize`:@@Impact:`;
+          case 21:
+            return $localize`:@@TurnLeft​:`;
+          case 22:
+            return $localize`:@@TurnRight:`;
+          case 23:
+            return $localize`:@@clip:`;
+          default:
+            return $localize`:@@none:`;
+        }
+      }
 }

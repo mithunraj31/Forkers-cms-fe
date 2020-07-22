@@ -4,7 +4,6 @@ import { LegendItemModel } from '../../@core/entities/legend-item.model';
 import { NgxLegendItemColor } from '../../@core/enums/enum.legend-item-color';
 import { NbToastrService } from '@nebular/theme';
 import { EventService } from '../../services/event.service';
-import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { EventSummary } from '../../@core/entities/event-summary.model';
 
@@ -61,7 +60,6 @@ export class DashboardComponent implements OnInit {
   constructor(private vehicleService: VehicleService,
     private dashboardService: DashboardService,
     private eventService: EventService,
-    private router: Router,
     private toastrService: NbToastrService) {
     this.onlineStatusGraphSelectionLabels = [
       {
@@ -126,7 +124,7 @@ export class DashboardComponent implements OnInit {
           filter: false,
           // mapping nested property of user data to display  type of device
           valuePrepareFunction: (type: number) => {
-            return type;
+            return this.eventService.getEventTypeName(type);
           },
         }
       }

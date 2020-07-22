@@ -13,6 +13,7 @@ export class EventMapComponent implements OnInit {
 
   options: any = {};
   layers = [];
+  eventId: string;
 
   constructor(private eventService: EventService,
     private router: Router,private route: ActivatedRoute,
@@ -28,29 +29,31 @@ export class EventMapComponent implements OnInit {
       zoom: 5,
       center: latLng(35.7251283, 139.8591726)
     }
-
-    this.initialMaps();
+    this.route.parent.paramMap.subscribe(paramMap => {
+      // get event id from parent  route params
+      this.eventId = paramMap.get('eventId');
+      this.initialMaps();
+    });
+    
   }
 
   initialMaps() {
-    this.eventService.getEvent().subscribe(events => {
+    this.eventService.getEventById(this.eventId).subscribe(event => {
       this.layers = [];
-      events.forEach(event => {
-        if (!event.sensorValue.lat 
-          || !event.sensorValue.lng
-          || event.sensorValue.lat == "0.000000"
-          || event.sensorValue.lng == "0.000000") {
-            return;
-          }
-        const markerInstance = marker([
-          parseFloat(event.sensorValue.lat),
-          parseFloat(event.sensorValue.lng)
-        ]);
-        markerInstance.on('click', (e) => {
-          this.router.navigate([`devices/events/${event.eventId}`]);
-        });
-        this.layers.push(markerInstance)
+      if (!event.sensorValue.lat 
+        || !event.sensorValue.lng
+        || event.sensorValue.lat == "0.000000"
+        || event.sensorValue.lng == "0.000000") {
+          return;
+        }
+      const markerInstance = marker([
+        parseFloat(event.sensorValue.lat),
+        parseFloat(event.sensorValue.lng)
+      ]);
+      markerInstance.on('click', (e) => {
+        this.router.navigate([`devices/events/${event.eventId}`]);
       });
+      this.layers.push(markerInstance)
     }, error => {
       const status = 'danger';
       this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });

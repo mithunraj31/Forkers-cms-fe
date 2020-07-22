@@ -335,11 +335,6 @@
         <target>イベントID</target>
       </trans-unit>
 
-      <trans-unit id="EventId" datatype="html">
-        <source>EventId</source>
-        <target>イベントID</target>
-      </trans-unit>
-
       <trans-unit id="driverId" datatype="html">
         <source>driverId</source>
         <target>ドライブID</target>
@@ -393,6 +388,7 @@
         <source>Events</source>
         <target>イベント</target>
       </trans-unit>
+      
       <!-- End Event page -->
       <!--  Event data page -->
 
@@ -490,6 +486,10 @@
         <target>デバイスの詳細</target>
       </trans-unit>
 
+      <trans-unit id="videoUrl" datatype="html">
+        <source>video Url</source>
+        <target>ビデオUrl</target>
+      </trans-unit>
       <!-- End Data event page -->
 
 
