@@ -74,15 +74,17 @@ export class EventVideoComponent implements OnInit {
   } 
 
   ngOnDestroy() {
-    this.stompWebsocketService.disconnect(this.wsConn);
+    if(this.wsConn != null) {
+      this.wsConn.disconnect();
+    }
   }
 
   getVideoStatus() {
-    if(this.totalVideos==0){
+    if(this.totalVideos<this.totalCameras){
       return $localize`:@@waitingForVideo:`
-    }else if( this.totalCameras==this.totalVideos){
+    }else if( this.totalCameras==this.totalVideos && this.videoUrl){
       return $localize`:@@videoAvailable:`
-    }else {
+    }else if(this.totalCameras==this.totalVideos){
       return $localize`:@@processingVideo:`
     }
   }
