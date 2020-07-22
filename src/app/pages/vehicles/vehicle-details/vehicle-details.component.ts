@@ -121,7 +121,7 @@ export class VehiclesDetailsComponent implements OnInit {
                     ], {
                         icon: icon({
                             iconSize: [ 40, 40 ],
-                            iconUrl: `/assets/icon/forklift-${vehicle.online ? 'online' : 'offline'}.png`,
+                            iconUrl: `./assets/icon/forklift-${vehicle.online ? 'online' : 'offline'}.png`,
                         })
                     })
                 ];
