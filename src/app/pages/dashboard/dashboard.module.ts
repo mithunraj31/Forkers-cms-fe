@@ -5,6 +5,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardStatisticPieComponent } from './statistic-pie/statistic-pie.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { DashboardLegendChartComponent } from './legend-chart/legend-chart.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
   ],
   declarations: [
     DashboardComponent,
-    DashboardStatisticPieComponent
+    DashboardStatisticPieComponent,
+    DashboardLegendChartComponent
   ],
 })
 export class DashboardModule { }

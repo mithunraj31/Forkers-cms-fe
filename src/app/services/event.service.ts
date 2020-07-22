@@ -58,12 +58,21 @@ export class EventService {
     }
 
     getEventSummary() {
-        return of(<EventSummary>{
-            total: 20,
-            acceleration: 10,
-            deacceleration: 7,
-            suddenHandle: 3,
-            accident: 0
-        }).pipe(delay(1000))
+
+        return this.http.get<any>(`${this.host}/event/stat`)
+            .pipe(map(response => {
+                if (response) {
+                    // mapping json response to array of object
+                    return <EventSummary> {
+                        acceleration: response.accelerate,
+                        deacceleration: response.decelerate,
+                        accident: response.impact,
+                        suddenHandle: parseInt(response.turnLeft) + parseInt(response.turnRight),
+                        total: response.total
+                    };
+                }
+
+                throw new Error();
+            }));
     }
 }
