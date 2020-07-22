@@ -48,7 +48,7 @@ export class VehiclesMapsViewComponent implements OnInit {
         ], {
           icon: icon({
               iconSize: [ 40, 40 ],
-              iconUrl: `/assets/icon/forklift-${v.online ? 'online' : 'offline'}.png`,
+              iconUrl: `./assets/icon/forklift-${v.online ? 'online' : 'offline'}.png`,
           })
       });
         markerInstance.on('click', (e) => {

@@ -49,6 +49,8 @@ export class DashboardComponent implements OnInit {
 
   eventSummary: EventSummary = null;
 
+  totalVehicle: number = 0;
+
   lengends: {
     acceleration: LegendItemModel[];
     deacceleration: LegendItemModel[];
@@ -177,8 +179,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     // HTTP request to get number of online device.
     this.vehicleService.getOnlineVehicle()
-      .subscribe(numberOfOnlineVehicle => {
-        this.onlineVehicle = numberOfOnlineVehicle;
+      .subscribe(data => {
+        this.onlineVehicle = data.online;
+        this.totalVehicle = data.total;
       }, this.httpServiceErrorHandler(this.toastrService));
 
     // HTTP request to get online status according to selected period

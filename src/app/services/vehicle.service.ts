@@ -55,9 +55,8 @@ export class VehicleService {
     getOnlineVehicle() {
         return this.http.get<any>(`${this.host}/vehicle/online`)
         .pipe(map(response => {
-            if (response?.online) {
-                const numberOfOnlineVehicle: number = response.online;
-                return numberOfOnlineVehicle;
+            if (response) {
+                return response;
             }
 
             throw new Error();

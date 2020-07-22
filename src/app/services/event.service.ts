@@ -41,14 +41,8 @@ export class EventService {
     getEventById(eventId: string) {
         return this.http.get<any>(`${this.host}/event/:eventId`)
             .pipe(map(response => {
-                if (response?.events) {
-                    const eventResponse = response.events as any[];
-                    // mapping json response to array of object
-                    const events = eventResponse.map(x => {
-                        return <Event>{ ...x };
-                    });
-
-                    return events
+                if (response) {
+                    return <Event>{ ...response };
                 }
 
                 throw new Error();
