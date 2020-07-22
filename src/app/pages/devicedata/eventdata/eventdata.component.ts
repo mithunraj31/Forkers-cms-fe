@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { EventService } from '../../../services/event.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
@@ -6,13 +6,17 @@ import { SmartTableLinkComponent } from '../../../@theme/components/smart-table-
 import { Event } from '../../../@core/entities/event.model';
 import { UserService } from '../../../services/user.service';
 import { IconLinkPrepartionComponent } from '../../../@theme/components/icon-link-preparation/icon-link-preparation.component';
+import { StompWebsocketService } from '../../../services/stomp-websocket.service';
+import { StompSubscriber } from '../../../@core/entities/stomp-subscriber.model';
+import { UserAccount } from '../../../@core/entities/UserAccount.model';
+import { WS_TOPIC } from '../../../@core/constants/websocket-topic';
 
 @Component({
   selector: 'frk-eventdata',
   templateUrl: './eventdata.component.html',
   styleUrls: ['./eventdata.component.scss']
 })
-export class EventdataComponent implements OnInit {
+export class EventdataComponent implements OnInit, OnDestroy {
 
 
 
@@ -30,14 +34,16 @@ export class EventdataComponent implements OnInit {
   role;
   companyName: string;
   eventName: string;
-
-
+  user: UserAccount;
+  wsConn: any;
+  wsvideoConn: any;
 
   constructor(private eventService: EventService,
     private router: Router,
     private toastrService: NbToastrService,
     private userService: UserService,
-    private route: ActivatedRoute,) {
+    private route: ActivatedRoute,
+    private stompWebsocketService: StompWebsocketService,) {
     this.tableSettings = {
       // hide create, update, and delete row buttons from ng2-smart-table
       actions: {
@@ -97,11 +103,30 @@ export class EventdataComponent implements OnInit {
               this.router.navigate([`pages/devices/events/${response.eventId}/videos`]);
             });
           },
-
-
         }
       }
     }
+
+    //get user info
+    this.user = this.userService.getLoggedUser();
+
+    // define websocket subscribe topic
+    let wsUserSubscriber: StompSubscriber = null;
+    // the user is admin
+    if (this.user.roles.some(x => x == 'ROLE_ADMIN')) {
+      wsUserSubscriber = <StompSubscriber>{
+        topic: WS_TOPIC.EVENT_USER_ADMIN,
+        onReceivedMessage: () => { this. initialTable(); }
+      };
+    // the user is enduser
+    } else {
+      wsUserSubscriber = <StompSubscriber>{
+        topic: `${WS_TOPIC.EVENT_USER}/${this.user.stk_user}`,
+        onReceivedMessage: () => { this. initialTable(); }
+      };
+    }
+
+    this.wsConn = this.stompWebsocketService.createConnection(wsUserSubscriber);
   }
 
   ngOnInit() {
@@ -141,6 +166,21 @@ export class EventdataComponent implements OnInit {
   initialTable() {
     this.eventService.getEvent(this.companyName).subscribe(event => {
       this.listings = event;
+      let subscribers: StompSubscriber[] = [];
+      this.listings.forEach((item) => {
+        if (!item.video.videoUrl) {
+          subscribers.push(<StompSubscriber> {
+            topic: `${WS_TOPIC.EVENT}/${item.eventId}`,
+            onReceivedMessage: () => { this. initialTable(); }
+          });
+        }
+      });
+      if (subscribers.length > 0) {
+        if (this.wsvideoConn) {
+          this.wsvideoConn.disconnect();
+        }
+        this.wsvideoConn = this.stompWebsocketService.createConnections(subscribers);
+      }
     }, error => {
       const status = 'danger';
       this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
@@ -148,6 +188,8 @@ export class EventdataComponent implements OnInit {
     });
   }
 
-
-
+  ngOnDestroy() {
+    this.stompWebsocketService.disconnect(this.wsConn);
+    this.stompWebsocketService.disconnect(this.wsvideoConn);
+  }
 }
