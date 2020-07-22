@@ -388,6 +388,12 @@
         <source>Events</source>
         <target>イベント</target>
       </trans-unit>
+
+
+      <trans-unit id="videoUnavailable" datatype="html">
+        <source>Video not yet arrived.</source>
+        <target>ビデオはまだ到着していません。</target>
+      </trans-unit>
       
       <!-- End Event page -->
       <!--  Event data page -->

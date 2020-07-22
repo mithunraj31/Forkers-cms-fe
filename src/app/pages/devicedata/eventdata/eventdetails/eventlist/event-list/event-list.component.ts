@@ -107,7 +107,7 @@ export class EventListComponent implements OnInit {
           },
           {
             key: $localize`:@@type:`,
-            value: event.type
+            value: this.eventService.getEventTypeName(event.type)
           },
           {
             key: $localize`:@@videoId:`,

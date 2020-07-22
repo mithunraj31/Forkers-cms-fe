@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { VehicleService, DashboardService } from '../../services';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { VehicleService, DashboardService, UserService } from '../../services';
 import { LegendItemModel } from '../../@core/entities/legend-item.model';
 import { NgxLegendItemColor } from '../../@core/enums/enum.legend-item-color';
 import { NbToastrService } from '@nebular/theme';
 import { EventService } from '../../services/event.service';
 import * as moment from 'moment';
 import { EventSummary } from '../../@core/entities/event-summary.model';
+import { StompSubscriber } from '../../@core/entities/stomp-subscriber.model';
+import { WS_TOPIC } from '../../@core/constants/websocket-topic';
+import { StompWebsocketService } from '../../services/stomp-websocket.service';
 
 @Component({
   selector: 'frk-dashboard',
   styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   // number of online vehicle
   // use to display on little card in dashboard 
@@ -50,6 +53,10 @@ export class DashboardComponent implements OnInit {
 
   totalVehicle: number = 0;
 
+  user: any;
+
+  wsConn: any;
+
   lengends: {
     acceleration: LegendItemModel[];
     deacceleration: LegendItemModel[];
@@ -60,7 +67,9 @@ export class DashboardComponent implements OnInit {
   constructor(private vehicleService: VehicleService,
     private dashboardService: DashboardService,
     private eventService: EventService,
-    private toastrService: NbToastrService) {
+    private toastrService: NbToastrService,
+    private userService: UserService,
+    private stompWebsocketService: StompWebsocketService,) {
     this.onlineStatusGraphSelectionLabels = [
       {
         title: $localize`:@@oneDay:`,
@@ -131,7 +140,7 @@ export class DashboardComponent implements OnInit {
     };
 
     this.lengends = {
-      acceleration:[
+      acceleration: [
         {
           iconColor: NgxLegendItemColor.YELLOW,
           title: $localize`:@@acceleration:`,
@@ -158,7 +167,7 @@ export class DashboardComponent implements OnInit {
         },
         {
           iconColor: NgxLegendItemColor.GREEN,
-          title:  $localize`:@@all:`,
+          title: $localize`:@@all:`,
         },
       ],
       accident: [
@@ -175,6 +184,31 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    //get user info
+    this.user = this.userService.getLoggedUser();
+
+    // define websocket subscribe topic
+    let wsUserSubscriber: StompSubscriber = null;
+    // the user is admin
+    if (this.user.roles.some(x => x == 'ROLE_ADMIN')) {
+      wsUserSubscriber = <StompSubscriber>{
+        topic: WS_TOPIC.EVENT_USER_ADMIN,
+        onReceivedMessage: () => { this.initDashboard() }
+      };
+    // the user is enduser
+    } else {
+      wsUserSubscriber = <StompSubscriber>{
+        topic: `${WS_TOPIC.EVENT_USER}/${this.user.stk_user}`,
+        onReceivedMessage: () => { this.initDashboard() }
+      };
+    }
+
+    this.wsConn = this.stompWebsocketService.createConnection(wsUserSubscriber);
+    this.initDashboard();
+
+  }
+
+  initDashboard() {
     // HTTP request to get number of online device.
     this.vehicleService.getOnlineVehicle()
       .subscribe(data => {
@@ -192,7 +226,6 @@ export class DashboardComponent implements OnInit {
     this.eventService.getEventSummary().subscribe(summary => {
       this.eventSummary = summary;
     }, this.httpServiceErrorHandler(this.toastrService));
-
   }
 
   // the method will trigger when user selected new period option or component initializing.
@@ -212,6 +245,10 @@ export class DashboardComponent implements OnInit {
   onStatusPeriodChange($event) {
     this.selectedNumberOfDays = $event;
     this.getOnlineVehicleStatus(this.selectedNumberOfDays);
+  }
+
+  ngOnDestroy() {
+    this.wsConn.disconnect();
   }
 
   private httpServiceErrorHandler(service: NbToastrService) {
