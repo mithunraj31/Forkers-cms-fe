@@ -9,10 +9,9 @@ import { VehiclesTableViewComponent } from './vehicles/vehicles-table-view/vehic
 import { VehiclesMapsViewComponent } from './vehicles/vehicles-maps-view/vehicles-maps-view.component';
 import { VehiclesDetailsComponent } from './vehicles/vehicle-details/vehicle-details.component';
 import { AuthGuardService as AuthGuard } from '../auth/auth-guard.service';
+import { VehiclesStatisticsViewComponent } from './vehicles/vehicles-statistics-view/vehicles-statistics-view.component';
 import { EventdataComponent } from './devicedata/eventdata/eventdata.component';
 import { EventDetailsContainerComponent } from './devicedata/eventdata/eventdetails/event-details-container/event-details-container.component';
-import { RegulardataComponent } from './devicedata/regulardata/regulardata/regulardata.component';
-import { RegularDetailsContainerComponent } from './devicedata/regulardata/regular-details/regular-details-container/regular-details-container.component';
 import { EventVideoComponent } from './devicedata/eventdata/eventdetails/eventvideo/event-video/event-video.component';
 import { EventMapComponent } from './devicedata/eventdata/eventdetails/eventmap/event-map/event-map.component';
 import { EventListComponent } from './devicedata/eventdata/eventdetails/eventlist/event-list/event-list.component';
@@ -58,6 +57,11 @@ const routes: Routes = [{
         {
           path: 'maps',
           component: VehiclesMapsViewComponent,
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'statistics',
+          component: VehiclesStatisticsViewComponent,
           canActivate : [AuthGuard],
         }
       ]
@@ -105,16 +109,6 @@ const routes: Routes = [{
           canActivate : [AuthGuard],
         }
       ]
-    },
-    {
-      path: 'devices/regular',
-      component: RegulardataComponent,
-      canActivate : [AuthGuard],
-    },
-    {
-      path: 'devices/regular/:deviceId',
-      component: RegularDetailsContainerComponent,
-      canActivate : [AuthGuard],
     },
    
   ],

@@ -7,10 +7,6 @@ import { EventDetailsContainerComponent } from './eventdata/eventdetails/event-d
 import { EventMapComponent } from './eventdata/eventdetails/eventmap/event-map/event-map.component';
 import { EventVideoComponent } from './eventdata/eventdetails/eventvideo/event-video/event-video.component';
 import { EventListComponent } from './eventdata/eventdetails/eventlist/event-list/event-list.component';
-import { RegulardataComponent } from './regulardata/regulardata/regulardata.component';
-import { RegularDetailsContainerComponent } from './regulardata/regular-details/regular-details-container/regular-details-container.component';
-import { RegularListComponent } from './regulardata/regular-details/regular-list/regular-list.component';
-import { RegularMapComponent } from './regulardata/regular-details/regular-map/regular-map.component';
 
 @NgModule({
   imports: [
@@ -28,10 +24,6 @@ import { RegularMapComponent } from './regulardata/regular-details/regular-map/r
       EventMapComponent,
       EventVideoComponent,
       EventListComponent,
-      RegulardataComponent,
-      RegularDetailsContainerComponent,
-      RegularListComponent,
-      RegularMapComponent,
   ],
 })
 export class DeviceModule {

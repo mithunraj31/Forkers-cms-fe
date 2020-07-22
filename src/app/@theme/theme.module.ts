@@ -55,6 +55,8 @@ import { SmartTableLinkComponent } from './components/smart-table-link/smart-tab
 import { VerticalDetailComponent } from './components/vertical-details/vertical-details.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { PagerComponent } from './components/pager/pager.component';
+import { PeriodAnalyticsChartComponent } from './components/period-analytics-chart/period-analytics-chart.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { IconLinkPrepartionComponent } from './components/icon-link-preparation/icon-link-preparation.component';
 
 const NB_MODULES = [
@@ -93,6 +95,7 @@ const COMPONENTS = [
   PagerComponent,
   ConfirmModalComponent,
   SmartTableLinkComponent,
+  PeriodAnalyticsChartComponent,
   IconLinkPrepartionComponent
 ];
 const PIPES = [
@@ -104,8 +107,8 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule,Ng2SmartTableModule, MatRippleModule, TreeModule.forRoot(), ...NB_MODULES],
-  exports: [CommonModule, Ng2SmartTableModule, MatRippleModule, ...PIPES, ...COMPONENTS],
+  imports: [CommonModule,Ng2SmartTableModule, MatRippleModule, TreeModule.forRoot(), ...NB_MODULES, NgxEchartsModule],
+  exports: [CommonModule, Ng2SmartTableModule, MatRippleModule, ...PIPES, ...COMPONENTS, NgxEchartsModule],
   declarations: [...COMPONENTS, ...PIPES],
 })
 export class ThemeModule {

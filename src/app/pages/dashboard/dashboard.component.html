@@ -1,5 +1,28 @@
-<nb-card>
+<div class="row">
+  <div class="col-lg-2">
+    <nb-card>
+      <nb-card-header>
+        <span i18n="@@onlineVehicle">Online vehicle</span>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="count-label">
+          <div class="count-label-container">
+            <div class="count-label status-primary">
+              {{onlineVehicle}}
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+<nb-card class="statistics-chart ">
   <nb-card-body>
-    Forkers CMS Dashboard
+    <frk-period-analytics-chart 
+    [chartData]="displayData" 
+    [legend]="chartLegend"
+    [selectedFilter]="selectedNumberOfDays"
+    [filterOptions]="onlineStatusGraphSelectionLabels"
+    (onFilterChanged)="onStatusPeriodChange($event)"></frk-period-analytics-chart>
   </nb-card-body>
 </nb-card>

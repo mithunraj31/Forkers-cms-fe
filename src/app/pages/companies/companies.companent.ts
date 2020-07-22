@@ -26,8 +26,11 @@ export class CompaniesComponent implements OnInit {
     }
 
     onEventViewClick(companyName){
-        console.log(event);
         this.router.navigate([`pages/devices/events/company/${companyName}`]);
+    }
+
+    onVehicleViewClick(companyName) {
+        this.router.navigate([`pages/vehicles/table`], { queryParams: {customer: companyName} });
     }
 
     // request API to get company information and thire vechicle stutus

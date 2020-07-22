@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../../../services';
 import { Vehicle } from '../../../@core/entities/vehicle.model';
 import { SmartTableLinkComponent } from '../../../@theme/components/smart-table-link/smart-table-link.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
 
 @Component({
@@ -20,8 +20,11 @@ export class VehiclesTableViewComponent implements OnInit {
   // @type {Vehicle[]}
   listings: Vehicle[] = [];
 
+  username: string;
+
   constructor(private vehicleService: VehicleService,
     private router: Router,
+    private route: ActivatedRoute,
     private toastrService: NbToastrService) {
     this.tableSettings = {
       // hide create, update, and delete row buttons from ng2-smart-table
@@ -48,7 +51,7 @@ export class VehiclesTableViewComponent implements OnInit {
             });
           },
         },
-        isOnline: {
+        online: {
           title: $localize`:@@status:`,
           // data feild can add html element
           type: 'html',
@@ -64,7 +67,12 @@ export class VehiclesTableViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initialTable();
+    this.route.queryParams.subscribe(paramMap => {
+      // get vehicle id from route params
+      this.username = paramMap['customer'];
+      this.initialTable();
+    });
+  
   }
 
   // the method request to Backend API to get vehicle information listings
@@ -72,7 +80,7 @@ export class VehiclesTableViewComponent implements OnInit {
   // the property binding to display table.
   // @return {void}
   initialTable() {
-    this.vehicleService.getVehicles().subscribe(vehicles => {
+    this.vehicleService.getVehicles(this.username).subscribe(vehicles => {
       this.listings = vehicles;
     }, error => {
       const status = 'danger';

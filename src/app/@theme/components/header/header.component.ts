@@ -1,7 +1,7 @@
 import { UserAccount } from './../../../@core/entities/UserAccount.model';
 import { UserService } from './../../../services/user.service';
 import { Component, OnDestroy, OnInit, LOCALE_ID, Inject } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService, NbIconLibraries, NbIconModule, NbIconPack } from '@nebular/theme';
+import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService, NbToastrService } from '@nebular/theme';
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
@@ -12,6 +12,9 @@ import { AuthService } from '../../../auth/Auth.service';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
+import { StompWebsocketService } from '../../../services/stomp-websocket.service';
+import { StompSubscriber } from '../../../@core/entities/stomp-subscriber.model';
+import { WS_TOPIC } from '../../../@core/constants/websocket-topic';
 
 @Component({
   selector: 'ngx-header',
@@ -36,22 +39,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public constructor(
     private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
+    private toastrService: NbToastrService,
     private themeService: NbThemeService,
     private userDataService: UserData, // ngx-admin service
     private layoutService: LayoutService,
     private breakpointService: NbMediaBreakpointsService,
     private rippleService: RippleService,
     private authService: AuthService,
-    private userService: UserService, // mdm service,
+    private userService: UserService, // cms service,
     private router: Router,
+    private stompWebsocketService: StompWebsocketService,
 
     @Inject(LOCALE_ID) public locale: string,
     //iconRegistry: NbIconModule, 
     sanitizer: DomSanitizer) {
     sanitizer.bypassSecurityTrustResourceUrl('assets/icon/English.svg');
     sanitizer.bypassSecurityTrustResourceUrl('assets/icon/Japanese.svg');
-
-
 
     this.currentLanguage = locale;
     this.materialTheme$ = this.themeService.onThemeChange()
@@ -103,6 +106,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ];
   }
 
+  wsConn: any;
+
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
 
@@ -136,11 +141,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     //get user info
     this.user = this.userService.getLoggedUser();
+
+    // define websocket subscribe topic
+    let wsUserSubscriber: StompSubscriber = null;
+    // the user is admin
+    if (this.user.roles.some(x => x == 'ROLE_ADMIN')) {
+      wsUserSubscriber = <StompSubscriber>{
+        topic: WS_TOPIC.EVENT_USER_ADMIN,
+        onReceivedMessage: this.createWsNotifyHandler(this.toastrService)
+      };
+    // the user is enduser
+    } else {
+      wsUserSubscriber = <StompSubscriber>{
+        topic: `${WS_TOPIC.EVENT_USER}/${this.user.stk_user}`,
+        onReceivedMessage: this.createWsNotifyHandler(this.toastrService)
+      };
+    }
+
+    this.wsConn = this.stompWebsocketService.createConnection(wsUserSubscriber);
   }
 
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+    this.stompWebsocketService.disconnect(this.wsConn);
   }
 
   changeTheme(themeName: string) {
@@ -163,6 +187,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.currentLanguage != this.locale) {
       const hostName = this.currentLanguage == 'en' ? environment.hostEn : environment.hostJa;
       window.location.href = hostName + this.router.url;
+    }
+  }
+
+  // create closure function to hold NbToastrService and use in callback function
+  private createWsNotifyHandler(service: NbToastrService) {
+    // onReceivedMessage will excute the arrow function
+    return (event: any) => {
+      const status = 'info';
+      service.show($localize`:@@eventIdIs:` + event.eventId, $localize`:@@eventReceived:` , { status });
     }
   }
 }
