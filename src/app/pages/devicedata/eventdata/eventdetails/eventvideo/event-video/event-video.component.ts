@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EventService } from '../../../../../../services/event.service';
+import { NbMenuService } from '@nebular/theme';
 
 @Component({
   selector: 'frk-event-video',
@@ -8,29 +10,37 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EventVideoComponent implements OnInit {
 
-  //receives the videoUrl when the tab is selcted from eventdetails menu
-  //received as a param from event data component
 
-  @Input() video: any;
+  // event ID obtained from route params
+  // @type {number}
+  eventId: string;
 
- //receives the videoUrl when the link is clicked from event menu directly
+
+  //receives the videoUrl from the eventId passed through the route param
   //received as a param from the route 
   videoUrl: string;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+    private eventService: EventService,
+    private menuService: NbMenuService) {
   }
 
   ngOnInit(): void {
-   
-    this.route.paramMap.subscribe(paramMap => {
-      // get videoUrl  from route params
-      if (paramMap.get('videoUrl') != null && paramMap.get('videoUrl') != undefined) {
-        this.videoUrl = paramMap.get('videoUrl');
-      } else {
-        this.videoUrl = this.video;
-      }
+    this.route.parent.paramMap.subscribe(paramMap => {
+      // get event id from parent  route params
+      this.eventId = paramMap.get('eventId');
 
+      this.getVideoUrl();
+    });
+
+  }
+
+  getVideoUrl() {
+    this.eventService.getEventById(this.eventId).subscribe(event => {
+      if (event) {
+        this.videoUrl = event.video.videoUrl;
+      }
     });
   }
-}
 
+}
