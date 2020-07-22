@@ -7,7 +7,8 @@
       <ng-template #elseBlock>
         <nb-card>
           <nb-card-body>
-           <p class="paragraph" i18n="@@videoUnavailable">Video not yet arrived.</p>  
+           <p class="paragraph" i18n="@@videoUnavailable">Video not yet arrived.</p> 
+           <p class="paragraph"> {{ totalVideos }} / {{ totalCameras }} {{getVideoStatus()}}</p>
           </nb-card-body>
         </nb-card>
       </ng-template>
