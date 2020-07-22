@@ -1,9 +1,8 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, delay } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Event } from '../@core/entities/event.model'
-import { of } from 'rxjs';
 import { EventSummary } from '../@core/entities/event-summary.model';
 
 

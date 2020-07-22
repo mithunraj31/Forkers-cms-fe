@@ -394,6 +394,106 @@
         <target>イベント</target>
       </trans-unit>
       <!-- End Event page -->
+      <!--  Event data page -->
+
+
+      <trans-unit id="Manual" datatype="html">
+        <source>Manual</source>
+        <target>マニュアル</target>
+      </trans-unit>
+
+      <trans-unit id="Time" datatype="html">
+        <source>Time</source>
+        <target>時間</target>
+      </trans-unit>
+      <trans-unit id="Motion" datatype="html">
+        <source>Motion</source>
+        <target>モーション</target>
+      </trans-unit>
+      <trans-unit id="Speed" datatype="html">
+        <source>Speed</source>
+        <target>速度</target>
+      </trans-unit>
+
+      <trans-unit id="Gsensor" datatype="html">
+        <source>G-sensor</source>
+        <target>Gセンサー</target>
+      </trans-unit>
+
+      <trans-unit id="Temperature" datatype="html">
+        <source>Temperature</source>
+        <target>温度</target>
+      </trans-unit>
+
+      <trans-unit id="Alaram" datatype="html">
+        <source>Alaram</source>
+        <target>警報</target>
+      </trans-unit>
+
+      <trans-unit id="Button" datatype="html">
+        <source>Button</source>
+        <target>ボタン</target>
+      </trans-unit>
+
+      <trans-unit id="RFID" datatype="html">
+        <source>RFID</source>
+        <target>RFID</target>
+      </trans-unit>
+
+      <trans-unit id="Accelerate" datatype="html">
+        <source>Accelerate</source>
+        <target>アクセル</target>
+      </trans-unit>
+
+      <trans-unit id="Deceleration" datatype="html">
+        <source>Deceleration</source>
+        <target>減速</target>
+      </trans-unit>
+
+      <trans-unit id="TurnAngle" datatype="html">
+        <source>Turn Angle</source>
+        <target>回転角度</target>
+      </trans-unit>
+
+      <trans-unit id="TurnGyroscope" datatype="html">
+        <source>Turn Gyroscope</source>
+        <target>回転ジャイロスコープ</target>
+      </trans-unit>
+
+      <trans-unit id="Impact" datatype="html">
+        <source>Impact</source>
+        <target>影響</target>
+      </trans-unit>
+
+      <trans-unit id="TurnLeft​" datatype="html">
+        <source>Turn Left​</source>
+        <target>左折</target>
+      </trans-unit>
+
+      <trans-unit id="TurnRight" datatype="html">
+        <source>Turn Right</source>
+        <target>右に曲がる</target>
+      </trans-unit>
+
+      <trans-unit id="clip" datatype="html">
+        <source>clip</source>
+        <target>クリップ</target>
+      </trans-unit>
+
+      <trans-unit id="none" datatype="html">
+        <source>none</source>
+        <target>なし</target>
+      </trans-unit>
+
+      <trans-unit id="DeviceDetails" datatype="html">
+        <source>DeviceDetails</source>
+        <target>デバイスの詳細</target>
+      </trans-unit>
+
+      <!-- End Data event page -->
+
+
+
     </body>
   </file>
 </xliff>
