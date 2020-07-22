@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<xliff version="1.2"
+  xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="ja-JP" datatype="plaintext" original="ng2.template">
     <body>
-     <!-- headers -->
+      <!-- headers -->
       <trans-unit id="applicationTitle" datatype="html">
         <source>Forkers CMS</source>
         <target>フォーカー CMS</target>
       </trans-unit>
-       <trans-unit id="userProfile" datatype="html">
+      <trans-unit id="userProfile" datatype="html">
         <source>Profile</source>
         <target>私のプロファイル</target>
       </trans-unit>
@@ -24,7 +25,7 @@
         <target>イベントIDは</target>
       </trans-unit>
 
-       <!-- End headers -->
+      <!-- End headers -->
 
       <!-- Themes -->
       <trans-unit id="themeLight" datatype="html">
@@ -70,7 +71,7 @@
         <source>Forklift</source>
         <target>車両</target>
       </trans-unit>
-        <trans-unit id="sidebarMenuDevice" datatype="html">
+      <trans-unit id="sidebarMenuDevice" datatype="html">
         <source>Device</source>
         <target>デバイス</target>
       </trans-unit>
@@ -140,7 +141,7 @@
         <source>Company name</source>
         <target>会社名</target>
       </trans-unit>
-       <trans-unit id="running" datatype="html">
+      <trans-unit id="running" datatype="html">
         <source>Running</source>
         <target>走っている</target>
       </trans-unit>
@@ -151,7 +152,7 @@
         <source>Table view</source>
         <target>一覧</target>
       </trans-unit>
-       <trans-unit id="mapsView" datatype="html">
+      <trans-unit id="mapsView" datatype="html">
         <source>Maps view</source>
         <target>地図</target>
       </trans-unit>
@@ -174,7 +175,7 @@
         <source>TCP server address</source>
         <target>TCPサーバーアドレス</target>
       </trans-unit>
-       <trans-unit id="updServerAddress" datatype="html">
+      <trans-unit id="updServerAddress" datatype="html">
         <source>UPD server address</source>
         <target>UPD</target>
       </trans-unit>
@@ -186,7 +187,7 @@
         <source>UPD stream out port</source>
         <target>UPDストリームアウトポート</target>
       </trans-unit>
-       <trans-unit id="deviceType" datatype="html">
+      <trans-unit id="deviceType" datatype="html">
         <source>Device type</source>
         <target>デバイスタイプ</target>
       </trans-unit>
@@ -196,7 +197,7 @@
       </trans-unit>
       <!-- Vehicle details -->
 
-<!-- Dashboard -->
+      <!-- Dashboard -->
       <trans-unit id="onlineVehicle" datatype="html">
         <source>Online vehicle</source>
         <target>オンライン車両</target>
@@ -225,7 +226,7 @@
       <trans-unit id="oneYear" datatype="html">
         <source>1 year</source>
         <target>1年間</target>
-      </trans-unit>      
+      </trans-unit>
       <!-- end Dashboard -->
 
       <!-- General -->
@@ -241,7 +242,7 @@
         <source>Online</source>
         <target>オンライン</target>
       </trans-unit>
-       <trans-unit id="offline" datatype="html">
+      <trans-unit id="offline" datatype="html">
         <source>Offline</source>
         <target>オフライン</target>
       </trans-unit>
@@ -253,12 +254,12 @@
         <source>Group name</source>
         <target>グループ名</target>
       </trans-unit>
-       <trans-unit id="active" datatype="html">
+      <trans-unit id="active" datatype="html">
         <source>Active</source>
         <target>アクティブ</target>
       </trans-unit>
 
-       <trans-unit id="somethingWrongToaster" datatype="html">
+      <trans-unit id="somethingWrongToaster" datatype="html">
         <source>Somethings wrong</source>
         <target>何かおかしい</target>
       </trans-unit>
@@ -274,49 +275,53 @@
         <source>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</source>
         <target>アクセスは許可されていません。このページにアクセスできません。お問い合わせください：mbel003@mbel.co.jp</target>
       </trans-unit>
+      <trans-unit id="action" datatype="html">
+        <source>action</source>
+        <target>アクション</target>
+      </trans-unit>
       <!-- End General -->
 
-       <!-- Event page -->
+      <!-- Event page -->
       <trans-unit id="eventView" datatype="html">
         <source>Event view</source>
         <target>イベントビュー</target>
       </trans-unit>
 
-        <trans-unit id="type" datatype="html">
+      <trans-unit id="type" datatype="html">
         <source>Type</source>
         <target>タイプ</target>
       </trans-unit>
-      
+
       <trans-unit id="DeviceId" datatype="html">
         <source>DeviceId</source>
         <target>デバイスID</target>
       </trans-unit>
 
-       <trans-unit id="EventId" datatype="html">
+      <trans-unit id="EventId" datatype="html">
         <source>EventId</source>
         <target>イベントID</target>
       </trans-unit>
 
-        <trans-unit id="EventId" datatype="html">
+      <trans-unit id="EventId" datatype="html">
         <source>EventId</source>
         <target>イベントID</target>
       </trans-unit>
 
-        <trans-unit id="driverId" datatype="html">
+      <trans-unit id="driverId" datatype="html">
         <source>driverId</source>
         <target>ドライブID</target>
       </trans-unit>
-        <trans-unit id="videoId" datatype="html">
+      <trans-unit id="videoId" datatype="html">
         <source>videoId</source>
         <target>ビデオID</target>
       </trans-unit>
-        <trans-unit id="userName" datatype="html">
+      <trans-unit id="userName" datatype="html">
         <source>userName</source>
         <target>ユーザー名</target>
       </trans-unit>
 
 
-       <trans-unit id="waitingForVideo" datatype="html">
+      <trans-unit id="waitingForVideo" datatype="html">
         <source>Waiting For Video</source>
         <target>ビデオを待っています</target>
       </trans-unit>
@@ -346,22 +351,22 @@
         <target>ビデオの処理</target>
       </trans-unit>
 
-       <trans-unit id="company" datatype="html">
+      <trans-unit id="company" datatype="html">
         <source>Company</source>
         <target>会社</target>
       </trans-unit>
 
-       <trans-unit id="events" datatype="html">
+      <trans-unit id="events" datatype="html">
         <source>Events</source>
         <target>イベント</target>
       </trans-unit>
 
-     
+
 
       <!-- End Event page -->
 
       <!-- Regular page -->
-       <trans-unit id="regularView" datatype="html">
+      <trans-unit id="regularView" datatype="html">
         <source>Regular view</source>
         <target>レギュラービュー</target>
       </trans-unit>
@@ -372,7 +377,7 @@
         <target>ビデオURL</target>
       </trans-unit>
 
-       <!-- End Regular page -->
+      <!-- End Regular page -->
 
     </body>
   </file>

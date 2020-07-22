@@ -7,10 +7,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/dashboard',
     home: true,
   },
-  {
-    title: $localize`:@@userManagement:`,
-    icon: 'person-outline'
-  },
+  // {
+  //   title: $localize`:@@userManagement:`,
+  //   icon: 'person-outline'
+  // },
   {
     title: $localize`:@@userListings:`,
     icon: 'people-outline',
