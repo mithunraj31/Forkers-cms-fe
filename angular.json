@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-admin-demo": {
+    "forkers-cms-fe": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -99,25 +99,48 @@
                   "with": "src/environments/environment.dev.ts"
                 }
               ]
+            },
+            "ja": {
+              "aot": true,
+              "outputPath": "dist/ja/",
+              "i18nFile": "src/locale/messages.ja.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ja",
+              "baseHref": "/ja/",
+              "i18nMissingTranslation": "error"
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/en/",
+              "i18nFile": "src/locale/messages.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "baseHref": "/en/",
+              "i18nMissingTranslation": "error"
             }
           }
-          
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-admin-demo:build"
+            "browserTarget": "forkers-cms-fe:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-admin-demo:build:production"
+              "browserTarget": "forkers-cms-fe:build:production"
+            },
+            "ja": {
+              "browserTarget": "forkers-cms-fe:build:ja"
+            },
+            "en": {
+              "browserTarget": "forkers-cms-fe:build:en"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-admin-demo:build"
+            "browserTarget": "forkers-cms-fe:build"
           }
         },
         "test": {
@@ -174,7 +197,7 @@
         }
       }
     },
-    "ngx-admin-demo-e2e": {
+    "forkers-cms-fe-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -183,7 +206,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "ngx-admin-demo:serve"
+            "devServerTarget": "forkers-cms-fe:serve"
           }
         },
         "lint": {
@@ -198,14 +221,14 @@
       }
     }
   },
-  "defaultProject": "ngx-admin-demo",
+  "defaultProject": "forkers-cms-fe",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "ngx",
+      "prefix": "frk",
       "style": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "ngx"
+      "prefix": "frk"
     }
   },
   "cli": {

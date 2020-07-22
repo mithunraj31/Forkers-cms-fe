@@ -1,0 +1,38 @@
+<nb-card [nbSpinner]="isLoading" nbSpinnerSize="giant" nbSpinnerStatus="primary">
+    <nb-card-header>
+        <h5><b i18n="@@companyListingsTable">Companies</b></h5>
+    </nb-card-header>
+    <nb-card-body>
+        <nb-list>
+            <nb-list-item>
+                <div class="col-lg-1"><b>No.</b></div>
+                <div class="col-lg-1 text-center"><b>ID</b></div>
+                <div class="col-lg-4"><b i18n="@@companyName">Name</b></div>
+                <div class="col-lg-2 text-center" ><b i18n="@@vehicle">Vehicle</b></div>
+                <div class="col-lg-2 text-center" ><b i18n="@@running">Running</b></div>
+                <div class="col-lg-2 text-center" ><b i18n="@@action">Action</b></div>
+            </nb-list-item>
+            <nb-list-item *ngFor="let company of companies; index as no">
+                <div class="col-lg-1">{{no + 1}}</div>
+                <div class="col-lg-1 text-center">{{company.id}}</div>
+                <div  #name class="col-lg-4">{{company.name}}</div>
+                <div class="col-lg-2 text-center">{{company.totalVehicle}}</div>
+                <div class="col-lg-2 text-center">{{company.runningVehicle}}</div>
+                <div class="col-lg-2 text-center">
+                    <nb-icon class="available" 
+                        icon="video" 
+                        status="primary"  
+                        pack="eva"  
+                        (click)="onEventViewClick(company.stk_user)">
+                    </nb-icon>
+                    <nb-icon class="available" 
+                        icon="car" 
+                        status="success"  
+                        pack="eva"  
+                        (click)="onVehicleViewClick(company.stk_user)">
+                    </nb-icon>
+                </div>
+            </nb-list-item>
+        </nb-list>
+    </nb-card-body>
+</nb-card>

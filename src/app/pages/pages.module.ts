@@ -5,6 +5,9 @@ import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
+import { CompaniesModule } from './companies/companies.module';
+import { VehiclesModule } from './vehicles/vehicles.module';
+import { DeviceModule } from './devicedata/device.module';
 
 @NgModule({
   imports: [
@@ -12,6 +15,9 @@ import { PagesRoutingModule } from './pages-routing.module';
     ThemeModule,
     NbMenuModule,
     DashboardModule,
+    CompaniesModule,
+    VehiclesModule,
+    DeviceModule,
   ],
   declarations: [
     PagesComponent,

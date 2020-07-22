@@ -1,0 +1,13 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-lg-4">
+        <h5><b i18n="@@events">Events</b></h5>
+      </div>
+      </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="tableSettings" [source]="listings"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>

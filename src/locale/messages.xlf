@@ -1,13 +1,503 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+<xliff version="1.2"
+  xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="active" datatype="html">
-        <source>Active</source>
+      <!-- Headers -->
+      <trans-unit id="applicationTitle" datatype="html">
+        <source>Forkers CMS</source>
+        <target>Forkers CMS</target>
+      </trans-unit>
+      <trans-unit id="userProfile" datatype="html">
+        <source>Profile</source>
+        <target>Profile</target>
+      </trans-unit>
+      <trans-unit id="logout" datatype="html">
+        <source>logout</source>
+        <target>logout</target>
+      </trans-unit>
+      <trans-unit id="eventReceived" datatype="html">
+        <source>Event received</source>
+        <target>Event received</target>
+      </trans-unit>
+      <trans-unit id="eventIdIs" datatype="html">
+        <source>Event ID is</source>
+        <target>Event ID is</target>
+      </trans-unit>
+      <!-- End headers -->
+
+      <!-- Themes -->
+      <trans-unit id="themeLight" datatype="html">
+        <source>Light</source>
+        <target>Light</target>
+      </trans-unit>
+      <trans-unit id="themeDark" datatype="html">
+        <source>Dark</source>
+        <target>Dark</target>
+      </trans-unit>
+      <trans-unit id="themeCosmic" datatype="html">
+        <source>Cosmic</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="themeCorporate" datatype="html">
+        <source>Corporate</source>
+        <target>Corporate</target>
+      </trans-unit>
+      <trans-unit id="themeMaterialLight" datatype="html">
+        <source>Material Light</source>
+        <target>Material Light</target>
+      </trans-unit>
+      <trans-unit id="themeMaterialDark" datatype="html">
+        <source>Material Dark</source>
+        <target>Material Dark</target>
+      </trans-unit>
+      <!-- End Themes -->
+
+      <!-- Sidebar menu -->
+      <trans-unit id="dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </trans-unit>
+      <trans-unit id="userManagement" datatype="html">
+        <source>User management</source>
+        <target>User management</target>
+      </trans-unit>
+      <trans-unit id="userListings" datatype="html">
+        <source>User Listings</source>
+        <target>User Listings</target>
+      </trans-unit>
+      <trans-unit id="sidebarMenuForklift" datatype="html">
+        <source>Forklift</source>
+        <target>Forklift</target>
+      </trans-unit>
+      <trans-unit id="sidebarMenuDevice" datatype="html">
+        <source>Device</source>
+        <target>Device</target>
+      </trans-unit>
+
+      <!-- End Sidebar menu -->
+
+      <!-- Login -->
+      <trans-unit id="applicationSortDescriotion" datatype="html">
+        <source>Forkers custommer management platform.</source>
+        <target>Forkers custommer management platform.</target>
+      </trans-unit>
+      <trans-unit id="emailAddress" datatype="html">
+        <source>Email address</source>
+        <target>Email address</target>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="keepSignIn" datatype="html">
+        <source>Keep sign in</source>
+        <target>Keep sign in</target>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Log in</source>
+        <target>Log in</target>
+      </trans-unit>
+      <trans-unit id="emailRequired" datatype="html">
+        <source>Email is required</source>
+        <target>Email is required</target>
+      </trans-unit>
+      <trans-unit id="isNotEmail" datatype="html">
+        <source>Email should be the real one!</source>
+        <target>Email should be the real one!</target>
+      </trans-unit>
+      <trans-unit id="emailCharacterError" datatype="html">
+        <source>Email should contains at least 4 characters</source>
+        <target>Email should contains at least 4 characters</target>
+      </trans-unit>
+      <trans-unit id="passwordRequired" datatype="html">
+        <source>Password is required</source>
+        <target>Password is required</target>
+      </trans-unit>
+      <trans-unit id="passwordCharacterError" datatype="html">
+        <source>Password should contains at least 8 characters</source>
+        <target>Password should contains at least 8 characters</target>
+      </trans-unit>
+      <trans-unit id="accountInvalid" datatype="html">
+        <source>Account is invalid, Please try again!</source>
+        <target>Account is invalid, Please try again!</target>
+      </trans-unit>
+      <trans-unit id="somethingWrong" datatype="html">
+        <source>Somethings wrong, please contact us.</source>
+        <target>Somethings wrong, please contact us.</target>
+      </trans-unit>
+      <trans-unit id="supportEmail" datatype="html">
+        <source>support email: mbel003@mbel.co.jp</source>
+        <target>support email: mbel003@mbel.co.jp</target>
+      </trans-unit>
+      <!-- End Login -->
+
+      <!-- User listings -->
+      <trans-unit id="companyListingsTable" datatype="html">
+        <source>Companies</source>
+        <target>Companies</target>
+      </trans-unit>
+      <trans-unit id="companyName" datatype="html">
+        <source>Company name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="running" datatype="html">
+        <source>Running</source>
+        <target>Running</target>
+      </trans-unit>
+      <!-- End User listings  -->
+      <!-- Vehicle page -->
+      <trans-unit id="tableView" datatype="html">
+        <source>Table view</source>
+        <target>Table view</target>
+      </trans-unit>
+      <trans-unit id="mapsView" datatype="html">
+        <source>Maps view</source>
+        <target>Maps view</target>
+      </trans-unit>
+      <trans-unit id="statisticsView" datatype="html">
+        <source>Statistics view</source>
+        <target>Statistics view</target>
+      </trans-unit>
+      <!-- End Vehicle page -->
+
+      <!-- Vehicle details -->
+      <trans-unit id="plateNumber" datatype="html">
+        <source>PlateNumber</source>
+        <target>PlateNumber</target>
+      </trans-unit>
+      <trans-unit id="scanCode" datatype="html">
+        <source>Scan code</source>
+        <target>Scan code</target>
+      </trans-unit>
+      <trans-unit id="tcpServerAddress" datatype="html">
+        <source>TCP server address</source>
+        <target>TCP server address</target>
+      </trans-unit>
+      <trans-unit id="tcpStreamOutPort" datatype="html">
+        <source>TCP stream out port</source>
+        <target>TCP stream out port</target>
+      </trans-unit>
+      <trans-unit id="updServerAddress" datatype="html">
+        <source>UPD server address</source>
+        <target>UPD server address</target>
+      </trans-unit>
+      <trans-unit id="updStreamOutPort" datatype="html">
+        <source>UPD stream out port</source>
+        <target>UPD stream out port</target>
+      </trans-unit>
+      <trans-unit id="deviceType" datatype="html">
+        <source>Device type</source>
+        <target>Device type</target>
+      </trans-unit>
+      <trans-unit id="networkType" datatype="html">
+        <source>Network type</source>
+        <target>Network type</target>
+      </trans-unit>
+      <!-- Vehicle details -->
+
+      <!-- Dashboard -->
+      <trans-unit id="onlineVehicle" datatype="html">
+        <source>Online vehicle</source>
+        <target>Online vehicle</target>
+      </trans-unit>
+
+      <trans-unit id="oneDay" datatype="html">
+        <source>1 day</source>
+        <target>1 day</target>
+      </trans-unit>
+      <trans-unit id="oneWeek" datatype="html">
+        <source>1 Week</source>
+        <target>1 Week</target>
+      </trans-unit>
+      <trans-unit id="oneMonth" datatype="html">
+        <source>1 month</source>
+        <target>1 month</target>
+      </trans-unit>
+      <trans-unit id="threeMonth" datatype="html">
+        <source>3 month</source>
+        <target>3 month</target>
+      </trans-unit>
+      <trans-unit id="sixMonth" datatype="html">
+        <source>6 month</source>
+        <target>6 month</target>
+      </trans-unit>
+      <trans-unit id="oneYear" datatype="html">
+        <source>1 year</source>
+        <target>1 year</target>
+      </trans-unit>
+
+      <trans-unit id="acceleration" datatype="html">
+        <source>Acceleration</source>
+        <target>Acceleration</target>
+      </trans-unit>
+
+      <trans-unit id="deacceleration" datatype="html">
+        <source>Deacceleration</source>
+        <target>Deacceleration</target>
+      </trans-unit>
+
+      <trans-unit id="suddenHandle" datatype="html">
+        <source>Sudden handle</source>
+        <target>Sudden handle</target>
+      </trans-unit>
+
+      <trans-unit id="accident" datatype="html">
+        <source>Accident</source>
+        <target>Accident</target>
+      </trans-unit>
+      <!-- end Dashboard -->
+
+      <!-- General -->
+      <trans-unit id="vehicle" datatype="html">
+        <source>Vehicle</source>
+        <target>Vehicle</target>
+      </trans-unit>
+      <trans-unit id="status" datatype="html">
+        <source>Status</source>
+        <target>Status</target>
       </trans-unit>
       <trans-unit id="online" datatype="html">
         <source>Online</source>
-      </trans-unit>      
+        <target>Online</target>
+      </trans-unit>
+      <trans-unit id="offline" datatype="html">
+        <source>Offline</source>
+        <target>offline</target>
+      </trans-unit>
+      <trans-unit id="others" datatype="html">
+        <source>Others</source>
+        <target>Others</target>
+      </trans-unit>
+      <trans-unit id="groupName" datatype="html">
+        <source>Group name</source>
+        <target>Group name</target>
+      </trans-unit>
+      <trans-unit id="active" datatype="html">
+        <source>Active</source>
+        <target>Active</target>
+      </trans-unit>
+
+      <trans-unit id="somethingWrongToaster" datatype="html">
+        <source>Somethings wrong</source>
+        <target>Somethings wrong</target>
+      </trans-unit>
+      <trans-unit id="tryRefreshPage" datatype="html">
+        <source>Try to refresh the page</source>
+        <target>Try to refresh the page</target>
+      </trans-unit>
+      <trans-unit id="pageNotFound" datatype="html">
+        <source>Page does not exist! Unless you were looking for this error page, In which case you find it!</source>
+        <target>Page does not exist! Unless you were looking for this error page, In which case you find it!</target>
+      </trans-unit>
+      <trans-unit id="pageNotAllowAccess" datatype="html">
+        <source>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</source>
+        <target>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</target>
+      </trans-unit>
+      <trans-unit id="action" datatype="html">
+        <source>action</source>
+        <target>action</target>
+      </trans-unit>
+      <trans-unit id="datetime" datatype="html">
+        <source>Datetime</source>
+        <target>Datetime</target>
+      </trans-unit>
+      <trans-unit id="latestEvents" datatype="html">
+        <source>Latest events</source>
+        <target>Latest events</target>
+      </trans-unit>
+      <trans-unit id="all" datatype="html">
+        <source>All</source>
+        <target>All</target>
+      </trans-unit>
+      <!-- End General -->
+
+      <!-- Event page -->
+      <trans-unit id="eventView" datatype="html">
+        <source>Event view</source>
+        <target>Event view</target>
+      </trans-unit>
+
+      <trans-unit id="type" datatype="html">
+        <source>Type</source>
+        <target>Type</target>
+      </trans-unit>
+
+      <trans-unit id="DeviceId" datatype="html">
+        <source>DeviceId</source>
+        <target>DeviceId</target>
+      </trans-unit>
+
+      <trans-unit id="EventId" datatype="html">
+        <source>EventId</source>
+        <target>EventId</target>
+      </trans-unit>
+
+      <trans-unit id="driverId" datatype="html">
+        <source>driverId</source>
+        <target>driverId</target>
+      </trans-unit>
+      <trans-unit id="videoId" datatype="html">
+        <source>videoId</source>
+        <target>videoId</target>
+      </trans-unit>
+      <trans-unit id="userName" datatype="html">
+        <source>userName</source>
+        <target>userName</target>
+      </trans-unit>
+
+      <trans-unit id="waitingForVideo" datatype="html">
+        <source>Waiting For Video</source>
+        <target>waiting For Video</target>
+      </trans-unit>
+
+      <trans-unit id="videoAvailable" datatype="html">
+        <source>Video Available</source>
+        <target>Video Available</target>
+      </trans-unit>
+
+      <trans-unit id="noOfCamera" datatype="html">
+        <source>Total Cameras</source>
+        <target>Total Cameras</target>
+      </trans-unit>
+
+      <trans-unit id="noOfVideo" datatype="html">
+        <source>Total Videos</source>
+        <target>Total Videos</target>
+      </trans-unit>
+
+      <trans-unit id="video" datatype="html">
+        <source>Video</source>
+        <target>Video</target>
+      </trans-unit>
+
+      <trans-unit id="processingVideo" datatype="html">
+        <source>Processing Video</source>
+        <target>Processing Video</target>
+      </trans-unit>
+
+      <trans-unit id="company" datatype="html">
+        <source>Company</source>
+        <target>Company</target>
+      </trans-unit>
+
+      <trans-unit id="events" datatype="html">
+        <source>Events</source>
+        <target>Events</target>
+      </trans-unit>
+
+      <trans-unit id="videoUrl" datatype="html">
+        <source>video Url</source>
+        <target>video Url</target>
+      </trans-unit>
+
+      <trans-unit id="videoUnavailable" datatype="html">
+        <source>Video not yet arrived.</source>
+        <target>Video not yet arrived.</target>
+      </trans-unit>
+
+      
+
+      <!--  Event data page -->
+
+
+      <trans-unit id="Manual" datatype="html">
+        <source>Manual</source>
+        <target>Manual</target>
+      </trans-unit>
+
+      <trans-unit id="Time" datatype="html">
+        <source>Time</source>
+        <target>Time</target>
+      </trans-unit>
+      <trans-unit id="Motion" datatype="html">
+        <source>Motion</source>
+        <target>Motion</target>
+      </trans-unit>
+      <trans-unit id="Speed" datatype="html">
+        <source>Speed</source>
+        <target>Speed</target>
+      </trans-unit>
+
+      <trans-unit id="Gsensor" datatype="html">
+        <source>G-sensor</source>
+        <target>G-sensor</target>
+      </trans-unit>
+
+      <trans-unit id="Temperature" datatype="html">
+        <source>Temperature</source>
+        <target>Temperature</target>
+      </trans-unit>
+
+      <trans-unit id="Alaram" datatype="html">
+        <source>Alaram</source>
+        <target>Alaram</target>
+      </trans-unit>
+
+      <trans-unit id="Button" datatype="html">
+        <source>Button</source>
+        <target>Button</target>
+      </trans-unit>
+
+      <trans-unit id="RFID" datatype="html">
+        <source>RFID</source>
+        <target>RFID</target>
+      </trans-unit>
+
+      <trans-unit id="Accelerate" datatype="html">
+        <source>Accelerate</source>
+        <target>Accelerate</target>
+      </trans-unit>
+
+      <trans-unit id="Deceleration" datatype="html">
+        <source>Deceleration</source>
+        <target>Deceleration</target>
+      </trans-unit>
+
+      <trans-unit id="TurnAngle" datatype="html">
+        <source>Turn Angle</source>
+        <target>Turn Angle</target>
+      </trans-unit>
+
+      <trans-unit id="TurnGyroscope" datatype="html">
+        <source>Turn Gyroscope</source>
+        <target>Turn Gyroscope</target>
+      </trans-unit>
+
+      <trans-unit id="Impact" datatype="html">
+        <source>Impact</source>
+        <target>Impact</target>
+      </trans-unit>
+
+      <trans-unit id="TurnLeft​" datatype="html">
+        <source>Turn Left​</source>
+        <target>Turn Left​</target>
+      </trans-unit>
+
+      <trans-unit id="TurnRight" datatype="html">
+        <source>Turn Right</source>
+        <target>Turn Right</target>
+      </trans-unit>
+
+      <trans-unit id="clip" datatype="html">
+        <source>clip</source>
+        <target>clip</target>
+      </trans-unit>
+
+      <trans-unit id="none" datatype="html">
+        <source>none</source>
+        <target>none</target>
+      </trans-unit>
+
+      <trans-unit id="DeviceDetails" datatype="html">
+        <source>DeviceDetails</source>
+        <target>DeviceDetails</target>
+      </trans-unit>
+
+      <!-- End Data event page -->
+
+
+      <!-- End Event page -->
     </body>
   </file>
 </xliff>

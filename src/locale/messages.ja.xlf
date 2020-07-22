@@ -1,13 +1,505 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="ja" datatype="plaintext" original="ng2.template">
+<xliff version="1.2"
+  xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ja-JP" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="active" datatype="html">
-        <source>アクティブ</source>
+      <!-- headers -->
+      <trans-unit id="applicationTitle" datatype="html">
+        <source>Forkers CMS</source>
+        <target>フォーカー CMS</target>
+      </trans-unit>
+      <trans-unit id="userProfile" datatype="html">
+        <source>Profile</source>
+        <target>私のプロファイル</target>
+      </trans-unit>
+      <trans-unit id="logout" datatype="html">
+        <source>logout</source>
+        <target>ログアウト</target>
+      </trans-unit>
+      <trans-unit id="eventReceived" datatype="html">
+        <source>Event received</source>
+        <target>イベントがもらいました</target>
+      </trans-unit>
+      <trans-unit id="eventIdIs" datatype="html">
+        <source>Event ID is</source>
+        <target>イベントIDは</target>
+      </trans-unit>
+
+      <!-- End headers -->
+
+      <!-- Themes -->
+      <trans-unit id="themeLight" datatype="html">
+        <source>Light</source>
+        <target>ライト</target>
+      </trans-unit>
+      <trans-unit id="themeDark" datatype="html">
+        <source>Dark</source>
+        <target>ダーク</target>
+      </trans-unit>
+      <trans-unit id="themeCosmic" datatype="html">
+        <source>Cosmic</source>
+        <target>コズミック</target>
+      </trans-unit>
+      <trans-unit id="themeCorporate" datatype="html">
+        <source>Corporate</source>
+        <target>コーポレート</target>
+      </trans-unit>
+      <trans-unit id="themeMaterialLight" datatype="html">
+        <source>Material Light</source>
+        <target>マチエールライト</target>
+      </trans-unit>
+      <trans-unit id="themeMaterialDark" datatype="html">
+        <source>Material Dark</source>
+        <target>マチエールダーク</target>
+      </trans-unit>
+      <!-- End Themes -->
+
+      <!-- Sidebar menu -->
+      <trans-unit id="dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>ダッシュボード</target>
+      </trans-unit>
+      <trans-unit id="userManagement" datatype="html">
+        <source>User management</source>
+        <target>ユーザー管理</target>
+      </trans-unit>
+      <trans-unit id="userListings" datatype="html">
+        <source>User Listings</source>
+        <target>ユーザー一覧</target>
+      </trans-unit>
+      <trans-unit id="sidebarMenuForklift" datatype="html">
+        <source>Forklift</source>
+        <target>車両</target>
+      </trans-unit>
+      <trans-unit id="sidebarMenuDevice" datatype="html">
+        <source>Device</source>
+        <target>デバイス</target>
+      </trans-unit>
+      <!-- End Sidebar menu -->
+
+      <!-- Login -->
+      <trans-unit id="applicationSortDescriotion" datatype="html">
+        <source>Forkers custommer management platform.</source>
+        <target>フォーカー顧客管理プラットフォーム。</target>
+      </trans-unit>
+      <trans-unit id="emailAddress" datatype="html">
+        <source>Email address</source>
+        <target>メールアドレス</target>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <target>パスワード</target>
+      </trans-unit>
+      <trans-unit id="keepSignIn" datatype="html">
+        <source>Keep sign in</source>
+        <target>サインインを維持</target>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Log in</source>
+        <target>ログイン</target>
+      </trans-unit>
+      <trans-unit id="emailRequired" datatype="html">
+        <source>Email is required</source>
+        <target>メールが必要</target>
+      </trans-unit>
+      <trans-unit id="isNotEmail" datatype="html">
+        <source>Email should be the real one!</source>
+        <target>メールではありません</target>
+      </trans-unit>
+      <trans-unit id="emailCharacterError" datatype="html">
+        <source>Email should contains at least 4 characters</source>
+        <target>メールには4文字以上が含まれている必要があります</target>
+      </trans-unit>
+      <trans-unit id="passwordRequired" datatype="html">
+        <source>Password is required</source>
+        <target>パスワードが必要</target>
+      </trans-unit>
+      <trans-unit id="passwordCharacterError" datatype="html">
+        <source>Password should contains at least 8 characters</source>
+        <target>パスワードには8文字以上が含まれている必要があります</target>
+      </trans-unit>
+      <trans-unit id="accountInvalid" datatype="html">
+        <source>Account is invalid, Please try again!</source>
+        <target>アカウントが無効です。もう一度やり直してください！</target>
+      </trans-unit>
+      <trans-unit id="somethingWrong" datatype="html">
+        <source>Somethings wrong, please contact us.</source>
+        <target>何か問題があります。お問い合わせください。</target>
+      </trans-unit>
+      <trans-unit id="supportEmail" datatype="html">
+        <source>support email: mbel003@mbel.co.jp</source>
+        <target>サポートメール: mbel003@mbel.co.jp</target>
+      </trans-unit>
+      <!-- End Login -->
+
+      <!-- User listings -->
+      <trans-unit id="companyListingsTable" datatype="html">
+        <source>Companies</source>
+        <target>会社一覧</target>
+      </trans-unit>
+      <trans-unit id="companyName" datatype="html">
+        <source>Company name</source>
+        <target>会社名</target>
+      </trans-unit>
+      <trans-unit id="running" datatype="html">
+        <source>Running</source>
+        <target>走っている</target>
+      </trans-unit>
+      <!-- End User listings  -->
+
+      <!-- Vehicle page -->
+      <trans-unit id="tableView" datatype="html">
+        <source>Table view</source>
+        <target>一覧</target>
+      </trans-unit>
+      <trans-unit id="mapsView" datatype="html">
+        <source>Maps view</source>
+        <target>地図</target>
+      </trans-unit>
+      <trans-unit id="statisticsView" datatype="html">
+        <source>Statistics view</source>
+        <target>統計学</target>
+      </trans-unit>
+      <!-- End Vehicle page -->
+
+      <!-- Vehicle details -->
+      <trans-unit id="plateNumber" datatype="html">
+        <source>PlateNumber</source>
+        <target>プレートナンバー</target>
+      </trans-unit>
+      <trans-unit id="scanCode" datatype="html">
+        <source>Scan code</source>
+        <target>スキャンコード</target>
+      </trans-unit>
+      <trans-unit id="tcpServerAddress" datatype="html">
+        <source>TCP server address</source>
+        <target>TCPサーバーアドレス</target>
+      </trans-unit>
+      <trans-unit id="updServerAddress" datatype="html">
+        <source>UPD server address</source>
+        <target>UPD</target>
+      </trans-unit>
+      <trans-unit id="tcpStreamOutPort" datatype="html">
+        <source>TCP stream out port</source>
+        <target>TCPストリームアウトポート</target>
+      </trans-unit>
+      <trans-unit id="updStreamOutPort" datatype="html">
+        <source>UPD stream out port</source>
+        <target>UPDストリームアウトポート</target>
+      </trans-unit>
+      <trans-unit id="deviceType" datatype="html">
+        <source>Device type</source>
+        <target>デバイスタイプ</target>
+      </trans-unit>
+      <trans-unit id="networkType" datatype="html">
+        <source>Network type</source>
+        <target>ネットワーク型</target>
+      </trans-unit>
+      <!-- Vehicle details -->
+
+      <!-- Dashboard -->
+      <trans-unit id="onlineVehicle" datatype="html">
+        <source>Online vehicle</source>
+        <target>オンライン車両</target>
+      </trans-unit>
+
+      <trans-unit id="oneDay" datatype="html">
+        <source>1 day</source>
+        <target>1日</target>
+      </trans-unit>
+      <trans-unit id="oneWeek" datatype="html">
+        <source>1 Week</source>
+        <target>1週間</target>
+      </trans-unit>
+      <trans-unit id="oneMonth" datatype="html">
+        <source>1 month</source>
+        <target>1ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="threeMonth" datatype="html">
+        <source>3 month</source>
+        <target>3ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="sixMonth" datatype="html">
+        <source>6 month</source>
+        <target>6ヶ月間</target>
+      </trans-unit>
+      <trans-unit id="oneYear" datatype="html">
+        <source>1 year</source>
+        <target>1年間</target>
+      </trans-unit>
+
+
+      <trans-unit id="acceleration" datatype="html">
+        <source>Acceleration</source>
+        <target>加速</target>
+      </trans-unit>
+
+      <trans-unit id="deacceleration" datatype="html">
+        <source>Deacceleration</source>
+        <target>減速</target>
+      </trans-unit>
+
+      <trans-unit id="suddenHandle" datatype="html">
+        <source>Sudden handle</source>
+        <target>急ハンドル</target>
+      </trans-unit>
+
+      <trans-unit id="accident" datatype="html">
+        <source>Accident</source>
+        <target>事故</target>
+      </trans-unit>
+      <!-- end Dashboard -->
+
+      <!-- General -->
+      <trans-unit id="vehicle" datatype="html">
+        <source>Vehicle</source>
+        <target>車両</target>
+      </trans-unit>
+      <trans-unit id="status" datatype="html">
+        <source>Status</source>
+        <target>状態</target>
       </trans-unit>
       <trans-unit id="online" datatype="html">
-        <source>オンライン</source>
+        <source>Online</source>
+        <target>オンライン</target>
       </trans-unit>
+      <trans-unit id="offline" datatype="html">
+        <source>Offline</source>
+        <target>オフライン</target>
+      </trans-unit>
+      <trans-unit id="others" datatype="html">
+        <source>Others</source>
+        <target>その他</target>
+      </trans-unit>
+      <trans-unit id="groupName" datatype="html">
+        <source>Group name</source>
+        <target>グループ名</target>
+      </trans-unit>
+      <trans-unit id="active" datatype="html">
+        <source>Active</source>
+        <target>アクティブ</target>
+      </trans-unit>
+
+      <trans-unit id="somethingWrongToaster" datatype="html">
+        <source>Somethings wrong</source>
+        <target>何かおかしい</target>
+      </trans-unit>
+      <trans-unit id="tryRefreshPage" datatype="html">
+        <source>Try to refresh the page</source>
+        <target>ページを更新してみてください</target>
+      </trans-unit>
+      <trans-unit id="pageNotFound" datatype="html">
+        <source>Page does not exist! Unless you were looking for this error page, In which case you find it!</source>
+        <target>ページが存在しません！あなたがこのエラーページを探していなかった場合を除いて、あなたはそれを見つけます！</target>
+      </trans-unit>
+      <trans-unit id="pageNotAllowAccess" datatype="html">
+        <source>Access is not allowed, You have not access to this page. Please contact us: mbel003@mbel.co.jp</source>
+        <target>アクセスは許可されていません。このページにアクセスできません。お問い合わせください：mbel003@mbel.co.jp</target>
+      </trans-unit>
+      <trans-unit id="action" datatype="html">
+        <source>action</source>
+        <target>アクション</target>
+      </trans-unit>
+      <trans-unit id="datetime" datatype="html">
+        <source>Datetime</source>
+        <target>時日</target>
+      </trans-unit>
+      <trans-unit id="latestEvents" datatype="html">
+        <source>Latest events</source>
+        <target>最新のイベント</target>
+      </trans-unit>
+      <trans-unit id="all" datatype="html">
+        <source>All</source>
+        <target>全部</target>
+      </trans-unit>
+      <!-- End General -->
+
+      <!-- Event page -->
+      <trans-unit id="eventView" datatype="html">
+        <source>Event view</source>
+        <target>イベントビュー</target>
+      </trans-unit>
+
+      <trans-unit id="type" datatype="html">
+        <source>Type</source>
+        <target>タイプ</target>
+      </trans-unit>
+
+      <trans-unit id="DeviceId" datatype="html">
+        <source>DeviceId</source>
+        <target>デバイスID</target>
+      </trans-unit>
+
+      <trans-unit id="EventId" datatype="html">
+        <source>EventId</source>
+        <target>イベントID</target>
+      </trans-unit>
+
+      <trans-unit id="driverId" datatype="html">
+        <source>driverId</source>
+        <target>ドライブID</target>
+      </trans-unit>
+      <trans-unit id="videoId" datatype="html">
+        <source>videoId</source>
+        <target>ビデオID</target>
+      </trans-unit>
+      <trans-unit id="userName" datatype="html">
+        <source>userName</source>
+        <target>ユーザー名</target>
+      </trans-unit>
+
+
+      <trans-unit id="waitingForVideo" datatype="html">
+        <source>Waiting For Video</source>
+        <target>ビデオを待っています</target>
+      </trans-unit>
+
+      <trans-unit id="videoAvailable" datatype="html">
+        <source>Video Available</source>
+        <target>利用可能なビデオ</target>
+      </trans-unit>
+
+      <trans-unit id="noOfCamera" datatype="html">
+        <source>Total Cameras</source>
+        <target>トータルカメラ</target>
+      </trans-unit>
+
+      <trans-unit id="noOfVideo" datatype="html">
+        <source>Total Videos</source>
+        <target>合計ビデオ</target>
+      </trans-unit>
+
+      <trans-unit id="video" datatype="html">
+        <source>Video</source>
+        <target>ビデオ</target>
+      </trans-unit>
+
+      <trans-unit id="processingVideo" datatype="html">
+        <source>Processing Video</source>
+        <target>ビデオの処理</target>
+      </trans-unit>
+
+      <trans-unit id="company" datatype="html">
+        <source>Company</source>
+        <target>会社</target>
+      </trans-unit>
+
+      <trans-unit id="events" datatype="html">
+        <source>Events</source>
+        <target>イベント</target>
+      </trans-unit>
+
+
+      <trans-unit id="videoUnavailable" datatype="html">
+        <source>Video not yet arrived.</source>
+        <target>ビデオはまだ到着していません。</target>
+      </trans-unit>
+      
+      <!-- End Event page -->
+      <!--  Event data page -->
+
+
+      <trans-unit id="Manual" datatype="html">
+        <source>Manual</source>
+        <target>マニュアル</target>
+      </trans-unit>
+
+      <trans-unit id="Time" datatype="html">
+        <source>Time</source>
+        <target>時間</target>
+      </trans-unit>
+      <trans-unit id="Motion" datatype="html">
+        <source>Motion</source>
+        <target>モーション</target>
+      </trans-unit>
+      <trans-unit id="Speed" datatype="html">
+        <source>Speed</source>
+        <target>速度</target>
+      </trans-unit>
+
+      <trans-unit id="Gsensor" datatype="html">
+        <source>G-sensor</source>
+        <target>Gセンサー</target>
+      </trans-unit>
+
+      <trans-unit id="Temperature" datatype="html">
+        <source>Temperature</source>
+        <target>温度</target>
+      </trans-unit>
+
+      <trans-unit id="Alaram" datatype="html">
+        <source>Alaram</source>
+        <target>警報</target>
+      </trans-unit>
+
+      <trans-unit id="Button" datatype="html">
+        <source>Button</source>
+        <target>ボタン</target>
+      </trans-unit>
+
+      <trans-unit id="RFID" datatype="html">
+        <source>RFID</source>
+        <target>RFID</target>
+      </trans-unit>
+
+      <trans-unit id="Accelerate" datatype="html">
+        <source>Accelerate</source>
+        <target>アクセル</target>
+      </trans-unit>
+
+      <trans-unit id="Deceleration" datatype="html">
+        <source>Deceleration</source>
+        <target>減速</target>
+      </trans-unit>
+
+      <trans-unit id="TurnAngle" datatype="html">
+        <source>Turn Angle</source>
+        <target>回転角度</target>
+      </trans-unit>
+
+      <trans-unit id="TurnGyroscope" datatype="html">
+        <source>Turn Gyroscope</source>
+        <target>回転ジャイロスコープ</target>
+      </trans-unit>
+
+      <trans-unit id="Impact" datatype="html">
+        <source>Impact</source>
+        <target>影響</target>
+      </trans-unit>
+
+      <trans-unit id="TurnLeft​" datatype="html">
+        <source>Turn Left​</source>
+        <target>左折</target>
+      </trans-unit>
+
+      <trans-unit id="TurnRight" datatype="html">
+        <source>Turn Right</source>
+        <target>右に曲がる</target>
+      </trans-unit>
+
+      <trans-unit id="clip" datatype="html">
+        <source>clip</source>
+        <target>クリップ</target>
+      </trans-unit>
+
+      <trans-unit id="none" datatype="html">
+        <source>none</source>
+        <target>なし</target>
+      </trans-unit>
+
+      <trans-unit id="DeviceDetails" datatype="html">
+        <source>DeviceDetails</source>
+        <target>デバイスの詳細</target>
+      </trans-unit>
+
+      <trans-unit id="videoUrl" datatype="html">
+        <source>video Url</source>
+        <target>ビデオUrl</target>
+      </trans-unit>
+      <!-- End Data event page -->
+
+
+
     </body>
   </file>
 </xliff>

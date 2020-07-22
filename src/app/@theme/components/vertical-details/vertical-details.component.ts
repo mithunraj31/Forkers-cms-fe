@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'mdm-vertical-detail',
+    selector: 'frk-vertical-detail',
     templateUrl: './vertical-details.component.html',
     styleUrls: ['./vertical-details.component.scss']
 })
@@ -40,6 +40,9 @@ export class VerticalDetailComponent {
                     // data feild can add html element
                     type: 'html'
                 }
+            },
+            pager: {
+                display: false
             }
         };
     }

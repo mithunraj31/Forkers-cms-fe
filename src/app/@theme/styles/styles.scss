@@ -12,6 +12,7 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/grid";
+@import "~leaflet/dist/leaflet.css";
 
 @import "./material/angular-material";
 
@@ -50,4 +51,9 @@
 }
 .device-online {
   color: #5dc25d;
+}
+
+.ng2-smart-sort-link{
+  font-weight: bold !important;
+
 }

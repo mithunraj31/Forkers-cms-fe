@@ -11,7 +11,8 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';4
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -21,9 +22,10 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-// import { AuthService } from './auth/Auth.service';
-// import { AuthGuardService } from './auth/auth-guard.service';
-// import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { AuthService } from './auth/Auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { ErrorsModule } from './pages/errors/errors.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -44,16 +46,18 @@ import {
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
     CoreModule.forRoot(),
+    LeafletModule,
+    ErrorsModule
   ],
   providers:[
-    // AuthService,
-    // AuthGuardService,
-    // AuthInterceptorService,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptorService,
-    //   multi: true
-    // },
+    AuthService,
+    AuthGuardService,
+    AuthInterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
   ],
 
   bootstrap: [AppComponent],

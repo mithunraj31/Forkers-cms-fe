@@ -1,55 +1,83 @@
-<nb-alert *ngIf="!isLoading && errorMessages && errorMessages.length > 0" outline="danger" role="alert">
-  <ul class="alert-message-list">
-    <li *ngFor="let message of errorMessages" class="alert-message">{{ message }}</li>
-  </ul>
-</nb-alert>
+<div class="row">
+  <div class="col-lg-4 offset-lg-4">
+    <nb-card>
+      <nb-card-body>
+        <div>
+          <nb-alert *ngIf="!isLoading && errorMessages && errorMessages.length > 0" outline="danger" role="alert">
+            <ul class="alert-message-list">
+              <li *ngFor="let message of errorMessages" class="alert-message">{{ message }}</li>
+            </ul>
+          </nb-alert>
+          <h1 id="title" class="title" i18n="@@login">Login</h1>
+          <form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
 
-<h1 id="title" class="title">Forkers CMS</h1>
-<p class="sub-title">Forkers's custommer management platform.</p>
+            <div class="form-control-group">
+              <div class="row">
+                <div class="col-lg-1">
+                  <nb-icon icon="person"></nb-icon>
+                </div>
+                <div class="col-lg-11">
+                  <input nbInput fullWidth [(ngModel)]="user.email" #email="ngModel" name="email" id="input-email"
+                    pattern=".+@.+\..+" placeholder="example@emxample.com" fieldSize="large" required minlength="4">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-11 offset-lg-1">
+                  <ng-container *ngIf="email.invalid && email.touched">
+                    <p class="error-message" *ngIf="email.errors?.required" i18n="@@emailRequired">
+                      Email is required!
+                    </p>
+                    <p class="error-message" *ngIf="email.errors?.pattern" i18n="@@isNotEmail">
+                      Email should be the real one!
+                    </p>
+                    <p class="error-message" *ngIf="email.errors?.minlength" i18n="@@emailCharacterError">
+                      Email should contains at least 4 characters
+                    </p>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
 
-<form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
 
-  <div class="form-control-group">
-    <label class="label" for="input-email">Email address:</label>
-    <input nbInput fullWidth [(ngModel)]="user.email" #email="ngModel" name="email" id="input-email" pattern=".+@.+\..+"
-      placeholder="Email address" required minlength="4">
+            <div class="form-control-group">
+              <div class="row">
+                <div class="col-lg-1">
+                  <img src="assets/icon/key.png">
+                </div>
+                <div class="col-lg-11">
+                  <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password"
+                    type="password" id="input-password" placeholder="Password" required minlength="8">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-11 offset-lg-1">
+                  <ng-container *ngIf="password.invalid && password.touched">
+                    <p class="error-message" *ngIf="password.errors?.required" i18n="@@passwordRequired">
+                      Password is required!
+                    </p>
+                    <p class="error-message" *ngIf="password.errors?.minlength" i18n="@@passwordCharacterError">
+                      Password should contains at least 8 characters
+                    </p>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
 
-    <ng-container *ngIf="email.invalid && email.touched">
-      <p class="error-message" *ngIf="email.errors?.required">
-        Email is required!
-      </p>
-      <p class="error-message" *ngIf="email.errors?.pattern">
-        Email should be the real one!
-      </p>
-      <p class="error-message" *ngIf="email.errors?.minlength">
-        Email should contains at least 4 characters
-        characters
-      </p>
-    </ng-container>
+            <div class="form-control-group">
+              <nb-checkbox name="rememberMe" [(ngModel)]="user.eulaEnabled"><span i18n="@@keepSignIn">Keep sign
+                  in</span>
+              </nb-checkbox>
+            </div>
+
+            <button nbButton fullWidth status="success" [disabled]="!form.valid || isLoading" [nbSpinner]="isLoading"
+              nbSpinnerStatus="info" i18n="@@login">
+              Log In
+            </button>
+          </form>
+        </div>
+
+
+      </nb-card-body>
+    </nb-card>
   </div>
-
-  <div class="form-control-group">
-    <label class="label" for="input-password">Password:</label>
-    <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password" type="password"
-      id="input-password" placeholder="Password" required minlength="8">
-
-    <ng-container *ngIf="password.invalid && password.touched">
-      <p class="error-message" *ngIf="password.errors?.required">
-        Password is required!
-      </p>
-      <p class="error-message" *ngIf="password.errors?.minlength">
-        Password should contains at least 8 characters
-        characters
-      </p>
-    </ng-container>
-  </div>
-
-  <div class="form-control-group">
-    <nb-checkbox name="rememberMe" [(ngModel)]="user.eulaEnabled">Keep sign in </nb-checkbox>
-  </div>
-
-  <button nbButton fullWidth status="success" [disabled]="!form.valid || isLoading"
-  [nbSpinner]="isLoading" nbSpinnerStatus="info">
-    Log In
-  </button>
-</form>
+</div>

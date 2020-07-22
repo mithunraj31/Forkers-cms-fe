@@ -10,5 +10,8 @@
 
 export const environment = {
   production: false,
-  host: "http://localhost:8010/proxy/api/"
+  wsEndpoint: 'http://54.250.102.34:8080/ws',
+  host: "http://54.250.102.34:8080/api",
+  hostJa: "http://54.250.102.34:4401",
+  hostEn: "http://54.250.102.34:4200",
 };
