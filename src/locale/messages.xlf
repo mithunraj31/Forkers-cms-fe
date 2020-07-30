@@ -334,8 +334,8 @@
       </trans-unit>
 
       <trans-unit id="driverId" datatype="html">
-        <source>driverId</source>
-        <target>driverId</target>
+        <source>DriverId</source>
+        <target>DriverId</target>
       </trans-unit>
       <trans-unit id="videoId" datatype="html">
         <source>videoId</source>

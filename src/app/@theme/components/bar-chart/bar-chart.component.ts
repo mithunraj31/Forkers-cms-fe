@@ -1,15 +1,15 @@
-import { delay, takeWhile } from 'rxjs/operators';
-import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
+import { LegendItemModel } from '../../../@core/entities/legend-item.model';
 import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../@core/utils';
-import { LegendItemModel } from '../../../@core/entities/legend-item.model';
+import { takeWhile, delay } from 'rxjs/operators';
 
 @Component({
-  selector: 'frk-period-analytics-chart',
-  styleUrls: ['./period-analytics-chart.component.scss'],
-  templateUrl: './period-analytics-chart.component.html'
+  selector: 'frk-bar-chart',
+  templateUrl: './bar-chart.component.html',
+  styleUrls: ['./bar-chart.component.scss']
 })
-export class PeriodAnalyticsChartComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class BarChartComponent  implements AfterViewInit, OnChanges, OnDestroy {
 
   private alive = true;
 
@@ -132,60 +132,18 @@ export class PeriodAnalyticsChartComponent implements AfterViewInit, OnChanges, 
           },
         },
       },
-      series: [
-        this.getOuterLine(eTheme),
-      ],
+      series: [{
+        type: 'bar',
+        data: chartData.reverse().map(i => i.value),
+        itemStyle: {color: 'blue'},
+       // showBackground: true,
+        backgroundStyle: {
+            color: 'rgba(220, 220, 220, 0.8)'
+        }
+    }]
     };
   }
 
-  getOuterLine(eTheme) {
-    let chartData: any[] = this.chartData;
-    chartData = chartData.reverse();
-    return {
-      type: 'line',
-      smooth: true,
-      symbolSize: 20,
-      itemStyle: {
-        normal: {
-          opacity: 0,
-        },
-        emphasis: {
-          color: '#ffffff',
-            borderColor: eTheme.itemBorderColor,
-            borderWidth: 2,
-            opacity: 1,
-        },
-      },
-      lineStyle: {
-        normal: {
-          width: eTheme.lineWidth,
-          type: eTheme.lineStyle,
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-            offset: 0,
-            color: eTheme.lineGradFrom,
-          }, {
-            offset: 1,
-            color: eTheme.lineGradTo,
-          }]),
-          shadowColor: eTheme.lineShadow,
-          shadowBlur: 6,
-          shadowOffsetY: 12,
-        },
-      },
-      areaStyle: {
-        normal: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-            offset: 0,
-            color: eTheme.areaGradFrom,
-          }, {
-            offset: 1,
-            color: eTheme.areaGradTo,
-          }]),
-        },
-      },
-      data: chartData.reverse().map(i => i.value),
-    };
-  }
 
   onChartInit(echarts) {
     this.echartsIntance = echarts;

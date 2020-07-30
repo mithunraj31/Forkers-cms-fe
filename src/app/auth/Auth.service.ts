@@ -35,6 +35,7 @@ export class AuthService {
           this.setSession({ token: response.token });
           // get user information from payload
           const payload: any = this.jwtHelper.decodeToken(response.token);
+          const expiresAt = payload.exp;
           const user: UserAccount = <UserAccount>{
             name: `${payload.firstName} ${payload.lastName}`,
             id: payload.userId,
@@ -44,11 +45,19 @@ export class AuthService {
           };
           //  save user data to local storage 
           localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem("expires_at", expiresAt);
         } else {
           throw new Error();
         }
       }));
   }
+
+  getExpiration() {
+    const expiration = localStorage.getItem("expires_at");
+    const expiresAt: Number = JSON.parse(expiration);
+
+    return expiresAt;
+}
 
   public logout() {
     localStorage.removeItem('id_token');
@@ -66,7 +75,7 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    if (localStorage.getItem('id_token')) {
+    if (this.getExpiration() > Date.now()/1000) {
       //this.loggedIn.next(true);
       return true;
     } else {

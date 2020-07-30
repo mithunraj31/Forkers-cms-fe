@@ -9,6 +9,8 @@ import { EventSummary } from '../../@core/entities/event-summary.model';
 import { StompSubscriber } from '../../@core/entities/stomp-subscriber.model';
 import { WS_TOPIC } from '../../@core/constants/websocket-topic';
 import { StompWebsocketService } from '../../services/stomp-websocket.service';
+import { SmartTableLinkComponent } from '../../@theme/components/smart-table-link/smart-table-link.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'frk-dashboard',
@@ -32,6 +34,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // store formatted online statistics data
   // the data will obtain after format raw data from backend API
   displayData: { label: string, value: number }[];
+
+  data: number[] = [];
+  
+  categories: string[];
 
   // period range for PeriodAnalyticsChartComponent 
   // will display to dropdown options.
@@ -64,12 +70,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
     accident: LegendItemModel[];
   };
 
+  countryData: number[] = [];
+  countriesCategories: string[];
+
   constructor(private vehicleService: VehicleService,
     private dashboardService: DashboardService,
     private eventService: EventService,
     private toastrService: NbToastrService,
     private userService: UserService,
-    private stompWebsocketService: StompWebsocketService,) {
+    private stompWebsocketService: StompWebsocketService,
+    private router:Router) { 
     this.onlineStatusGraphSelectionLabels = [
       {
         title: $localize`:@@oneDay:`,
@@ -101,6 +111,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
       title: $localize`:@@onlineVehicle:`
     };
 
+    this.categories=["online","offline"];
+
     this.tableSettings = {
       // hide create, update, and delete row buttons from ng2-smart-table
       actions: {
@@ -122,9 +134,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
         userName: {
           title: $localize`:@@company:`,
           filter: false,
+          type: 'custom',
+          renderComponent: SmartTableLinkComponent,
+          // mapping nested property of user data to display  type of device
+          onComponentInitFunction: (instance: any) => {
+            // when user click serial number will redirect to events details page
+            instance.onClicked.subscribe(response => {
+              this.router.navigate([`pages/devices/events/company/${response.userName}`]);
+            });
+          },
         },
-        deviceId: {
-          title: $localize`:@@DeviceId:`,
+        driverId: {
+          title: $localize`:@@driverId:`,
           filter: false,
         },
         type: {
@@ -135,9 +156,24 @@ export class DashboardComponent implements OnInit, OnDestroy {
           valuePrepareFunction: (type: number) => {
             return this.eventService.getEventTypeName(type);
           },
+        },
+        eventId: {
+          title: $localize`:@@EventId:`,
+          // data feild can add html element
+          filter: false,
+          type: 'custom',
+          renderComponent: SmartTableLinkComponent,
+          // mapping nested property of user data to display  type of device
+          onComponentInitFunction: (instance: any) => {
+            // when user click serial number will redirect to events details page
+            instance.onClicked.subscribe(response => {
+              this.router.navigate([`pages/devices/events/${response.eventId}`]);
+            });
+          },
         }
       }
     };
+
 
     this.lengends = {
       acceleration: [
@@ -218,6 +254,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     // HTTP request to get online status according to selected period
     this.getOnlineVehicleStatus(this.selectedNumberOfDays);
+    this.getOnlinetatus(this.selectedNumberOfDays);
 
     this.eventService.getEvent().subscribe(event => {
       this.listings = event.slice(0, 10);
@@ -239,6 +276,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
       });
   }
+
+   // the method will trigger when user selected new period option or component initializing.
+  // then HTTP request to backend to get statistic data and format data before send to PeriodAnalyticsChartComponent
+  private getOnlinetatus(days: number) {
+    this.vehicleService.getOnlineVehicleStatus(days)
+      .subscribe(data => {
+        this.data = this.dashboardService.convertOnlineStatusToChartData(days, data);
+      }, error => {
+        const status = 'danger';
+        this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
+      });
+  }
+
 
   // the method trigger when user select new period option
   // then will pass selected data from PeriodAnalyticsChartComponent to the method.

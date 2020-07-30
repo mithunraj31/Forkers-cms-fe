@@ -1,8 +1,18 @@
 <nb-card>
     <nb-card-header>
-        <span i18n="@@EventId">EventId</span> >  {{ eventId }}
+        <div class="row">
+            <div class="col-lg-8">
+                <span i18n="@@EventId">EventId</span> > {{ eventId }}
+            </div>
+            <div class="col-lg-4 text-right">
+                <button nbButton status="info" (click)="ngClickrefresh()">
+                    <nb-icon icon="refresh"></nb-icon>Refresh
+                </button>
+
+            </div>
+        </div>
     </nb-card-header>
     <nb-card-body>
-          <nb-route-tabset [tabs]="tabs"></nb-route-tabset>
+        <nb-route-tabset [tabs]="tabs"></nb-route-tabset>
     </nb-card-body>
 </nb-card>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../../../../services';
+import { Component, OnInit, Inject } from '@angular/core';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'frk-event-details-container',
@@ -20,7 +20,8 @@ export class EventDetailsContainerComponent implements OnInit {
   eventId: string;
 
   constructor(private route: ActivatedRoute,
-    private userService: UserService) { }
+    private router:Router,
+    @Inject(DOCUMENT) private _document: Document) { }
 
 
   ngOnInit(): void {
@@ -45,6 +46,12 @@ export class EventDetailsContainerComponent implements OnInit {
     ];
 
   
+  }
+
+  ngClickrefresh(){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([this.router.url]);
   }
 
  

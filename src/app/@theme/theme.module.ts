@@ -58,6 +58,7 @@ import { PagerComponent } from './components/pager/pager.component';
 import { PeriodAnalyticsChartComponent } from './components/period-analytics-chart/period-analytics-chart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { IconLinkPrepartionComponent } from './components/icon-link-preparation/icon-link-preparation.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -96,7 +97,8 @@ const COMPONENTS = [
   ConfirmModalComponent,
   SmartTableLinkComponent,
   PeriodAnalyticsChartComponent,
-  IconLinkPrepartionComponent
+  IconLinkPrepartionComponent,
+  BarChartComponent
 ];
 const PIPES = [
   CapitalizePipe,
@@ -109,7 +111,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule,Ng2SmartTableModule, MatRippleModule, TreeModule.forRoot(), ...NB_MODULES, NgxEchartsModule],
   exports: [CommonModule, Ng2SmartTableModule, MatRippleModule, ...PIPES, ...COMPONENTS, NgxEchartsModule],
-  declarations: [...COMPONENTS, ...PIPES],
+  declarations: [...COMPONENTS, ...PIPES, ],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

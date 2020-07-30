@@ -22,7 +22,7 @@ import { VehiclesStatisticsViewComponent } from './vehicles-statistics-view/vehi
     VehiclesTableViewComponent,
     VehiclesMapsViewComponent,
     VehiclesDetailsComponent,
-    VehiclesStatisticsViewComponent
+    VehiclesStatisticsViewComponent,
   ],
 })
 export class VehiclesModule {

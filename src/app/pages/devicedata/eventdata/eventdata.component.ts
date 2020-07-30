@@ -192,4 +192,8 @@ export class EventdataComponent implements OnInit, OnDestroy {
     this.stompWebsocketService.disconnect(this.wsConn);
     this.stompWebsocketService.disconnect(this.wsvideoConn);
   }
+
+  onClickRefresh(){
+  this.initialTable();
+  }
 }

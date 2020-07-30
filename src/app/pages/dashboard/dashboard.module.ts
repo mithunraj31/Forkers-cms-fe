@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardStatisticPieComponent } from './statistic-pie/statistic-pie.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { DashboardLegendChartComponent } from './legend-chart/legend-chart.component';
+import { DashboardMapsViewComponent } from './dashboard-maps-view/dashboard-maps-view.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   imports: [
@@ -14,11 +16,13 @@ import { DashboardLegendChartComponent } from './legend-chart/legend-chart.compo
     NgxEchartsModule,
     NbListModule,
     NbSpinnerModule,
+    LeafletModule
   ],
   declarations: [
     DashboardComponent,
     DashboardStatisticPieComponent,
-    DashboardLegendChartComponent
+    DashboardLegendChartComponent,
+    DashboardMapsViewComponent
   ],
 })
 export class DashboardModule { }
