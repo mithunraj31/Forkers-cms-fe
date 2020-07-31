@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserAccount } from '../@core/entities/UserAccount.model';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -52,17 +53,9 @@ export class AuthService {
       }));
   }
 
-  getExpiration() {
-    const expiration = localStorage.getItem("expires_at");
-    const expiresAt: Number = JSON.parse(expiration);
-
-    return expiresAt;
-}
-
   public logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('user');
-    // localStorage.removeItem("id_session");
     this.loggedIn.next(false);
     this.router.navigate(["/login"]);
   }
@@ -70,18 +63,19 @@ export class AuthService {
   public setSession(authResult) {
 
     localStorage.setItem('id_token', authResult.token);
-    // localStorage.setItem("id_session", authResult.session);
     if (authResult.token) this.loggedIn.next(true);
   }
 
   public isAuthenticated(): boolean {
-    if (this.getExpiration() > Date.now()/1000) {
-      //this.loggedIn.next(true);
-      return true;
-    } else {
-      //this.loggedIn.next(false);
+    const expiration = localStorage.getItem("expires_at");
+    // check jwt and token expire date is existing in local storage
+    if (!expiration || !localStorage.getItem('id_token')) {
       return false;
     }
+    const expiresAt: number = parseInt(expiration);
+    const expireDate = moment(expiresAt * 1000);
+    // check the expire date is expired
+    return expireDate.isAfter(moment(new Date()));
   }
   public isLoggedIn() {
     if (this.isAuthenticated()) {
