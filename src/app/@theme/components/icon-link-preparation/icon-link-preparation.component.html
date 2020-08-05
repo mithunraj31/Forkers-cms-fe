@@ -42,4 +42,18 @@
             </div>
         </div>
     </div>
+    <div class="switch" *ngSwitchCase="'zeroCamera'" >
+        <div class="row">
+            <div class="col-lg-3">
+                <nb-icon class="available"  icon="slash" status="info" pack="eva"></nb-icon>
+            </div>
+            <div class="col-lg-3" >
+                {{ totalVideos }}    <span>/</span>    {{ totalCameras }}  
+             </div>
+            <div class="col-lg-6">
+                <p   i18n="@@zeroCamera">Processsing</p>
+            </div>
+        </div>
+    </div>
+
 </div>

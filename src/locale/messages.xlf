@@ -494,6 +494,24 @@
         <target>DeviceDetails</target>
       </trans-unit>
 
+      <trans-unit id="zeroCamera" datatype="html">
+        <source>NoCamera</source>
+        <target>NoCamera</target>
+      </trans-unit>
+
+        <trans-unit id="search" datatype="html">
+        <source>search</source>
+        <target>search</target>
+      </trans-unit>
+
+         <trans-unit id="refresh" datatype="html">
+        <source>refresh</source>
+        <target>refresh</target>
+      </trans-unit>
+
+
+      
+
       <!-- End Data event page -->
 
 

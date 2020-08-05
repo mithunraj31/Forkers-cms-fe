@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbSpinnerModule, NbTabsetModule, NbRouteTabsetModule, NbIconModule, NbButtonModule } from '@nebular/theme';
+import { NbCardModule, NbSpinnerModule, NbTabsetModule, NbRouteTabsetModule, NbIconModule, NbButtonModule, NbInputModule } from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { EventdataComponent } from './eventdata/eventdata.component';
@@ -16,7 +16,9 @@ import { EventListComponent } from './eventdata/eventdetails/eventlist/event-lis
     NbRouteTabsetModule,
     LeafletModule,
     NbTabsetModule,
-    NbIconModule,NbButtonModule
+    NbIconModule,
+    NbButtonModule,
+    NbInputModule
 
   ],
   declarations: [

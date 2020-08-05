@@ -10,6 +10,7 @@ import { StompWebsocketService } from '../../../services/stomp-websocket.service
 import { StompSubscriber } from '../../../@core/entities/stomp-subscriber.model';
 import { UserAccount } from '../../../@core/entities/UserAccount.model';
 import { WS_TOPIC } from '../../../@core/constants/websocket-topic';
+import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
   selector: 'frk-eventdata',
@@ -27,6 +28,8 @@ export class EventdataComponent implements OnInit, OnDestroy {
   // the property binding to display event infomation listings table.
   // @type {Event[]}
   listings: Event[] = [];
+
+  source: LocalDataSource;
 
 
   @Input() name: any;
@@ -175,6 +178,7 @@ export class EventdataComponent implements OnInit, OnDestroy {
           });
         }
       });
+      this.source = new LocalDataSource(this.listings);
       if (subscribers.length > 0) {
         if (this.wsvideoConn) {
           this.wsvideoConn.disconnect();
@@ -196,4 +200,28 @@ export class EventdataComponent implements OnInit, OnDestroy {
   onClickRefresh(){
   this.initialTable();
   }
+  onSearch(query: string = '') {
+    if(query==''){
+      return this.initialTable();
+    }
+    this.source.setFilter([
+      // fields we want to include in the search
+      {
+        field: 'eventId',
+        search: query
+      },
+      {
+        field: 'deviceId',
+        search: query
+      },
+      {
+        field: 'userName',
+        search: query
+      }
+    ], false); 
+    // second parameter specifying whether to perform 'AND' or 'OR' search 
+  // (meaning all columns should contain search query or at least one)
+  // 'AND' by default, so changing to 'OR' by setting false here
+  }
+
 }

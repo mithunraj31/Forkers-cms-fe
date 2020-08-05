@@ -80,12 +80,15 @@ export class EventVideoComponent implements OnInit {
   }
 
   getVideoStatus() {
-    if(this.totalVideos<this.totalCameras ||this.totalCameras==0){
+    if(this.totalCameras==0){
+      return $localize`:@@zeroCamera:`
+    }
+    else if(this.totalVideos<this.totalCameras ){
       return $localize`:@@waitingForVideo:`
     }else if( this.totalCameras==this.totalVideos && this.videoUrl){
       return $localize`:@@videoAvailable:`
     }else if(this.totalCameras==this.totalVideos){
-      return $localize`:@@processingVideo:`
+      return $localize`:@@processingVideo:` 
     }
   }
 }

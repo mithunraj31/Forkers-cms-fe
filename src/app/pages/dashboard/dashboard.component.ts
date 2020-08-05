@@ -35,10 +35,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // the data will obtain after format raw data from backend API
   displayData: { label: string, value: number }[];
 
-  data: number[] = [];
-  
-  categories: string[];
-
   // period range for PeriodAnalyticsChartComponent 
   // will display to dropdown options.
   onlineStatusGraphSelectionLabels: { title: string, value: number }[];
@@ -70,8 +66,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     accident: LegendItemModel[];
   };
 
-  countryData: number[] = [];
-  countriesCategories: string[];
 
   constructor(private vehicleService: VehicleService,
     private dashboardService: DashboardService,
@@ -110,8 +104,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       iconColor: NgxLegendItemColor.BLUE,
       title: $localize`:@@onlineVehicle:`
     };
-
-    this.categories=["online","offline"];
 
     this.tableSettings = {
       // hide create, update, and delete row buttons from ng2-smart-table
@@ -254,8 +246,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     // HTTP request to get online status according to selected period
     this.getOnlineVehicleStatus(this.selectedNumberOfDays);
-    this.getOnlinetatus(this.selectedNumberOfDays);
-
     this.eventService.getEvent().subscribe(event => {
       this.listings = event.slice(0, 10);
     }, this.httpServiceErrorHandler(this.toastrService));
@@ -276,19 +266,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
       });
   }
-
-   // the method will trigger when user selected new period option or component initializing.
-  // then HTTP request to backend to get statistic data and format data before send to PeriodAnalyticsChartComponent
-  private getOnlinetatus(days: number) {
-    this.vehicleService.getOnlineVehicleStatus(days)
-      .subscribe(data => {
-        this.data = this.dashboardService.convertOnlineStatusToChartData(days, data);
-      }, error => {
-        const status = 'danger';
-        this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
-      });
-  }
-
 
   // the method trigger when user select new period option
   // then will pass selected data from PeriodAnalyticsChartComponent to the method.

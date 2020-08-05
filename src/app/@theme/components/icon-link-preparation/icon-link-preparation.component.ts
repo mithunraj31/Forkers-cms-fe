@@ -23,7 +23,10 @@ export class IconLinkPrepartionComponent implements OnInit {
     ngOnInit() {
         this.totalCameras=this.value.noOfCamera;
         this.totalVideos=this.value.noOfVideo;
-        if(this.totalVideos<this.totalCameras || this.totalCameras==0){
+        if(this.totalCameras==0){
+            this.status="zeroCamera"
+        }
+        else if(this.totalVideos<this.totalCameras ){
             this.status="unavailable"
         }else if( this.totalCameras==this.totalVideos && this.value.videoUrl){
             this.status="available";

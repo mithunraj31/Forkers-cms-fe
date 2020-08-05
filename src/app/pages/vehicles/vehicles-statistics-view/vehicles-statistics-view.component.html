@@ -1,21 +1,19 @@
-<div>
-    <nb-card>
-        <nb-card-body>
-            <frk-period-analytics-chart [chartData]="displayData" [legend]="chartLegend"
-                [selectedFilter]="selectedNumberOfDays" [filterOptions]="onlineStatusGraphSelectionLabels"
-                (onFilterChanged)="onStatusPeriodChange($event)">
-            </frk-period-analytics-chart>
-        </nb-card-body>
-    </nb-card>
-</div>
 
-<div>
-    <nb-card>
-        <nb-card-body>
-            <frk-bar-chart [chartData]="displayData" [legend]="chartLegend" [selectedFilter]="selectedNumberOfDays"
-                [filterOptions]="onlineStatusGraphSelectionLabels" (onFilterChanged)="onStatusPeriodChange($event)">
-            </frk-bar-chart>
-        </nb-card-body>
-    </nb-card>
+        <nb-card>
+            <nb-card-body>
+                <frk-period-analytics-chart [chartData]="displayData" [legend]="chartLegend"
+                    [selectedFilter]="selectedNumberOfDays" [filterOptions]="onlineStatusGraphSelectionLabels"
+                    (onFilterChanged)="onStatusPeriodChange($event)">
+                </frk-period-analytics-chart>
+            </nb-card-body>
+        </nb-card>
+   
+        <nb-card>
+            <nb-card-body>
+                <frk-bar-chart [chartData]="displayData" [legend]="chartLegend" [selectedFilter]="selectedNumberOfDays"
+                    [filterOptions]="onlineStatusGraphSelectionLabels" (onFilterChanged)="onStatusPeriodChange($event)">
+                </frk-bar-chart>
+            </nb-card-body>
+        </nb-card>
 
-</div>
+   

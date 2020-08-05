@@ -394,6 +394,12 @@
         <source>Video not yet arrived.</source>
         <target>ビデオはまだ到着していません。</target>
       </trans-unit>
+
+
+      <trans-unit id="zeroCamera" datatype="html">
+        <source>NoCamera</source>
+        <target>カメラがない</target>
+      </trans-unit>
       
       <!-- End Event page -->
       <!--  Event data page -->
@@ -495,6 +501,18 @@
       <trans-unit id="videoUrl" datatype="html">
         <source>video Url</source>
         <target>ビデオUrl</target>
+      </trans-unit>
+
+
+        <trans-unit id="search" datatype="html">
+        <source>search</source>
+        <target>探す</target>
+      </trans-unit>
+
+
+         <trans-unit id="refresh" datatype="html">
+        <source>refresh</source>
+        <target>リフレッシュ</target>
       </trans-unit>
       <!-- End Data event page -->
 
