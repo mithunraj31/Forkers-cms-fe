@@ -1,0 +1,16 @@
+[
+	{
+		"id":1,
+		"no":1,
+		"rotation":1,
+		"channel":1
+
+	},
+	{
+		"id":2,
+		"no":2,
+		"rotation":2,
+		"channel":2
+
+	}
+]

@@ -516,6 +516,34 @@
 
 
       <!-- End Event page -->
+
+
+     <!-- Camera  page -->
+
+     <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <target>No</target>
+      </trans-unit>
+
+<trans-unit id="rotation" datatype="html">
+        <source>Rotation</source>
+        <target>Rotation</target>
+      </trans-unit>
+
+<trans-unit id="channel" datatype="html">
+        <source>Channel</source>
+        <target>Channel</target>
+      </trans-unit>
+
+      <trans-unit id="deviceCameras" datatype="html">
+        <source>Device Cameras</source>
+        <target>Device Cameras</target>
+      </trans-unit>
+
+      
+
+
+     <!-- End Camera page -->
     </body>
   </file>
 </xliff>

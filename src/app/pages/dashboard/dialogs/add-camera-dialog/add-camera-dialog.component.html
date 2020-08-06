@@ -1,0 +1,22 @@
+<nb-card>
+    <nb-card-header>
+        <span>Add Camera</span>
+    </nb-card-header>
+    <nb-card-body class="example-items-rows">
+        <div>
+            <input type="text" nbInput placeholder="No">
+        </div>
+        <br>
+        <div>
+            <input type="text" nbInput placeholder="Rotation">
+        </div>
+        <br>
+        <div>
+            <input type="text" nbInput placeholder="Channel">
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button nbButton status="success" (click)="onSave()">Save</button>
+        <button nbButton status="danger" (click)="onCancelClick()">Cancel</button>
+    </nb-card-footer>
+</nb-card>

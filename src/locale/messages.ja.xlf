@@ -517,6 +517,31 @@
       <!-- End Data event page -->
 
 
+     <!-- Camera  page -->
+
+     <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <target>番号</target>
+      </trans-unit>
+
+<trans-unit id="rotation" datatype="html">
+        <source>Rotation</source>
+        <target>回転</target>
+      </trans-unit>
+
+<trans-unit id="channel" datatype="html">
+        <source>Channel</source>
+        <target>チャネル</target>
+      </trans-unit>
+
+       <trans-unit id="deviceCameras" datatype="html">
+        <source>Device Cameras</source>
+        <target>デバイスカメラ</target>
+      </trans-unit>
+
+
+     <!-- End Camera page -->
+
 
     </body>
   </file>
