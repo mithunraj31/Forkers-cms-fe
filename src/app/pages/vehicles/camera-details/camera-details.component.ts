@@ -7,7 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService, NbDialogService } from '@nebular/theme';
 import { AddCameraDialogComponent } from '../../dashboard/dialogs/add-camera-dialog/add-camera-dialog.component';
 import { Action } from 'rxjs/internal/scheduler/Action';
-import { IconLinkPrepartionComponent } from '../../../@theme/components/icon-link-preparation/icon-link-preparation.component';
+import { ConfirmModalComponent } from '../../../@theme/components/confirm-modal/cofirm-modal.component';
+import { IconLinkPrepartionComponent } from '../../devicedata/eventdata/icon-link-preparation/icon-link-preparation.component';
 
 @Component({
   selector: 'frk-camera-details',
@@ -33,6 +34,8 @@ export class CameraDetailsComponent implements OnInit {
     totalCamera:number;
 
     progress = false;
+
+    no:number;
 
   constructor(
     private vehicleService: VehicleService,
@@ -149,6 +152,10 @@ export class CameraDetailsComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddCameraDialogComponent, {
+      context: {
+        title:'Add Camera',
+        no:this.listings.length+1,
+      }
     });
      dialogRef.onBackdropClick.subscribe(result => {
       if (result) {
@@ -165,8 +172,15 @@ export class CameraDetailsComponent implements OnInit {
       }
     });
    }
-   editCamera(camera:Camera){
+   editCamera(camera){
+     console.log(camera);
     const dialogRef = this.dialog.open(AddCameraDialogComponent, {
+      context: {
+        title:'Edit Camera',
+        no:camera.no,
+        rot: camera.rotation,
+        ch: camera.channel,
+        }
     });
      dialogRef.onBackdropClick.subscribe(result => {
       if (result) {
@@ -188,6 +202,12 @@ export class CameraDetailsComponent implements OnInit {
    deleteCamera(camera:Camera){
        // API Requst to update camera
        this.progress = true;
+       this.dialog.open(ConfirmModalComponent, {
+        context: {
+            title: 'Confirm delete',
+            description: `Would you like to delete this camera: ${camera.no} ?`
+        }
+    })
        this.vehicleService.deleteCamera(this.vehicleId,camera.id).subscribe(result => {
          this.initialTable();
        }, error => {

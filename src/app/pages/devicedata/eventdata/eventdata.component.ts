@@ -5,12 +5,12 @@ import { NbToastrService } from '@nebular/theme';
 import { SmartTableLinkComponent } from '../../../@theme/components/smart-table-link/smart-table-link.component';
 import { Event } from '../../../@core/entities/event.model';
 import { UserService } from '../../../services/user.service';
-import { IconLinkPrepartionComponent } from '../../../@theme/components/icon-link-preparation/icon-link-preparation.component';
 import { StompWebsocketService } from '../../../services/stomp-websocket.service';
 import { StompSubscriber } from '../../../@core/entities/stomp-subscriber.model';
 import { UserAccount } from '../../../@core/entities/UserAccount.model';
 import { WS_TOPIC } from '../../../@core/constants/websocket-topic';
 import { LocalDataSource } from 'ng2-smart-table';
+import { IconLinkPrepartionComponent } from './icon-link-preparation/icon-link-preparation.component';
 
 @Component({
   selector: 'frk-eventdata',
@@ -188,7 +188,6 @@ export class EventdataComponent implements OnInit, OnDestroy {
     }, error => {
       const status = 'danger';
       this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
-      this.router.navigate([`pages/dashboard`]);
     });
   }
 
@@ -201,7 +200,7 @@ export class EventdataComponent implements OnInit, OnDestroy {
   this.initialTable();
   }
   onSearch(query: string = '') {
-    if(query==''){
+    if(!query){
       return this.initialTable();
     }
     this.source.setFilter([

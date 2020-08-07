@@ -24,10 +24,7 @@
                 <div class="row ">
                     <div class="col-lg-8">
                         <span i18n="@@deviceCameras">Device Cameras</span>
-                        <div class="row">
-                            <p class="paragraph" i18n="@@noOfCamera">No of Camera</p>
-                            <p class="paragraph"> {{totalCamera}}</p>
-                        </div>
+                       <div> <span i18n="@@noOfCamera">No of Camera</span> - {{ totalCamera }}</div>
                     </div>
                     <div class="col-lg-4  text-right">
                         <button nbButton status="primary" (click)="openDialog()">Add Camera</button>
@@ -51,7 +48,7 @@
                         <div class="col-lg-3 text-center">{{camera.rotation}}</div>
                         <div class="col-lg-3 text-center">{{camera.channel}}</div>
                         <div class="col-lg-3 text-center">
-                            <nb-icon class="available" icon="edit" status="primary" pack="eva" (click)="editCamera(i)">
+                            <nb-icon class="available" icon="edit" status="primary" pack="eva" (click)="editCamera(camera)">
                             </nb-icon>
                             <nb-icon class="available" icon="trash-2" status="primary" pack="eva"
                                 (click)="deleteCamera(i)">

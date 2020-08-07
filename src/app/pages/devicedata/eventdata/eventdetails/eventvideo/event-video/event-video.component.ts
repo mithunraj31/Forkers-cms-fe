@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../../../../../services/event.service';
-import { NbMenuService } from '@nebular/theme';
 import { StompWebsocketService } from '../../../../../../services/stomp-websocket.service';
 import { StompSubscriber } from '../../../../../../@core/entities/stomp-subscriber.model';
 import { WS_TOPIC } from '../../../../../../@core/constants/websocket-topic';
@@ -35,7 +34,6 @@ export class EventVideoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private eventService: EventService,
-    private menuService: NbMenuService,
     private stompWebsocketService: StompWebsocketService) {
   }
 

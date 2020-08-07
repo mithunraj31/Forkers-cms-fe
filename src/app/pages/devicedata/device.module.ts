@@ -7,6 +7,7 @@ import { EventDetailsContainerComponent } from './eventdata/eventdetails/event-d
 import { EventMapComponent } from './eventdata/eventdetails/eventmap/event-map/event-map.component';
 import { EventVideoComponent } from './eventdata/eventdetails/eventvideo/event-video/event-video.component';
 import { EventListComponent } from './eventdata/eventdetails/eventlist/event-list/event-list.component';
+import { IconLinkPrepartionComponent } from './eventdata/icon-link-preparation/icon-link-preparation.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { EventListComponent } from './eventdata/eventdetails/eventlist/event-lis
       EventMapComponent,
       EventVideoComponent,
       EventListComponent,
+      IconLinkPrepartionComponent
   ],
 })
 export class DeviceModule {

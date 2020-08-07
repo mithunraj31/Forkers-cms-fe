@@ -57,7 +57,6 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { PagerComponent } from './components/pager/pager.component';
 import { PeriodAnalyticsChartComponent } from './components/period-analytics-chart/period-analytics-chart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { IconLinkPrepartionComponent } from './components/icon-link-preparation/icon-link-preparation.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 const NB_MODULES = [
@@ -97,7 +96,6 @@ const COMPONENTS = [
   ConfirmModalComponent,
   SmartTableLinkComponent,
   PeriodAnalyticsChartComponent,
-  IconLinkPrepartionComponent,
   BarChartComponent
 ];
 const PIPES = [
