@@ -540,6 +540,16 @@
         <target>Device Cameras</target>
       </trans-unit>
 
+       <trans-unit id="save" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+      </trans-unit>
+
+       <trans-unit id="cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+      </trans-unit>
+
       
 
 

@@ -1,26 +1,33 @@
-    <nb-card>
-        <nb-card-header>
-            <span>{{ title }}</span>
-        </nb-card-header>
-        <nb-card-body class="example-items-rows">
-            <div>
-                <span><b>No:</b></span>
-                <input disabled type="text" nbInput placeholder="No" [value]="no">
+<nb-card>
+    <nb-card-header>
+        <span>{{ title }}</span>
+    </nb-card-header>
+    <nb-card-body class="example-items-rows">
+        <form (keydown.enter)="$event.preventDefault()" [formGroup]="cameraForm" (ngSubmit)="onSave()">
+            <div class="form1">
+                <span i18n="@@no"><b>No:</b></span>
+                <input nbInput placeholder="No" formControlName="no">
             </div>
-            <br>
-            <div>
-                <span><b>Rotation:</b></span>
-                <input type="text" nbInput placeholder="Rotation" [value]="rot" >
+            <div class="form2">
+                <span  i18n="@@rotation"><b>Rotation:</b></span>
+                <input nbInput placeholder="Rotation" formControlName="rotation">
             </div>
-            <br>
-            <div>
-                <span><b>Channel:</b></span>
-                <input type="text" nbInput placeholder="Channel" [value]="ch" >
+            <div class="form3">
+                <span  i18n="@@channel"><b>Channel:</b></span>
+                <input nbInput placeholder="Channel" formControlName="channel">
             </div>
-        </nb-card-body>
 
-        <nb-card-footer>
-            <button nbButton status="success" (click)="onSave()">Save</button>
-            <button nbButton status="danger" (click)="onCancelClick()">Cancel</button>
-        </nb-card-footer>
-    </nb-card>
+        </form>
+    </nb-card-body>
+
+    <nb-card-footer>
+        <div class="row">
+        <div class="save">
+        <button nbButton type="submit" status="success" (click)="onSave()" i18n="@@save">Save</button>
+        </div>
+        <div class="cancel">
+        <button nbButton status="danger" (click)="onCancelClick()" i18n="@@cancel">Cancel</button>
+        </div>
+    </div>
+    </nb-card-footer>
+</nb-card>

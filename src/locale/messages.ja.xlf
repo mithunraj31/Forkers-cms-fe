@@ -534,11 +534,21 @@
         <target>チャネル</target>
       </trans-unit>
 
+
        <trans-unit id="deviceCameras" datatype="html">
         <source>Device Cameras</source>
         <target>デバイスカメラ</target>
       </trans-unit>
 
+     <trans-unit id="save" datatype="html">
+        <source>Save</source>
+        <target>保存する</target>
+      </trans-unit>
+
+          <trans-unit id="cancel" datatype="html">
+        <source>Cancel</source>
+        <target>キャンセル</target>
+      </trans-unit>
 
      <!-- End Camera page -->
 

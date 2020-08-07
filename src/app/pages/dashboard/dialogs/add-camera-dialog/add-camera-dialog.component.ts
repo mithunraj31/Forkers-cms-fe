@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'frk-add-camera-dialog',
@@ -25,7 +25,7 @@ export class AddCameraDialogComponent implements OnInit {
 
   ngOnInit() {
     this.cameraForm = new FormGroup({
-      "no": new FormControl(this.no?this.no:"", [
+      "no": new FormControl(this.no, [
       ]),
       "rotation": new FormControl(this.rot?this.rot:"", [
       ]),
@@ -34,14 +34,14 @@ export class AddCameraDialogComponent implements OnInit {
      
 
     });
+    this.cameraForm.get("no").disable();
   }
 
   onCancelClick(): void {
     this.dialogRef.close(null);
   }
   onSave() {
-    this.dialogRef.close(null);
-    //send the data to parent component and call service to save
+    this.dialogRef.close(this.cameraForm.value); 
   }
 
 

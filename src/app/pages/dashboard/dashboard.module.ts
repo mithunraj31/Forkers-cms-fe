@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbListModule, NbSpinnerModule, NbButtonModule } from '@nebular/theme';
+import { NbCardModule, NbListModule, NbSpinnerModule, NbButtonModule, NbFormFieldModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
@@ -9,6 +9,7 @@ import { DashboardLegendChartComponent } from './legend-chart/legend-chart.compo
 import { DashboardMapsViewComponent } from './dashboard-maps-view/dashboard-maps-view.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AddCameraDialogComponent } from './dialogs/add-camera-dialog/add-camera-dialog.component';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -18,7 +19,9 @@ import { AddCameraDialogComponent } from './dialogs/add-camera-dialog/add-camera
     NbListModule,
     NbSpinnerModule,
     LeafletModule,
-    NbButtonModule
+    NbButtonModule,
+    NbFormFieldModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     DashboardComponent,
