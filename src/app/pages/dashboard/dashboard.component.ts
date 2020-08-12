@@ -128,9 +128,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
           filter: false,
           type: 'custom',
           renderComponent: SmartTableLinkComponent,
-          // mapping nested property of user data to display  type of device
+          // mapping nested property of user data to display  events according to user
           onComponentInitFunction: (instance: any) => {
-            // when user click serial number will redirect to events details page
+            // when user click company name(userName) will redirect to events list page
             instance.onClicked.subscribe(response => {
               this.router.navigate([`pages/devices/events/company/${response.userName}`]);
             });
@@ -157,7 +157,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           renderComponent: SmartTableLinkComponent,
           // mapping nested property of user data to display  type of device
           onComponentInitFunction: (instance: any) => {
-            // when user click serial number will redirect to events details page
+            // when user click eventId will redirect to events details page
             instance.onClicked.subscribe(response => {
               this.router.navigate([`pages/devices/events/${response.eventId}`]);
             });

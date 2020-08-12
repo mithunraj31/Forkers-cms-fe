@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'frk-add-camera-dialog',
@@ -9,6 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AddCameraDialogComponent implements OnInit {
 
+  //form in dialog to add and edit camera 
   cameraForm: FormGroup;
 
   title:string;
@@ -26,10 +27,15 @@ export class AddCameraDialogComponent implements OnInit {
   ngOnInit() {
     this.cameraForm = new FormGroup({
       "no": new FormControl(this.no, [
+        Validators.required,
       ]),
       "rotation": new FormControl(this.rot?this.rot:"", [
+        Validators.required,
+        Validators.min(1),
       ]),
       "channel": new FormControl(this.ch?this.ch:"", [
+        Validators.required,
+        Validators.min(1),
       ]),
      
 

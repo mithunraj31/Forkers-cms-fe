@@ -495,8 +495,8 @@
       </trans-unit>
 
       <trans-unit id="zeroCamera" datatype="html">
-        <source>NoCamera</source>
-        <target>NoCamera</target>
+        <source>Zero Camera</source>
+        <target>Zero Camera</target>
       </trans-unit>
 
         <trans-unit id="search" datatype="html">
@@ -508,9 +508,6 @@
         <source>refresh</source>
         <target>refresh</target>
       </trans-unit>
-
-
-      
 
       <!-- End Data event page -->
 
@@ -549,6 +546,27 @@
         <source>Cancel</source>
         <target>Cancel</target>
       </trans-unit>
+
+       <trans-unit id="addCamera" datatype="html">
+        <source>Add Camera</source>
+        <target>Add Camera</target>
+      </trans-unit>
+
+        <trans-unit id="editCamera" datatype="html">
+        <source>Edit Camera</source>
+        <target>Edit Camera</target>
+      </trans-unit>
+
+         <trans-unit id="deleteCamera" datatype="html">
+        <source>Delete Camera</source>
+        <target>Delete Camera</target>
+      </trans-unit>
+
+       <trans-unit id="confirmDelete" datatype="html">
+        <source>Would you like to delete this camera</source>
+        <target>Would you like to delete this camera</target>
+      </trans-unit>
+
 
       
 

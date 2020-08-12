@@ -2,19 +2,31 @@
     <nb-card-header>
         <span>{{ title }}</span>
     </nb-card-header>
-    <nb-card-body class="example-items-rows">
+    <nb-card-body>
         <form (keydown.enter)="$event.preventDefault()" [formGroup]="cameraForm" (ngSubmit)="onSave()">
-            <div class="form1">
-                <span i18n="@@no"><b>No:</b></span>
-                <input nbInput placeholder="No" formControlName="no">
+            <div class="row">
+                <div class="col-lg-4">
+                    <span i18n="@@no"><b>No:</b></span>
+                </div>
+                <div class="col-lg-2">
+                    <input nbInput i18n-placeholder="@@no" placeholder="No" formControlName="no">
+                </div>
             </div>
-            <div class="form2">
-                <span  i18n="@@rotation"><b>Rotation:</b></span>
-                <input nbInput placeholder="Rotation" formControlName="rotation">
+            <div class="row">
+                <div class="col-lg-4">
+                    <span i18n="@@rotation"><b>Rotation:</b></span>
+                </div>
+                <div class="col-lg-2">
+                    <input nbInput i18n-placeholder="@@rotation" placeholder="Rotation" formControlName="rotation">
+                </div>
             </div>
-            <div class="form3">
-                <span  i18n="@@channel"><b>Channel:</b></span>
-                <input nbInput placeholder="Channel" formControlName="channel">
+            <div class="row">
+                <div class="col-lg-4">
+                    <span i18n="@@channel"><b>Channel:</b></span>
+                </div>
+                <div class="col-lg-2">
+                    <input nbInput i18n-placeholder="@@channel" placeholder="Channel" formControlName="channel">
+                </div>
             </div>
 
         </form>
@@ -22,12 +34,13 @@
 
     <nb-card-footer>
         <div class="row">
-        <div class="save">
-        <button nbButton type="submit" status="success" (click)="onSave()" i18n="@@save">Save</button>
+            <div class="col-lg-4">
+                <button nbButton (click)="onCancelClick()" i18n="@@cancel">Cancel</button>
+            </div>
+            <div class="col-lg-8 text-right">
+                <button nbButton type="submit" status="primary" [disabled]="!cameraForm.valid" (click)="onSave()"
+                    i18n="@@save">Save</button>
+            </div>
         </div>
-        <div class="cancel">
-        <button nbButton status="danger" (click)="onCancelClick()" i18n="@@cancel">Cancel</button>
-        </div>
-    </div>
     </nb-card-footer>
 </nb-card>

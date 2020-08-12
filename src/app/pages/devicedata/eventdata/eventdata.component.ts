@@ -64,9 +64,9 @@ export class EventdataComponent implements OnInit, OnDestroy {
           filter: false,
           type: 'custom',
           renderComponent: SmartTableLinkComponent,
-          // mapping nested property of user data to display  type of device
+          // mapping nested property of event data to display  events details
           onComponentInitFunction: (instance: any) => {
-            // when user click serial number will redirect to events details page
+            // when user click event id will redirect to events details page
             instance.onClicked.subscribe(response => {
               this.router.navigate([`pages/devices/events/${response.eventId}`]);
             });
@@ -101,7 +101,7 @@ export class EventdataComponent implements OnInit, OnDestroy {
           },
           renderComponent: IconLinkPrepartionComponent,
           onComponentInitFunction: (instance: any) => {
-            // when user click serial number will redirect to events details page
+            // when user click video icon will redirect to video page
             instance.onClicked.subscribe(response => {
               this.router.navigate([`pages/devices/events/${response.eventId}/videos`]);
             });

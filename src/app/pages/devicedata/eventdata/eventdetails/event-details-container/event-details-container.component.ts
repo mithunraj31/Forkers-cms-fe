@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
-import { DOCUMENT } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'frk-event-details-container',
@@ -20,8 +19,7 @@ export class EventDetailsContainerComponent implements OnInit {
   eventId: string;
 
   constructor(private route: ActivatedRoute,
-    private router:Router,
-    @Inject(DOCUMENT) private _document: Document) { }
+    private router:Router) { }
 
 
   ngOnInit(): void {

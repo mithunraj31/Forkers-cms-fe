@@ -1,4 +1,3 @@
-<!-- <img src="{{status == 'available'? 'assets/icon/English.png': 'assets/icon/Japan.png'}}" (click)="onLinkClick()"/> -->
 <div [ngSwitch]="status">
     <div class="available" *ngSwitchCase="'available'" (click)="onLinkClick()">
         <div class="row" >
@@ -51,7 +50,7 @@
                 {{ totalVideos }}    <span>/</span>    {{ totalCameras }}  
              </div>
             <div class="col-lg-6">
-                <p   i18n="@@zeroCamera">Processsing</p>
+                <p   i18n="@@zeroCamera">Zero Camera</p>
             </div>
         </div>
     </div>

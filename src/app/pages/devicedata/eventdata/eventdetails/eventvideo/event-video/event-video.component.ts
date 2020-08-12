@@ -23,7 +23,7 @@ export class EventVideoComponent implements OnInit {
   videoUrl: string;
 
 
-  //Web ocket Connection
+  //Web socket Connection
   wsConn: any;
 
   totalCameras:number;

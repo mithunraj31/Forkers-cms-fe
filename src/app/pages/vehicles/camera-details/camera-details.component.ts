@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera } from '../../../@core/entities/camera.model';
 import { VehicleService } from '../../../services';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NbToastrService, NbDialogService } from '@nebular/theme';
 import { AddCameraDialogComponent } from '../../dashboard/dialogs/add-camera-dialog/add-camera-dialog.component';
 import { ConfirmModalComponent } from '../../../@theme/components/confirm-modal/cofirm-modal.component';
@@ -88,7 +88,7 @@ export class CameraDetailsComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(AddCameraDialogComponent, {
       context: {
-        title:'Add Camera',
+        title:$localize`:@@addCamera:`,
         no:this.listings.length+1,
       }
     });
@@ -112,7 +112,7 @@ export class CameraDetailsComponent implements OnInit {
    editCamera(camera){
     const dialogRef = this.dialog.open(AddCameraDialogComponent, {
       context: {
-        title:'Edit Camera',
+        title:$localize`:@@editCamera:`,
         no:camera.no,
         rot: camera.rotation,
         ch: camera.channel,
@@ -140,8 +140,8 @@ export class CameraDetailsComponent implements OnInit {
    deleteCamera(camera){
        const dialogRef=this.dialog.open(ConfirmModalComponent, {
         context: {
-            title: 'Confirm delete',
-            description: `Would you like to delete this camera: ${camera.no} ?`
+            title:$localize`:@@deleteCamera:`, 
+            description: $localize`:@@confirmDelete:`+':' +camera.no+`?`
         }
     })
     dialogRef.onClose.subscribe(result => {

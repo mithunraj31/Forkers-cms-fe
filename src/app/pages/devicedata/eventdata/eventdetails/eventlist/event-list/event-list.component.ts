@@ -10,13 +10,6 @@ import { UserService } from '../../../../../../services';
   styleUrls: ['./event-list.component.scss']
 })
 export class EventListComponent implements OnInit {
- //@varible source: list of key pair value
-    // the data obtain from parent component 
-    // use for display in ng2-smart-table
-    // key property will display on first column
-    // value property will display on second column
-    // @type {{ key: string, value: string }[]}
-   // @Input() source: { key: string, value: string }[];
 
     // event information in array of key pair value format
   // @type {any[]}
@@ -76,8 +69,8 @@ export class EventListComponent implements OnInit {
     this.initailDetails(); 
   }
 
-   // the method request to Backend API to get vehicle information by vehicle id
-  // then mapping obtained response to key sources to display on VerticleDetailsComponent,
+   // the method request to Backend API to get event information by event id
+  // then mapping obtained response to key sources to display on EventDetailsComponent,
   // next update marker layers.
   // @return {void}
 

@@ -122,6 +122,6 @@ export class EventService {
             return $localize`:@@clip:`;
           default:
             return $localize`:@@none:`;
-        }
+        } 
       }
 }
