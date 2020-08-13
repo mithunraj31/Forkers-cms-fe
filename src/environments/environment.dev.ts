@@ -11,6 +11,6 @@
 export const environment = {
     production: false,
     //host: "http://18.177.107.1:8010/proxy/api/"
-    host: "http://locolhost:8080/api/"
+    host: "http://18.177.107.1:8010/proxy/api/"
   };
   
