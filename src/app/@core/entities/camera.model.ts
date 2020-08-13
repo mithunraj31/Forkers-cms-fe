@@ -1,7 +1,8 @@
 export class Camera{
     id:number;
     no:number;
+    deviceId:string;
     rotation:number;
-    channel:number;
+    ch:string;
 
 }

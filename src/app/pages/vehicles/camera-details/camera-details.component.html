@@ -23,14 +23,15 @@
                         <div class="col-lg-3 text-center" i18n="@@action"><b>Action</b></div>
                     </nb-list-item>
                     <nb-list-item *ngFor="let camera of listings; let i = index" [attr.data-index]="i">
-                        <div class="col-lg-3">{{camera.no}}</div>
+                        <div class="col-lg-3">{{i+1}}</div>
                         <div class="col-lg-3 text-center">{{camera.rotation}}</div>
-                        <div class="col-lg-3 text-center">{{camera.channel}}</div>
+                        <div class="col-lg-3 text-center">{{camera.ch}}</div>
+                        <div class="camera-id">{{camera.id}}</div>
                         <div class="col-lg-3 text-center">
-                            <nb-icon class="available" icon="edit" status="primary" pack="eva" (click)="editCamera(camera)">
+                            <nb-icon class="available" icon="edit" status="primary" pack="eva" (click)="editCamera(camera,i+1)">
                             </nb-icon>
                             <nb-icon class="available" icon="trash-2" status="primary" pack="eva"
-                                (click)="deleteCamera(camera)">
+                                (click)="deleteCamera(camera,i+1)">
                             </nb-icon>
                         </div>
 

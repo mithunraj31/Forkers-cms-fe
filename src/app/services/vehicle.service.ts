@@ -85,10 +85,9 @@ export class VehicleService {
 
       // retrive one camera information
     // find by vehicle id 
-    getCameraDataById(vehicleId: number) {
+    getCameraDataById(vehicleId: string) {
     
-       // return this.http.get<any>(`${this.host}/vehicle/${vehicleId}`)
-        return this.http.get<any>( '/home/mithunraj/Documents/angular/FORKERS-CMS-FE/src/assets/data/foreccast.json')
+        return this.http.get<any>(`${this.host}/camera/${vehicleId}`)
         .pipe(map(response => {
             if (response) {
                 console.log(response)
@@ -105,18 +104,18 @@ export class VehicleService {
     }
 
     // save one camera information
-    saveCamera(vehicleId: number,camera: Camera) {
-         return this.http.post<Camera>(`${this.host}/vehicle/${vehicleId}/camera`,camera)
+    saveCamera(camera: Camera) {
+        console.log(camera);
+         return this.http.post<Camera>(`${this.host}/camera`,camera)
      }
 
        // update one camera information
-    updateCamera(vehicleId: number,camera: Camera) {
-        this.cameraId=camera.id;
-        return this.http.put<Camera>(`${this.host}/vehicle/${vehicleId}/camera/${this.cameraId}`,camera)
+    updateCamera(camera: Camera) {
+        return this.http.put<Camera>(`${this.host}/camera`,camera)
     }
    // delete one camera information
-   deleteCamera(vehicleId: number,cameraId: number) {
-    return this.http.delete<Camera>(`${this.host}/vehicle/${vehicleId}/camera/${cameraId}`)
+   deleteCamera(vehicleId: string,cameraId: number) {
+    return this.http.delete<Camera>(`${this.host}/camera/${vehicleId}/${cameraId}`)
 }
 
 }

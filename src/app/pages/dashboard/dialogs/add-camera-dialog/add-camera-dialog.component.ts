@@ -20,6 +20,10 @@ export class AddCameraDialogComponent implements OnInit {
 
   ch:number;
 
+  id:number;
+
+  deviceId:string;
+
   constructor(
     public dialogRef: NbDialogRef<AddCameraDialogComponent>,
   ) { }
@@ -33,9 +37,13 @@ export class AddCameraDialogComponent implements OnInit {
         Validators.required,
         Validators.min(1),
       ]),
-      "channel": new FormControl(this.ch?this.ch:"", [
+      "ch": new FormControl(this.ch?this.ch:"", [
         Validators.required,
         Validators.min(1),
+      ]),
+      "deviceId":new FormControl(this.deviceId, [
+      ]),
+      "id":new FormControl(this.id, [
       ]),
      
 
