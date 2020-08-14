@@ -76,7 +76,7 @@ export class CameraDetailsComponent implements OnInit {
         const camera: any = result;
         // API Requst to save camera
         this.progress = true;
-        this.vehicleService.saveCamera(camera).subscribe(result => {
+        this.vehicleService.saveCamera(this.vehicleId,camera).subscribe(result => {
           this.initialTable();
         }, error => {
           const status = 'danger';
@@ -104,7 +104,7 @@ export class CameraDetailsComponent implements OnInit {
         const camera: any = result;
         // API Requst to update camera
         this.progress = true;
-        this.vehicleService.updateCamera(camera).subscribe(result => {
+        this.vehicleService.updateCamera(this.vehicleId,camera).subscribe(result => {
           this.initialTable();
           this.progress = false;
         }, error => {

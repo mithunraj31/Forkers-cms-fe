@@ -87,13 +87,13 @@ export class VehicleService {
     // find by vehicle id 
     getCameraDataById(vehicleId: string) {
     
-        return this.http.get<any>(`${this.host}/camera/${vehicleId}`)
+        return this.http.get<any>(`${this.host}/vehicle/${vehicleId}/camera`)
         .pipe(map(response => {
-            if (response) {
-                console.log(response)
+            if (response?.camera) {
+                const camerasResponse = response.camera as any[];
 
                 // mapping json response to array of object
-                const mappedEvents = response.map(x => {
+                const mappedEvents = camerasResponse.map(x => {
                     return <Camera>{ ...x };
                 });
 
@@ -104,18 +104,17 @@ export class VehicleService {
     }
 
     // save one camera information
-    saveCamera(camera: Camera) {
-        console.log(camera);
-         return this.http.post<Camera>(`${this.host}/camera`,camera)
+    saveCamera(vehicleId: string,camera: Camera) {
+         return this.http.post<Camera>(`${this.host}/vehicle/${vehicleId}/camera`,camera)
      }
 
        // update one camera information
-    updateCamera(camera: Camera) {
-        return this.http.put<Camera>(`${this.host}/camera`,camera)
+    updateCamera(vehicleId: string,camera: Camera) {
+        return this.http.put<Camera>(`${this.host}/vehicle/${vehicleId}/camera`,camera)
     }
    // delete one camera information
    deleteCamera(vehicleId: string,cameraId: number) {
-    return this.http.delete<Camera>(`${this.host}/camera/${vehicleId}/${cameraId}`)
+    return this.http.delete<Camera>(`${this.host}/vehicle/${vehicleId}/camera/${cameraId}`)
 }
 
 }
