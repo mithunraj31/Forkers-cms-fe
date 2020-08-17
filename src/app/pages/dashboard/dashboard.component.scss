@@ -79,7 +79,12 @@
   nb-card {
     &.statistics-chart {
       min-height: 350px !important;
+     
     }
     
   }
+
+  nb-card-body{
+    overflow: hidden;
+}
 }

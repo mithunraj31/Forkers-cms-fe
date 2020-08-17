@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header>
+                <div class="row ">
+                    <div class="col-lg-8">
+                        <span i18n="@@deviceCameras">Device Cameras</span>
+                        <div > <span i18n="@@noOfCamera">No of Camera</span> - {{ totalCamera }}</div>
+                    </div>
+                    <div class="col-lg-4  text-right">
+                        <button nbButton status="primary" (click)="openDialog()" i18n="@@addCamera">Add Camera</button>
+                    </div>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <nb-list>
+                    <nb-list-item>
+                        <div class="col-lg-3" i18n="@@no"><b>no</b></div>
+                        <div class="col-lg-3 text-center" i18n="@@rotation"><b>Rotation</b></div>
+
+                        <div class="col-lg-3 text-center" i18n="@@channel"><b>Channnel</b></div>
+
+                        <div class="col-lg-3 text-center" i18n="@@action"><b>Action</b></div>
+                    </nb-list-item>
+                    <nb-list-item *ngFor="let camera of listings; let i = index" [attr.data-index]="i">
+                        <div class="col-lg-3">{{i+1}}</div>
+                        <div class="col-lg-3 text-center">{{camera.rotation}}</div>
+                        <div class="col-lg-3 text-center">{{camera.ch}}</div>
+                        <div class="camera-id">{{camera.id}}</div>
+                        <div class="col-lg-3 text-center">
+                            <nb-icon class="available" icon="edit" status="primary" pack="eva"
+                                (click)="editCamera(camera,i+1)">
+                            </nb-icon>
+                            <nb-icon class="available" icon="trash-2" status="primary" pack="eva"
+                                (click)="deleteCamera(camera,i+1)">
+                            </nb-icon>
+                        </div>
+
+                    </nb-list-item>
+                </nb-list>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

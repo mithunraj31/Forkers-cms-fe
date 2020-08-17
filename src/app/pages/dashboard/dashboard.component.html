@@ -82,3 +82,17 @@
     </frk-period-analytics-chart>
   </nb-card-body>
 </nb-card>
+
+<nb-card class="statistics-chart ">
+  <nb-card-body>
+    <frk-bar-chart [chartData]="displayData" [legend]="chartLegend" [selectedFilter]="selectedNumberOfDays"
+      [filterOptions]="onlineStatusGraphSelectionLabels" (onFilterChanged)="onStatusPeriodChange($event)">
+    </frk-bar-chart>
+  </nb-card-body>
+</nb-card>
+
+<nb-card class="maps">
+  <nb-card-body>
+<frk-dashboard-maps-view></frk-dashboard-maps-view>
+</nb-card-body>
+</nb-card>

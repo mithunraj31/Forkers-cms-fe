@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../../../../../services/event.service';
-import { NbMenuService } from '@nebular/theme';
 import { StompWebsocketService } from '../../../../../../services/stomp-websocket.service';
 import { StompSubscriber } from '../../../../../../@core/entities/stomp-subscriber.model';
 import { WS_TOPIC } from '../../../../../../@core/constants/websocket-topic';
@@ -24,7 +23,7 @@ export class EventVideoComponent implements OnInit {
   videoUrl: string;
 
 
-  //Web ocket Connection
+  //Web socket Connection
   wsConn: any;
 
   totalCameras:number;
@@ -35,7 +34,6 @@ export class EventVideoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private eventService: EventService,
-    private menuService: NbMenuService,
     private stompWebsocketService: StompWebsocketService) {
   }
 
@@ -80,12 +78,15 @@ export class EventVideoComponent implements OnInit {
   }
 
   getVideoStatus() {
-    if(this.totalVideos<this.totalCameras){
+    if(this.totalCameras==0){
+      return $localize`:@@zeroCamera:`
+    }
+    else if(this.totalVideos<this.totalCameras ){
       return $localize`:@@waitingForVideo:`
     }else if( this.totalCameras==this.totalVideos && this.videoUrl){
       return $localize`:@@videoAvailable:`
     }else if(this.totalCameras==this.totalVideos){
-      return $localize`:@@processingVideo:`
+      return $localize`:@@processingVideo:` 
     }
   }
 }

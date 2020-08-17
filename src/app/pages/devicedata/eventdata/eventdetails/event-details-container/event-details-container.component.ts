@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../../../../services';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'frk-event-details-container',
@@ -20,7 +19,7 @@ export class EventDetailsContainerComponent implements OnInit {
   eventId: string;
 
   constructor(private route: ActivatedRoute,
-    private userService: UserService) { }
+    private router:Router) { }
 
 
   ngOnInit(): void {
@@ -45,6 +44,12 @@ export class EventDetailsContainerComponent implements OnInit {
     ];
 
   
+  }
+
+  ngClickrefresh(){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([this.router.url]);
   }
 
  

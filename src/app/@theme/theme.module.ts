@@ -50,14 +50,14 @@ import { NbToggleWraperComponent } from './components/nebular-wraper/mdm-toggle.
 import { SelectGroupModalComponent } from './components/select-group-modal/select-group-modal.component';
 import { GroupManagementPanelComponent } from './components/group-management-panel/group-management-panel.component';
 import { TreeModule } from 'angular-tree-component';
-import { ConfirmModalComponent } from './components/confirm-modal/cofirm-modal.component';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { SmartTableLinkComponent } from './components/smart-table-link/smart-table-link.component';
 import { VerticalDetailComponent } from './components/vertical-details/vertical-details.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { PagerComponent } from './components/pager/pager.component';
 import { PeriodAnalyticsChartComponent } from './components/period-analytics-chart/period-analytics-chart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { IconLinkPrepartionComponent } from './components/icon-link-preparation/icon-link-preparation.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -96,7 +96,7 @@ const COMPONENTS = [
   ConfirmModalComponent,
   SmartTableLinkComponent,
   PeriodAnalyticsChartComponent,
-  IconLinkPrepartionComponent
+  BarChartComponent
 ];
 const PIPES = [
   CapitalizePipe,
@@ -109,7 +109,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule,Ng2SmartTableModule, MatRippleModule, TreeModule.forRoot(), ...NB_MODULES, NgxEchartsModule],
   exports: [CommonModule, Ng2SmartTableModule, MatRippleModule, ...PIPES, ...COMPONENTS, NgxEchartsModule],
-  declarations: [...COMPONENTS, ...PIPES],
+  declarations: [...COMPONENTS, ...PIPES, ],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

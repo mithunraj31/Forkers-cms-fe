@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Vehicle } from '../@core/entities/vehicle.model';
 import { OnlineStatus } from '../@core/entities/online-status.model';
+import { Camera } from '../@core/entities/camera.model';
 
 
 // Vehicle infomation management
@@ -12,7 +13,7 @@ import { OnlineStatus } from '../@core/entities/online-status.model';
 })
 export class VehicleService {
     host = environment.host;
-
+    cameraId:number;
     constructor(private http: HttpClient) { }
 
     //retriveVehicle information listings from Backend API
@@ -81,4 +82,39 @@ export class VehicleService {
             throw new Error();
         }));
     }
+
+      // retrive one camera information
+    // find by vehicle id 
+    getCameraDataById(vehicleId: string) {
+    
+        return this.http.get<any>(`${this.host}/vehicle/${vehicleId}/camera`)
+        .pipe(map(response => {
+            if (response?.camera) {
+                const camerasResponse = response.camera as any[];
+
+                // mapping json response to array of object
+                const mappedEvents = camerasResponse.map(x => {
+                    return <Camera>{ ...x };
+                });
+
+                return mappedEvents
+            }
+            throw new Error();
+        }));
+    }
+
+    // save one camera information
+    saveCamera(vehicleId: string,camera: Camera) {
+         return this.http.post<Camera>(`${this.host}/vehicle/${vehicleId}/camera`,camera)
+     }
+
+       // update one camera information
+    updateCamera(vehicleId: string,camera: Camera) {
+        return this.http.put<Camera>(`${this.host}/vehicle/${vehicleId}/camera`,camera)
+    }
+   // delete one camera information
+   deleteCamera(vehicleId: string,cameraId: number) {
+    return this.http.delete<Camera>(`${this.host}/vehicle/${vehicleId}/camera/${cameraId}`)
+}
+
 }

@@ -4,7 +4,7 @@
         {{ description }}
     </nb-card-body>
     <nb-card-footer class="text-right">
-        <button nbButton (click)="onConfirmClick(false)">Dismiss</button>
-        <button nbButton (click)="onConfirmClick(true)" status="primary">Confirm</button>
+        <button nbButton (click)="onConfirmClick(false)" i18n="@@cancel">Cancel</button>
+        <button nbButton (click)="onConfirmClick(true)" status="primary" i18n="@@confirm">Confirm</button>
     </nb-card-footer>
 </nb-card>

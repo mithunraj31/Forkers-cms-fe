@@ -334,8 +334,8 @@
       </trans-unit>
 
       <trans-unit id="driverId" datatype="html">
-        <source>driverId</source>
-        <target>driverId</target>
+        <source>DriverId</source>
+        <target>DriverId</target>
       </trans-unit>
       <trans-unit id="videoId" datatype="html">
         <source>videoId</source>
@@ -396,7 +396,7 @@
         <target>Video not yet arrived.</target>
       </trans-unit>
 
-      
+
 
       <!--  Event data page -->
 
@@ -494,10 +494,90 @@
         <target>DeviceDetails</target>
       </trans-unit>
 
+      <trans-unit id="zeroCamera" datatype="html">
+        <source>Zero Camera</source>
+        <target>Zero Camera</target>
+      </trans-unit>
+
+      <trans-unit id="search" datatype="html">
+        <source>search</source>
+        <target>search</target>
+      </trans-unit>
+
+      <trans-unit id="refresh" datatype="html">
+        <source>refresh</source>
+        <target>refresh</target>
+      </trans-unit>
+
       <!-- End Data event page -->
 
 
       <!-- End Event page -->
+
+
+      <!-- Camera  page -->
+
+      <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <target>No</target>
+      </trans-unit>
+
+      <trans-unit id="rotation" datatype="html">
+        <source>Rotation</source>
+        <target>Rotation</target>
+      </trans-unit>
+
+      <trans-unit id="channel" datatype="html">
+        <source>Channel</source>
+        <target>Channel</target>
+      </trans-unit>
+
+      <trans-unit id="deviceCameras" datatype="html">
+        <source>Device Cameras</source>
+        <target>Device Cameras</target>
+      </trans-unit>
+
+      <trans-unit id="save" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+      </trans-unit>
+
+      <trans-unit id="cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+      </trans-unit>
+
+      <trans-unit id="addCamera" datatype="html">
+        <source>Add Camera</source>
+        <target>Add Camera</target>
+      </trans-unit>
+
+      <trans-unit id="editCamera" datatype="html">
+        <source>Edit Camera</source>
+        <target>Edit Camera</target>
+      </trans-unit>
+
+      <trans-unit id="deleteCamera" datatype="html">
+        <source>Delete Camera</source>
+        <target>Delete Camera</target>
+      </trans-unit>
+
+      <trans-unit id="confirmDelete" datatype="html">
+        <source>Would you like to delete this camera</source>
+        <target>Would you like to delete this camera</target>
+      </trans-unit>
+
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="confirm" datatype="html">
+        <source>Confirm</source>
+        <target>Confirm</target>
+      </trans-unit>
+
+
+      <!-- End Camera page -->
     </body>
   </file>
 </xliff>

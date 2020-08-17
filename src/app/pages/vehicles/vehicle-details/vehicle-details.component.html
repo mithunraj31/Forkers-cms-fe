@@ -11,7 +11,13 @@
                 <div style="height: 300px;" leaflet [leafletOptions]="options">
                     <div *ngFor="let layer of layers" [leafletLayer]="layer"></div>
                 </div>
+                <br>
+                <div>
+                    <frk-camera-details> </frk-camera-details>
+                  </div>
             </div>
+           
         </div>
+
     </nb-card-body>
 </nb-card>

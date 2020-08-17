@@ -5,11 +5,12 @@ import { NbToastrService } from '@nebular/theme';
 import { SmartTableLinkComponent } from '../../../@theme/components/smart-table-link/smart-table-link.component';
 import { Event } from '../../../@core/entities/event.model';
 import { UserService } from '../../../services/user.service';
-import { IconLinkPrepartionComponent } from '../../../@theme/components/icon-link-preparation/icon-link-preparation.component';
 import { StompWebsocketService } from '../../../services/stomp-websocket.service';
 import { StompSubscriber } from '../../../@core/entities/stomp-subscriber.model';
 import { UserAccount } from '../../../@core/entities/UserAccount.model';
 import { WS_TOPIC } from '../../../@core/constants/websocket-topic';
+import { LocalDataSource } from 'ng2-smart-table';
+import { IconLinkPrepartionComponent } from './icon-link-preparation/icon-link-preparation.component';
 
 @Component({
   selector: 'frk-eventdata',
@@ -27,6 +28,8 @@ export class EventdataComponent implements OnInit, OnDestroy {
   // the property binding to display event infomation listings table.
   // @type {Event[]}
   listings: Event[] = [];
+
+  source: LocalDataSource;
 
 
   @Input() name: any;
@@ -61,9 +64,9 @@ export class EventdataComponent implements OnInit, OnDestroy {
           filter: false,
           type: 'custom',
           renderComponent: SmartTableLinkComponent,
-          // mapping nested property of user data to display  type of device
+          // mapping nested property of event data to display  events details
           onComponentInitFunction: (instance: any) => {
-            // when user click serial number will redirect to events details page
+            // when user click event id will redirect to events details page
             instance.onClicked.subscribe(response => {
               this.router.navigate([`pages/devices/events/${response.eventId}`]);
             });
@@ -98,7 +101,7 @@ export class EventdataComponent implements OnInit, OnDestroy {
           },
           renderComponent: IconLinkPrepartionComponent,
           onComponentInitFunction: (instance: any) => {
-            // when user click serial number will redirect to events details page
+            // when user click video icon will redirect to video page
             instance.onClicked.subscribe(response => {
               this.router.navigate([`pages/devices/events/${response.eventId}/videos`]);
             });
@@ -175,6 +178,7 @@ export class EventdataComponent implements OnInit, OnDestroy {
           });
         }
       });
+      this.source = new LocalDataSource(this.listings);
       if (subscribers.length > 0) {
         if (this.wsvideoConn) {
           this.wsvideoConn.disconnect();
@@ -184,7 +188,6 @@ export class EventdataComponent implements OnInit, OnDestroy {
     }, error => {
       const status = 'danger';
       this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
-      this.router.navigate([`pages/dashboard`]);
     });
   }
 
@@ -192,4 +195,32 @@ export class EventdataComponent implements OnInit, OnDestroy {
     this.stompWebsocketService.disconnect(this.wsConn);
     this.stompWebsocketService.disconnect(this.wsvideoConn);
   }
+
+  onClickRefresh(){
+  this.initialTable();
+  }
+  onSearch(query: string = '') {
+    if(!query){
+      return this.initialTable();
+    }
+    this.source.setFilter([
+      // fields we want to include in the search
+      {
+        field: 'eventId',
+        search: query
+      },
+      {
+        field: 'deviceId',
+        search: query
+      },
+      {
+        field: 'userName',
+        search: query
+      }
+    ], false); 
+    // second parameter specifying whether to perform 'AND' or 'OR' search 
+  // (meaning all columns should contain search query or at least one)
+  // 'AND' by default, so changing to 'OR' by setting false here
+  }
+
 }

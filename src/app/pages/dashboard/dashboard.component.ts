@@ -9,6 +9,8 @@ import { EventSummary } from '../../@core/entities/event-summary.model';
 import { StompSubscriber } from '../../@core/entities/stomp-subscriber.model';
 import { WS_TOPIC } from '../../@core/constants/websocket-topic';
 import { StompWebsocketService } from '../../services/stomp-websocket.service';
+import { SmartTableLinkComponent } from '../../@theme/components/smart-table-link/smart-table-link.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'frk-dashboard',
@@ -64,12 +66,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
     accident: LegendItemModel[];
   };
 
+
   constructor(private vehicleService: VehicleService,
     private dashboardService: DashboardService,
     private eventService: EventService,
     private toastrService: NbToastrService,
     private userService: UserService,
-    private stompWebsocketService: StompWebsocketService,) {
+    private stompWebsocketService: StompWebsocketService,
+    private router:Router) { 
     this.onlineStatusGraphSelectionLabels = [
       {
         title: $localize`:@@oneDay:`,
@@ -122,9 +126,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
         userName: {
           title: $localize`:@@company:`,
           filter: false,
+          type: 'custom',
+          renderComponent: SmartTableLinkComponent,
+          // mapping nested property of user data to display  events according to user
+          onComponentInitFunction: (instance: any) => {
+            // when user click company name(userName) will redirect to events list page
+            instance.onClicked.subscribe(response => {
+              this.router.navigate([`pages/devices/events/company/${response.userName}`]);
+            });
+          },
         },
-        deviceId: {
-          title: $localize`:@@DeviceId:`,
+        driverId: {
+          title: $localize`:@@driverId:`,
           filter: false,
         },
         type: {
@@ -135,9 +148,24 @@ export class DashboardComponent implements OnInit, OnDestroy {
           valuePrepareFunction: (type: number) => {
             return this.eventService.getEventTypeName(type);
           },
+        },
+        eventId: {
+          title: $localize`:@@EventId:`,
+          // data feild can add html element
+          filter: false,
+          type: 'custom',
+          renderComponent: SmartTableLinkComponent,
+          // mapping nested property of user data to display  type of device
+          onComponentInitFunction: (instance: any) => {
+            // when user click eventId will redirect to events details page
+            instance.onClicked.subscribe(response => {
+              this.router.navigate([`pages/devices/events/${response.eventId}`]);
+            });
+          },
         }
       }
     };
+
 
     this.lengends = {
       acceleration: [
@@ -218,7 +246,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     // HTTP request to get online status according to selected period
     this.getOnlineVehicleStatus(this.selectedNumberOfDays);
-
     this.eventService.getEvent().subscribe(event => {
       this.listings = event.slice(0, 10);
     }, this.httpServiceErrorHandler(this.toastrService));
