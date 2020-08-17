@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { TreeComponent, TreeModel, TreeNode } from 'angular-tree-component';
 import { NbDialogService, NbMenuItem, NbMenuService } from '@nebular/theme';
-import { ConfirmModalComponent } from '../confirm-modal/cofirm-modal.component';
+import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 
 @Component({
     selector: 'mdm-group-management-panel',

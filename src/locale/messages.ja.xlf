@@ -400,7 +400,7 @@
         <source>Zero Camera</source>
         <target>ゼロカメラ</target>
       </trans-unit>
-      
+
       <!-- End Event page -->
       <!--  Event data page -->
 
@@ -504,75 +504,85 @@
       </trans-unit>
 
 
-        <trans-unit id="search" datatype="html">
+      <trans-unit id="search" datatype="html">
         <source>search</source>
         <target>探す</target>
       </trans-unit>
 
 
-         <trans-unit id="refresh" datatype="html">
+      <trans-unit id="refresh" datatype="html">
         <source>refresh</source>
         <target>リフレッシュ</target>
       </trans-unit>
       <!-- End Data event page -->
 
 
-     <!-- Camera  page -->
+      <!-- Camera  page -->
 
-     <trans-unit id="no" datatype="html">
+      <trans-unit id="no" datatype="html">
         <source>No</source>
         <target>番号</target>
       </trans-unit>
 
-<trans-unit id="rotation" datatype="html">
+      <trans-unit id="rotation" datatype="html">
         <source>Rotation</source>
         <target>回転</target>
       </trans-unit>
 
-<trans-unit id="channel" datatype="html">
+      <trans-unit id="channel" datatype="html">
         <source>Channel</source>
         <target>チャネル</target>
       </trans-unit>
 
 
-       <trans-unit id="deviceCameras" datatype="html">
+      <trans-unit id="deviceCameras" datatype="html">
         <source>Device Cameras</source>
         <target>デバイスカメラ</target>
       </trans-unit>
 
-     <trans-unit id="save" datatype="html">
+      <trans-unit id="save" datatype="html">
         <source>Save</source>
         <target>保存する</target>
       </trans-unit>
 
-          <trans-unit id="cancel" datatype="html">
+      <trans-unit id="cancel" datatype="html">
         <source>Cancel</source>
         <target>キャンセル</target>
       </trans-unit>
 
 
-       <trans-unit id="addCamera" datatype="html">
+      <trans-unit id="addCamera" datatype="html">
         <source>Add Camera</source>
         <target>カメラを追加</target>
       </trans-unit>
 
-        <trans-unit id="editCamera" datatype="html">
+      <trans-unit id="editCamera" datatype="html">
         <source>Edit Camera</source>
         <target>カメラを編集</target>
       </trans-unit>
 
-         <trans-unit id="deleteCamera" datatype="html">
+      <trans-unit id="deleteCamera" datatype="html">
         <source>Delete Camera</source>
         <target>カメラを削除</target>
       </trans-unit>
 
-       <trans-unit id="confirmDelete" datatype="html">
+      <trans-unit id="confirmDelete" datatype="html">
         <source>Would you like to delete this camera</source>
         <target>このカメラを削除しますか</target>
       </trans-unit>
 
 
-     <!-- End Camera page -->
+      <trans-unit id="delete" datatype="html">
+        <source>Delete</source>
+        <target>削除する</target>
+      </trans-unit>
+
+       <trans-unit id="confirm" datatype="html">
+        <source>Confirm</source>
+        <target>確認する</target>
+      </trans-unit>
+
+      <!-- End Camera page -->
 
 
     </body>

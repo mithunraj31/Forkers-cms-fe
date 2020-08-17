@@ -4,7 +4,7 @@ import { VehicleService } from '../../../services';
 import { ActivatedRoute } from '@angular/router';
 import { NbToastrService, NbDialogService } from '@nebular/theme';
 import { AddCameraDialogComponent } from '../../dashboard/dialogs/add-camera-dialog/add-camera-dialog.component';
-import { ConfirmModalComponent } from '../../../@theme/components/confirm-modal/cofirm-modal.component';
+import { ConfirmModalComponent } from '../../../@theme/components/confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'frk-camera-details',
@@ -25,7 +25,7 @@ export class CameraDetailsComponent implements OnInit {
 
     //total cameras in the device
     // @type {number}
-    totalCamera:number;
+    totalCamera:number = 0;
 
     //loads spinner while connecting db
     // @type {boolean}
@@ -58,6 +58,7 @@ export class CameraDetailsComponent implements OnInit {
       this.totalCamera=this.listings.length;
     }, error => {
       const status = 'danger';
+      console.log(555)
       this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
     });
     

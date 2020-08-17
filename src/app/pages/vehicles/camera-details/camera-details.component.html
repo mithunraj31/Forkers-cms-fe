@@ -5,7 +5,7 @@
                 <div class="row ">
                     <div class="col-lg-8">
                         <span i18n="@@deviceCameras">Device Cameras</span>
-                       <div> <span i18n="@@noOfCamera">No of Camera</span> - {{ totalCamera }}</div>
+                        <div > <span i18n="@@noOfCamera">No of Camera</span> - {{ totalCamera }}</div>
                     </div>
                     <div class="col-lg-4  text-right">
                         <button nbButton status="primary" (click)="openDialog()" i18n="@@addCamera">Add Camera</button>
@@ -28,7 +28,8 @@
                         <div class="col-lg-3 text-center">{{camera.ch}}</div>
                         <div class="camera-id">{{camera.id}}</div>
                         <div class="col-lg-3 text-center">
-                            <nb-icon class="available" icon="edit" status="primary" pack="eva" (click)="editCamera(camera,i+1)">
+                            <nb-icon class="available" icon="edit" status="primary" pack="eva"
+                                (click)="editCamera(camera,i+1)">
                             </nb-icon>
                             <nb-icon class="available" icon="trash-2" status="primary" pack="eva"
                                 (click)="deleteCamera(camera,i+1)">
