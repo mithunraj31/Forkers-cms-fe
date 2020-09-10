@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginUser } from '../../../@core/entities/LoginUser';
 import { AuthService } from '../../../auth/Auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
+  return: string = '';
     // @variable form: Login from group
     // config form validataion for login email and password
     // initial in class constructor
@@ -38,7 +38,8 @@ export class LoginComponent {
 
     constructor(private authService: AuthService,
         private router: Router,
-        private userService: UserService) {
+        private userService: UserService,
+        private route: ActivatedRoute) {
         this.user = <LoginUser>{};
 
         // config form validataion
@@ -81,7 +82,7 @@ export class LoginComponent {
                  // drop loading spiner
                  this.isLoading = false;
                  // redirect to dashboard
-                 this.router.navigate(['/']);
+                 this.router.navigateByUrl(this.return);
 
             }, error => {
                 // over control error handler
@@ -94,7 +95,13 @@ export class LoginComponent {
                         $localize`:@@supportEmail:`
                     ];
                 }
-              
+
             });
+    }
+
+    ngOnInit() {
+      // Get the query params
+      this.route.queryParams
+        .subscribe(params => this.return = params['return'] || '/');
     }
 }
