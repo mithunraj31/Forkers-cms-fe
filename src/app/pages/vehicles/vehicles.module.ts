@@ -9,6 +9,11 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { VehiclesDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { VehiclesStatisticsViewComponent } from './vehicles-statistics-view/vehicles-statistics-view.component';
 import { CameraDetailsComponent } from './camera-details/camera-details.component';
+import { VehiclesGoogleMapViewComponent } from './vehicles-maps-view/vehicles-google-map-view/vehicles-google-map-view.component';
+import { VehiclesHereMapViewComponent } from './vehicles-maps-view/vehicles-here-map-view/vehicles-here-map-view.component';
+import { HereMapComponent } from './vehicles-maps-view/vehicles-here-map-view/here-map/here-map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
@@ -19,7 +24,11 @@ import { CameraDetailsComponent } from './camera-details/camera-details.componen
     LeafletModule,
     NbButtonModule,
     NbListModule,
-    NbIconModule
+    NbIconModule,
+    GoogleMapsModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    })
   ],
   declarations: [
     VehiclesComponent,
@@ -28,6 +37,9 @@ import { CameraDetailsComponent } from './camera-details/camera-details.componen
     VehiclesDetailsComponent,
     VehiclesStatisticsViewComponent,
     CameraDetailsComponent,
+    VehiclesGoogleMapViewComponent,
+    VehiclesHereMapViewComponent,
+    HereMapComponent,
   ],
 })
 export class VehiclesModule {

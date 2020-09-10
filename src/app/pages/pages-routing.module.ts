@@ -15,6 +15,8 @@ import { EventDetailsContainerComponent } from './devicedata/eventdata/eventdeta
 import { EventVideoComponent } from './devicedata/eventdata/eventdetails/eventvideo/event-video/event-video.component';
 import { EventMapComponent } from './devicedata/eventdata/eventdetails/eventmap/event-map/event-map.component';
 import { EventListComponent } from './devicedata/eventdata/eventdetails/eventlist/event-list/event-list.component';
+import { VehiclesGoogleMapViewComponent } from './vehicles/vehicles-maps-view/vehicles-google-map-view/vehicles-google-map-view.component';
+import { VehiclesHereMapViewComponent } from './vehicles/vehicles-maps-view/vehicles-here-map-view/vehicles-here-map-view.component';
 
 const routes: Routes = [{
   path: '',
@@ -57,6 +59,16 @@ const routes: Routes = [{
         {
           path: 'maps',
           component: VehiclesMapsViewComponent,
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'google/maps',
+          component: VehiclesGoogleMapViewComponent,
+          canActivate : [AuthGuard],
+        },
+        {
+          path: 'here/maps',
+          component: VehiclesHereMapViewComponent,
           canActivate : [AuthGuard],
         },
         {
@@ -110,7 +122,7 @@ const routes: Routes = [{
         }
       ]
     },
-   
+
   ],
 }];
 

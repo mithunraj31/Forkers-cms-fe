@@ -153,8 +153,16 @@
         <target>一覧</target>
       </trans-unit>
       <trans-unit id="mapsView" datatype="html">
-        <source>Maps view</source>
-        <target>地図</target>
+        <source>OpenStreetMap</source>
+        <target>オープンストリートマップ</target>
+      </trans-unit>
+       <trans-unit id="googleMapsView" datatype="html">
+        <source>GoogleMap</source>
+        <target>グーグルマップ</target>
+      </trans-unit>
+       <trans-unit id="hereMapsView" datatype="html">
+        <source>HereMap</source>
+        <target>ヒアマップ</target>
       </trans-unit>
       <trans-unit id="statisticsView" datatype="html">
         <source>Statistics view</source>
