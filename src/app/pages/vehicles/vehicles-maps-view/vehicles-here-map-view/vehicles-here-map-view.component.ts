@@ -13,6 +13,11 @@ export class VehiclesHereMapViewComponent implements OnInit {
 
   @ViewChild("map")
   public mapElement: ElementRef;
+  appId: any;
+  appCode: any;
+  search: any;
+  map: any;
+  ui: any;
 
   public constructor() {
       this.platform = new H.service.Platform({
@@ -21,18 +26,28 @@ export class VehiclesHereMapViewComponent implements OnInit {
       });
   }
 
-  public ngOnInit() { }
+  public ngOnInit() {
+    this.platform = new H.service.Platform({
+      "app_id": this.appId,
+      "app_code": this.appCode
+  });
+  this.search = new H.places.Search(this.platform.getPlacesService());
+   }
 
   public ngAfterViewInit() {
       let defaultLayers = this.platform.createDefaultLayers();
-      // let map = new H.Map(
-      //     this.mapElement.nativeElement,
-      //     defaultLayers.normal.map,
-      //     {
-      //         zoom: 10,
-      //         center: { lat: 37.7397, lng: -121.4252 }
-      //     }
-      // );
+      let map = new H.Map(
+          this.mapElement.nativeElement,
+          defaultLayers.normal.map,
+          {
+              zoom: 10,
+              center: { lat: 37.7397, lng: -121.4252 }
+          }
+      );
+      let behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(this.map));
+      this.ui = H.ui.UI.createDefault(this.map, defaultLayers);
   }
+
+
 
 }
