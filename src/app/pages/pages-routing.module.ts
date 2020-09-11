@@ -17,6 +17,7 @@ import { EventMapComponent } from './devicedata/eventdata/eventdetails/eventmap/
 import { EventListComponent } from './devicedata/eventdata/eventdetails/eventlist/event-list/event-list.component';
 import { VehiclesGoogleMapViewComponent } from './vehicles/vehicles-maps-view/vehicles-google-map-view/vehicles-google-map-view.component';
 import { VehiclesHereMapViewComponent } from './vehicles/vehicles-maps-view/vehicles-here-map-view/vehicles-here-map-view.component';
+import { HereMapComponent } from './vehicles/vehicles-maps-view/vehicles-here-map-view/here-map/here-map.component';
 
 const routes: Routes = [{
   path: '',
@@ -68,7 +69,7 @@ const routes: Routes = [{
         },
         {
           path: 'here/maps',
-          component: VehiclesHereMapViewComponent,
+          component: HereMapComponent,
           canActivate : [AuthGuard],
         },
         {

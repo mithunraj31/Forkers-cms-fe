@@ -7,8 +7,8 @@ import { GoogleMapsModule } from '@angular/google-maps'
   styleUrls: ['./vehicles-google-map-view.component.scss']
 })
 export class VehiclesGoogleMapViewComponent implements OnInit {
-  lat = 51.678418;
-  lng = 7.809007;
+  lat =35.6804;
+  lng =139.7690;
   constructor() { }
 
   ngOnInit(): void {
