@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  return: string = '';
+
     // @variable form: Login from group
     // config form validataion for login email and password
     // initial in class constructor
@@ -35,6 +35,11 @@ export class LoginComponent {
     // then display on top of login form
     // @type {string[]}
     errorMessages: string[] = [];
+
+    // @variable returnUrl: storing the original request
+    // that caused the redirect to the login page.
+    // @type {string}
+    returnUrl: string = '';
 
     constructor(private authService: AuthService,
         private router: Router,
@@ -81,8 +86,8 @@ export class LoginComponent {
             .subscribe(result => {
                  // drop loading spiner
                  this.isLoading = false;
-                 // redirect to dashboard
-                 this.router.navigateByUrl(this.return);
+                 // redirect to original URL
+                 this.router.navigateByUrl(this.returnUrl);
 
             }, error => {
                 // over control error handler
@@ -102,6 +107,6 @@ export class LoginComponent {
     ngOnInit() {
       // Get the query params
       this.route.queryParams
-        .subscribe(params => this.return = params['return'] || '/');
+        .subscribe(params => this.returnUrl = params['return'] || '/');
     }
 }
