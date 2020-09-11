@@ -23,6 +23,10 @@ export class HereMapComponent implements OnInit {
   private _appId: string = 'DO3oXPrCCJRIIteH9w6t';
   private _appCode: string = '-n1cT4W5MJEz3g6tBQqrw-nT02qQ7vOYl6SnI-86EVo';
 
+  public query: string;
+  private search: any;
+  private ui: any;
+
   public constructor() {
 
   }
@@ -52,6 +56,31 @@ export class HereMapComponent implements OnInit {
     this.map.setCenter({ lat: this.lat, lng: this.lng });
     this.map.setZoom(11);
   }
+  public places(query: string) {
+    this.map.removeObjects(this.map.getObjects());
+    this.search.request({ "q": query, "at": this.lat + "," + this.lng }, {}, data => {
+      for (let i = 0; i < data.results.items.length; i++) {
+        this.dropMarker({ "lat": data.results.items[i].position[0], "lng": data.results.items[i].position[1] }, data.results.items[i]);
+        if (i == 0)
+          this.map.setCenter({ lat: data.results.items[i].position[0], lng: data.results.items[i].position[1] })
+      }
+    }, error => {
+      console.error(error);
+    });
+  }
+
+  private dropMarker(coordinates: any, data: any) {
+    let marker = new H.map.Marker(coordinates);
+    marker.setData("<p>" + data.title + "<br>" + data.vicinity + "</p>");
+    marker.addEventListener('tap', event => {
+      let bubble = new H.ui.InfoBubble(event.target.getPosition(), {
+        content: event.target.getData()
+      });
+      this.ui.addBubble(bubble);
+    }, false);
+    this.map.addObject(marker);
+  }
+
 
   // @ViewChild("map")
   // public mapElement: ElementRef;
