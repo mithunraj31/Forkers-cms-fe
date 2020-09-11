@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { VehicleService } from '../../../../../services';
+import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
+import { marker, icon } from 'leaflet';
 
 declare var H: any;
 @Component({
@@ -7,120 +11,79 @@ declare var H: any;
   styleUrls: ['./here-map.component.scss']
 })
 export class HereMapComponent implements OnInit {
-  title = 'HereMapDemo';
-
-  @ViewChild("map", { static: true }) public mapElement: ElementRef;
-
-  public lat: any = '35.6804';
-  public lng: any = '139.7690';
-
+  public lat: any = '35.7251283';
+  public lng: any = '139.8591726';
   public width: any = '1000px';
   public height: any = '600px';
 
   private platform: any;
   private map: any;
 
-  private _appId: string = 'DO3oXPrCCJRIIteH9w6t';
-  private _appCode: string = '-n1cT4W5MJEz3g6tBQqrw-nT02qQ7vOYl6SnI-86EVo';
+ // private _appId: string = 'DO3oXPrCCJRIIteH9w6t';
+  private _appCode: string = '-NQ4_jgQ99mXizpgKOnCF8iFa276tMHA4uWePlkT9-M';
 
-  public query: string;
-  private search: any;
   private ui: any;
+  layers = [];
 
-  public constructor() {
+  public constructor(private vehicleService: VehicleService,
+    private router: Router,
+    private toastrService: NbToastrService) {
 
   }
 
   public ngOnInit() {
     this.platform = new H.service.Platform({
-      "app_id": this._appId,
-      "app_code": this._appCode,
-      useHTTPS: true
+      "apikey": this._appCode,
     });
+
+
 
   }
 
   public ngAfterViewInit() {
-    let pixelRatio = window.devicePixelRatio || 1;
-    let defaultLayers = this.platform.createDefaultLayers({
-      tileSize: pixelRatio === 1 ? 256 : 512,
-      ppi: pixelRatio === 1 ? undefined : 320
+    var maptypes = this.platform.createDefaultLayers();
+    this.map = new H.Map(document.getElementById('mapContainer'),
+    maptypes.vector.normal.map, {
+      center: {lat: this.lat, lng: this.lng},
+      zoom: 5,
     });
+    // Enable the event system on the map instance:
+    var mapEvents = new H.mapevents.MapEvents(this.map);
+    var behavior = new H.mapevents.Behavior(mapEvents);
 
-    this.map = new H.Map(this.mapElement.nativeElement,
-      defaultLayers.normal.map, { pixelRatio: pixelRatio });
 
-    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(this.map));
-    var ui = H.ui.UI.createDefault(this.map, defaultLayers);
+    this.initialMaps()
 
-    this.map.setCenter({ lat: this.lat, lng: this.lng });
-    this.map.setZoom(11);
-  }
-  public places(query: string) {
-    this.map.removeObjects(this.map.getObjects());
-    this.search.request({ "q": query, "at": this.lat + "," + this.lng }, {}, data => {
-      for (let i = 0; i < data.results.items.length; i++) {
-        this.dropMarker({ "lat": data.results.items[i].position[0], "lng": data.results.items[i].position[1] }, data.results.items[i]);
-        if (i == 0)
-          this.map.setCenter({ lat: data.results.items[i].position[0], lng: data.results.items[i].position[1] })
-      }
-    }, error => {
-      console.error(error);
-    });
+
   }
 
-  private dropMarker(coordinates: any, data: any) {
-    let marker = new H.map.Marker(coordinates);
-    marker.setData("<p>" + data.title + "<br>" + data.vicinity + "</p>");
-    marker.addEventListener('tap', event => {
-      let bubble = new H.ui.InfoBubble(event.target.getPosition(), {
-        content: event.target.getData()
+
+  initialMaps() {
+    this.vehicleService.getVehicles().subscribe(vehicles => {
+      this.layers = [];
+      vehicles.forEach(v => {
+        console.log(vehicles);
+        if (!v.location.lat
+          || !v.location.lng
+          || v.location.lat == "0.000000"
+          || v.location.lng == "0.000000") {
+            return;
+        }
+          var vehicleIcon=`./assets/icon/forklift-${v.online ? 'online' : 'offline'}.png`
+          console.log(vehicleIcon);
+        var icon = new H.map.Icon(vehicleIcon, { size: {w: 34, h: 34}}),
+        coords = {lat:  parseFloat(v.location.lat), lng:  parseFloat(v.location.lng)},
+        marker = new H.map.Marker(coords, {icon: icon});
+        this.map.addObject(marker);
+          marker.addEventListener('tap', event => {
+            this.router.navigate([`pages/vehicles/${v.id}`]);
+          });
+
       });
-      this.ui.addBubble(bubble);
-    }, false);
-    this.map.addObject(marker);
+    }, error => {
+      const status = 'danger';
+      this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:` , { status });
+    });
   }
-
-
-  // @ViewChild("map")
-  // public mapElement: ElementRef;
-
-  // @Input()
-  // public appId: any;
-
-  // @Input()
-  // public appCode: any;
-
-  // @Input()
-  // public lat: any;
-
-  // @Input()
-  // public lng: any;
-
-  // @Input()
-  // public width: any;
-
-  // @Input()
-  // public height: any;
-
-  // public constructor() { }
-
-  // public ngOnInit() { }
-
-  // public ngAfterViewInit() {
-  //     let platform = new H.service.Platform({
-  //         "app_id": this.appId,
-  //         "app_code": this.appCode
-  //     });
-  //     let defaultLayers = platform.createDefaultLayers();
-  //     let map = new H.Map(
-  //         this.mapElement.nativeElement,
-  //         defaultLayers.normal.map,
-  //         {
-  //             zoom: 10,
-  //             center: { lat: this.lat, lng: this.lng }
-  //         }
-  //     );
-  // }
 
 }
