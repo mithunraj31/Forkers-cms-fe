@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginUser } from '../../../@core/entities/LoginUser';
 import { AuthService } from '../../../auth/Auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -36,9 +36,15 @@ export class LoginComponent {
     // @type {string[]}
     errorMessages: string[] = [];
 
+    // @variable returnUrl: storing the original request
+    // that caused the redirect to the login page.
+    // @type {string}
+    returnUrl: string = '';
+
     constructor(private authService: AuthService,
         private router: Router,
-        private userService: UserService) {
+        private userService: UserService,
+        private route: ActivatedRoute) {
         this.user = <LoginUser>{};
 
         // config form validataion
@@ -80,8 +86,8 @@ export class LoginComponent {
             .subscribe(result => {
                  // drop loading spiner
                  this.isLoading = false;
-                 // redirect to dashboard
-                 this.router.navigate(['/']);
+                 // redirect to original URL
+                 this.router.navigateByUrl(this.returnUrl);
 
             }, error => {
                 // over control error handler
@@ -94,7 +100,13 @@ export class LoginComponent {
                         $localize`:@@supportEmail:`
                     ];
                 }
-              
+
             });
+    }
+
+    ngOnInit() {
+      // Get the query params
+      this.route.queryParams
+        .subscribe(params => this.returnUrl = params['return'] || '/');
     }
 }
