@@ -58,7 +58,6 @@ export class CameraDetailsComponent implements OnInit {
       this.totalCamera=this.listings.length;
     }, error => {
       const status = 'danger';
-      console.log(555)
       this.toastrService.show($localize`:@@tryRefreshPage:`, $localize`:@@somethingWrongToaster:`, { status });
     });
     

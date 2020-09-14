@@ -53,7 +53,6 @@ export class VehiclesGoogleMapViewComponent implements OnInit {
   }
 
   clickedMarker( id: number) {
-    console.log(`clicked the marker: ${id}`)
     this.router.navigate([`pages/vehicles/${id}`]);
   }
 

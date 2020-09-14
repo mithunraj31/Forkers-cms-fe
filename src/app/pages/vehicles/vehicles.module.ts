@@ -10,7 +10,6 @@ import { VehiclesDetailsComponent } from './vehicle-details/vehicle-details.comp
 import { VehiclesStatisticsViewComponent } from './vehicles-statistics-view/vehicles-statistics-view.component';
 import { CameraDetailsComponent } from './camera-details/camera-details.component';
 import { VehiclesGoogleMapViewComponent } from './vehicles-maps-view/vehicles-google-map-view/vehicles-google-map-view.component';
-import { VehiclesHereMapViewComponent } from './vehicles-maps-view/vehicles-here-map-view/vehicles-here-map-view.component';
 import { HereMapComponent } from './vehicles-maps-view/vehicles-here-map-view/here-map/here-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AgmCoreModule } from '@agm/core';
@@ -38,7 +37,6 @@ import { AgmCoreModule } from '@agm/core';
     VehiclesStatisticsViewComponent,
     CameraDetailsComponent,
     VehiclesGoogleMapViewComponent,
-    VehiclesHereMapViewComponent,
     HereMapComponent,
   ],
 })
