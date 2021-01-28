@@ -13,7 +13,7 @@ import * as moment from 'moment';
   providedIn: 'root'
 })
 export class AuthService {
-
+  return: string = '';
   host = environment.host;
   private loggedIn = new BehaviorSubject<boolean>(false);
   private jwtHelper: JwtHelperService;
@@ -25,7 +25,7 @@ export class AuthService {
   // the method request permission to access the application
   // form backend API, the request attach email, password and signin fact
   // after obtain response, save token and user infomation to local storange
-  // if request rejected will throw exception to observable object (subscriber) 
+  // if request rejected will throw exception to observable object (subscriber)
   // @return {Observable<any>}
   public login(user: LoginUser) {
     return this.http.post<any>(this.host + "/login", user)
@@ -44,7 +44,7 @@ export class AuthService {
             roles: [payload.scopes],
             stk_user: payload.stk_user
           };
-          //  save user data to local storage 
+          //  save user data to local storage
           localStorage.setItem('user', JSON.stringify(user));
           localStorage.setItem("expires_at", expiresAt);
         } else {
@@ -86,4 +86,5 @@ export class AuthService {
 
     return this.loggedIn.asObservable();
   }
+
 }
