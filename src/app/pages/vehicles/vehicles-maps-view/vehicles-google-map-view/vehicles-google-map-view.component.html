@@ -1,0 +1,16 @@
+<!-- <google-map></google-map> -->
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-marker
+  *ngFor="let m of markers; let i = index"
+  (markerClick)="clickedMarker(m.id)"
+  [latitude]="m.lat"
+  [longitude]="m.lng"
+  [iconUrl]="m.icon">
+
+<agm-info-window>
+  <strong>InfoWindow content</strong>
+</agm-info-window>
+
+</agm-marker>
+
+</agm-map>

@@ -11,7 +11,7 @@ export class VehiclesComponent implements OnInit {
   // each tabs contin tile and display component route
   // @type {any[]}
   // reference: https://akveo.github.io/nebular/docs/components/tabs/overview#nbtabsetcomponent
-  tabs: any[] = [];  
+  tabs: any[] = [];
 
   constructor() {
 
@@ -25,12 +25,20 @@ export class VehiclesComponent implements OnInit {
         route: ['./table'],
       },
       {
+        title: $localize`:@@statisticsView:`,
+        route: ['./statistics'],
+      },
+      {
         title: $localize`:@@mapsView:`,
         route: ['./maps'],
       },
       {
-        title: $localize`:@@statisticsView:`,
-        route: ['./statistics'],
+        title: $localize`:@@googleMapsView:`,
+        route: ['./google/maps'],
+      },
+      {
+        title: $localize`:@@hereMapsView:`,
+        route: ['./here/maps'],
       }
     ];
   }

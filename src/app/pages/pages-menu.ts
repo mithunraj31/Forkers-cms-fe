@@ -28,15 +28,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/vehicles/table',
       },
       {
+        title: $localize`:@@statisticsView:`,
+        icon: 'activity-outline',
+        link: '/pages/vehicles/statistics',
+      },
+      {
         title: $localize`:@@mapsView:`,
         icon: 'map-outline',
         link: '/pages/vehicles/maps',
       },
       {
-        title: $localize`:@@statisticsView:`,
-        icon: 'activity-outline',
-        link: '/pages/vehicles/statistics',
-      }
+        title: $localize`:@@googleMapsView:`,
+        icon: 'map-outline',
+        link: '/pages/vehicles/google/maps',
+      },
+      {
+        title: $localize`:@@hereMapsView:`,
+        icon: 'map-outline',
+        link: '/pages/vehicles/here/maps',
+      },
     ]
   },
   {
@@ -51,8 +61,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'video-outline',
         pathMatch: 'prefix',
         link: '/pages/devices/events',
-      }      
-     
+      }
+
     ]
   }
 ];
